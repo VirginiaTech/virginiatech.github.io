@@ -38,3 +38,7 @@ regenerate: true
 #resulting in significant performance improvements for large sites, 
 #but may also break site generation in certain cases.
 imcremental: true
+
+repository: "VirginiaTech/virginiatech.github.io"
+
+github: [metadata]
