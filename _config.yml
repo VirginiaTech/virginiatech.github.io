@@ -37,4 +37,8 @@ regenerate: true
 #Incremental build only re-builds posts and pages that have changed, 
 #resulting in significant performance improvements for large sites, 
 #but may also break site generation in certain cases.
-imcremental: true
+incremental: true
+
+repository: "VirginiaTech/virginiatech.github.io"
+
+github: [metadata]
