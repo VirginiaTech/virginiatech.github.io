@@ -3,6 +3,7 @@ layout: content
 permalink: /faq
 ---
 
+
 [//]: # (Look into putting each About ... into a drop-down menu. Such that when About... text is pressed, the Q&A are displayed)
 
 # **Frequently Asked Questions**
@@ -10,9 +11,17 @@ permalink: /faq
 ---
 
 Add some general text about what this FAQ contains, etc, etc.
-Also, this lengthy text is in part to test how a centered 
+Also, this lengthy text is in part to test how a centered field looks... it looks nice :D.
+{: style="text-align: center;"}   
+<span style= "color:#159957">About VT Organization Membership</span>  
+<span style= "color:#159957">About Repositories</span>  
+<span style= "color:#159957">About Teams</span>  
+<span style= "color:#159957">About Permission Levels</span>  
+<span style= "color:#159957">About Projects</span>  
 {: style="text-align: center;"} 
-
+Have a question that isn’t answered here? Contact us, at <github-g@vt.edu>. 
+{: style="text-align: center;"} 
+---
 
 ## **About VT Organization Membership**
 ---
