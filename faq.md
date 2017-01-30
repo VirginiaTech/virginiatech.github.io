@@ -13,21 +13,21 @@ permalink: /faq
 Add some general text about what this FAQ contains, etc, etc.
 Also, this lengthy text is in part to test how a centered field looks... it looks nice :D.
 {: style="text-align: center;"}   
-<a href="#VTOrganizationMembership">
-	<span style= "color:#159957">About VT Organization Membership</span>
-</a>  
-<a href="#Repositories">
-	<span style= "color:#159957">About Repositories</span>
-</a>  
-<a href="#Teams">
-	<span style= "color:#159957">About Teams</span>
-</a>  
-<a href="#PermissionLevels">
-<span style= "color:#159957">About Permission Levels</span>
-</a>  
-<a href="#Projects">
-	<span style= "color:#159957">About Projects</span>
-</a>
+<!--<a href="#VTOrganizationMembership"> -->
+<span style= "color:#159957">About VT Organization Membership</span>  
+<!--</a> --> 
+<!--<a href="#Repositories">-->
+<span style= "color:#159957">About Repositories</span>  
+<!--</a>  -->
+<!--<a href="#Teams">-->
+<span style= "color:#159957">About Teams</span>  
+<!--</a>  -->
+<!--<a href="#PermissionLevels">-->
+<span style= "color:#159957">About Permission Levels</span>  
+<!--</a>  -->
+<!--<a href="#Projects">-->
+<span style= "color:#159957">About Projects</span>  
+<!--</a>-->
 {: style="text-align: center;"} 
 Have a question that isn’t answered here? Contact us, at <github-g@vt.edu>. 
 {: style="text-align: center;"} 
