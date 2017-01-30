@@ -13,15 +13,19 @@ permalink: /licensing
 Add some general text about what this Licensing contains, etc, etc.
 Also, this lengthy text is in part to test how a centered field looks... it looks nice :D.
 {: style="text-align: center;"}   
-<span style= "color:#159957">Licenses</span>  
-<span style= "color:#159957">Licensing FAQ</span>  
+<a href= "#Licenses">
+	<span style= "color:#159957">Licenses</span>
+</a>  
+<a href="#LicensingFAQ">
+	<span style= "color:#159957">Licensing FAQ</span>
+</a>  
 {: style="text-align: center;"} 
 Have a licensing question that isn’t answered here? Contact us, at <github-g@vt.edu>. 
 {: style="text-align: center;"} 
 ---
 
 
-## **Licenses**
+## **<a name = "Licenses" class="inactiveLink">Licenses</a>**
 
 This is only a short list of the many open-source license that can be used. More in-depth Information on both licenses covered and not covered here can be found at <https://opensource.org/licenses>{:target="_blank"}.  
 
@@ -56,7 +60,7 @@ The Apache License 2.0 is a permissive license. The includes the ability to use 
 The BSD License 2.0 allows almost unlimited freedom with the software, so long as the BSD copyright and license notice are included. In addition to not holding the owner of the software liable for damages, it also states that the names of the owners of the original software or its members cannot be used to endorsed derived products.
 
 
-## **Licensing - FAQ**
+## **<a name="LicensingFAQ" class="inactiveLink">Licensing - FAQ</a>**
 ---
 
 #### **Q**: What are open-source licenses for?  

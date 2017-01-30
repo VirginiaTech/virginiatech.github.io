@@ -13,8 +13,14 @@
 	top:0;
   	background-image: linear-gradient(-45deg, #510000, #ff6600); }
 
-.main-content{ 
+.main-content { 
 	padding-top: 6rem;	
+}
+
+.inactiveLink {
+   pointer-events: none;
+   cursor: default;
+   color:#159957;
 }
 
 @media screen and (min-width: 64em) {
