@@ -4,7 +4,7 @@ permalink: /faq
 ---
 
 
-[//]: # (Look into putting each About ... into a drop-down menu. Such that when About... text is pressed, the Q&A are displayed)
+[//]: # (Look into putting each About ... into a drop-down menu. Such that when About... text is pressed, the Q&As for that About... section are displayed. Or have anchors to each one, which can be navigated from the green About... text)
 
 # **Frequently Asked Questions**
 {: style="text-align: center;"}
