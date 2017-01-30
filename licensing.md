@@ -13,12 +13,12 @@ permalink: /licensing
 Add some general text about what this Licensing contains, etc, etc.
 Also, this lengthy text is in part to test how a centered field looks... it looks nice :D.
 {: style="text-align: center;"}   
-<a href= "#Licenses">
-	<span style= "color:#159957">Licenses</span>
-</a>  
-<a href="#LicensingFAQ">
-	<span style= "color:#159957">Licensing FAQ</span>
-</a>  
+<!--<a href= "#Licenses"> -->
+<span style= "color:#159957">Licenses</span>  
+<!--</a>  -->
+<!--<a href="#LicensingFAQ"> -->
+<span style= "color:#159957">Licensing FAQ</span>
+<!--</a>-->  
 {: style="text-align: center;"} 
 Have a licensing question that isn’t answered here? Contact us, at <github-g@vt.edu>. 
 {: style="text-align: center;"} 
