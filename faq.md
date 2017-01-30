@@ -13,17 +13,27 @@ permalink: /faq
 Add some general text about what this FAQ contains, etc, etc.
 Also, this lengthy text is in part to test how a centered field looks... it looks nice :D.
 {: style="text-align: center;"}   
-<span style= "color:#159957">About VT Organization Membership</span>  
-<span style= "color:#159957">About Repositories</span>  
-<span style= "color:#159957">About Teams</span>  
-<span style= "color:#159957">About Permission Levels</span>  
-<span style= "color:#159957">About Projects</span>  
+<a href="#VTOrganizationMembership">
+	<span style= "color:#159957">About VT Organization Membership</span>
+</a>  
+<a href="#Repositories">
+	<span style= "color:#159957">About Repositories</span>
+</a>  
+<a href="#Teams">
+	<span style= "color:#159957">About Teams</span>
+</a>  
+<a href="#PermissionLevels">
+<span style= "color:#159957">About Permission Levels</span>
+</a>  
+<a href="#Projects">
+	<span style= "color:#159957">About Projects</span>
+</a>
 {: style="text-align: center;"} 
 Have a question that isn’t answered here? Contact us, at <github-g@vt.edu>. 
 {: style="text-align: center;"} 
 ---
 
-## **About VT Organization Membership**
+## **<a name = "VTOrganizationMembership">About VT Organization Membership</a>**
 ---
 
 #### **Q**: How do I become a member of the VT GitHub Organization?
@@ -35,7 +45,7 @@ _Note: Verification emails will only be sent to @vt.edu email addresses._
 **A**: You **can** view the profiles and public teams of other members. You **can** apply for your repository to be added to the Organization; refer to _“About Repositories”_. You **can** create Teams; refer to _“About Teams”_. You **can** create Organization Projects; refer to _“About Projects”_. You **cannot** create/transfer repositories from your account directly to the Organization. You **cannot** invite other users to the Organization. You **cannot** push to repositories that you do not have write access to.
 
 
-## **About Repositories**
+## **<a name = "Repositories">About Repositories</a>**
 ---
 
 #### **Q**: How do I add my repository into the VT GitHub Organization?
@@ -66,7 +76,7 @@ _Note:  Before submitting an application, members should verify that their prosp
 
 
 
-## **About Teams**
+## **<a name = "Teams">About Teams</a>**
 ---
 
 #### **Q**: What is a GitHub team?
@@ -107,7 +117,7 @@ _Ex.  Matt, Teddy, and Bob are members of Team A.  As members of Team A, Matt, T
 **A**: Yes, you can.
 
 
-# **About Permission Levels**
+# **<a name = "PermissionLevels">About Permission Levels</a>**
 ---
 
 #### **Q**: What does the _admin_ permission entail?
@@ -120,7 +130,7 @@ _Ex.  Matt, Teddy, and Bob are members of Team A.  As members of Team A, Matt, T
 **A**: Read permission gives the team/collaborator the ability to read and clone the repository. 
 
 
-# **About Projects**
+# **<a name = "Projects">About Projects</a>**
 ---
 
 #### **Q**: What are projects?
