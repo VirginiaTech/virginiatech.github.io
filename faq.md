@@ -33,7 +33,7 @@ Have a question that isn’t answered here? Contact us, at <github-g@vt.edu>.
 {: style="text-align: center;"} 
 ---
 
-## **<a name = "VTOrganizationMembership">About VT Organization Membership</a>**
+## **<a name = "VTOrganizationMembership" class= "inactiveLink">About VT Organization Membership</a>**
 ---
 
 #### **Q**: How do I become a member of the VT GitHub Organization?
@@ -45,7 +45,7 @@ _Note: Verification emails will only be sent to @vt.edu email addresses._
 **A**: You **can** view the profiles and public teams of other members. You **can** apply for your repository to be added to the Organization; refer to _“About Repositories”_. You **can** create Teams; refer to _“About Teams”_. You **can** create Organization Projects; refer to _“About Projects”_. You **cannot** create/transfer repositories from your account directly to the Organization. You **cannot** invite other users to the Organization. You **cannot** push to repositories that you do not have write access to.
 
 
-## **<a name = "Repositories">About Repositories</a>**
+## **<a name = "Repositories" class= "inactiveLink">About Repositories</a>**
 ---
 
 #### **Q**: How do I add my repository into the VT GitHub Organization?
@@ -76,7 +76,7 @@ _Note:  Before submitting an application, members should verify that their prosp
 
 
 
-## **<a name = "Teams">About Teams</a>**
+## **<a name = "Teams" class= "inactiveLink">About Teams</a>**
 ---
 
 #### **Q**: What is a GitHub team?
@@ -117,7 +117,7 @@ _Ex.  Matt, Teddy, and Bob are members of Team A.  As members of Team A, Matt, T
 **A**: Yes, you can.
 
 
-# **<a name = "PermissionLevels">About Permission Levels</a>**
+# **<a name = "PermissionLevels" class= "inactiveLink">About Permission Levels</a>**
 ---
 
 #### **Q**: What does the _admin_ permission entail?
@@ -130,7 +130,7 @@ _Ex.  Matt, Teddy, and Bob are members of Team A.  As members of Team A, Matt, T
 **A**: Read permission gives the team/collaborator the ability to read and clone the repository. 
 
 
-# **<a name = "Projects">About Projects</a>**
+# **<a name = "Projects" class= "inactiveLink">About Projects</a>**
 ---
 
 #### **Q**: What are projects?

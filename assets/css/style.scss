@@ -13,7 +13,15 @@
 	top:0;
   	background-image: linear-gradient(-45deg, #510000, #ff6600); }
 
-.main-content :first-child { margin-top: 6rem; }
+.main-content :first-child { 
+	padding-top: 6rem;	
+}
+
+.inactiveLink {
+   pointer-events: none;
+   cursor: default;
+   color:#159957;
+}
 
 @media screen and (min-width: 64em) {
     .page-header {
