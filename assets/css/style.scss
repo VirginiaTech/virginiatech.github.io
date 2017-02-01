@@ -23,6 +23,36 @@
    color:#159957;
 }
 
+input.rounded {
+	border: .1175rem solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+
+input.rounded:focus {
+	border-color: #159957;
+}
+
+textarea.rounded {
+	border: .1175rem solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+
+textarea.rounded:focus {
+	border-color: #159957;
+}
+
 @media screen and (min-width: 64em) {
     .page-header {
       padding: .5rem .6rem; } }
