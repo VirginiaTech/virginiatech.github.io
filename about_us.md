@@ -1,6 +1,6 @@
 ---
 layout: content
-permalink: /aboutus
+permalink: /about_us
 ---
 
 # Who are we?
@@ -30,4 +30,5 @@ Some general text, for reference.
     <textarea class="rounded" rows="4" cols="40" name="message" placeholder=""></textarea><br>
     <input type="submit" value="Send">
     <input type="hidden" name="_next" value="{{ site.baseurl }}{% link index.md %}" />
+    <input type="hidden" name="_next" value="{{ site.baseurl }}{% link submit_success.md %}" />
 </form>
