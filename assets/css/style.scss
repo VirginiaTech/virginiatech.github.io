@@ -11,7 +11,9 @@
 	position:fixed;
 	width:100%;
 	top:0;
-  	background-image: linear-gradient(-45deg, #510000, #ff6600); }
+	background-color: #510000;
+  	background-image: linear-gradient(-45deg, #510000, #ff6600);
+  }
 
 .main-content { 
 	padding-top: 6rem;	
@@ -56,9 +58,15 @@ textarea.rounded:focus {
 @media screen and (min-width: 64em) {
     .page-header {
       padding: .5rem .6rem; } }
-  @media screen and (min-width: 42em) and (max-width: 64em) {
+@media screen and (min-width: 42em) and (max-width: 64em) {
     .page-header {
       padding: .3rem .4rem; } }
-  @media screen and (max-width: 42em) {
+@media screen and (max-width: 42em) {
     .page-header {
       padding: .2rem .1rem; } }
+
+.header_img {
+    position: absolute;
+    top: 1.1rem;
+    left: 2.2rem;
+}
