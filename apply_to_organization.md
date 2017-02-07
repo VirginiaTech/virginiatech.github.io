@@ -3,7 +3,7 @@ layout: content
 permalink: /apply_to_organization
 ---
 
-<script type="text/javascript" src="scripts/temp.js"></script>
+<script type="text/javascript" src="assets/javascript/temp.js"></script>
 
 <b>Email</b> <font size="2.5rem"> (required) </font><br>
 <input class="rounded" type="email" name="_replyto" placeholder="" id="email_field" required>@vt.edu<br><br>
