@@ -16,8 +16,8 @@ permalink: /apply_to_organization
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/javascript/temp.js"></script>
-<script type="text/javascript" src="assets/javascript/verifyUsername.js"></script>
+<script type="text/javascript" src="assets/javascript/applyFunction.js"></script>
+<script type="text/javascript" src="assets/javascript/verifyApplyFields.js"></script>
 <script type="text/javascript">
        getUserVal();
 </script>

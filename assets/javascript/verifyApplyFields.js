@@ -27,14 +27,21 @@ document.getElementById("username_field").onkeydown = function() {
     if (searchTimeout != undefined) {
         clearTimeout(searchTimeout);
     }
-    searchTimeout = setTimeout(callServerScript, 350);
+    searchTimeout = setTimeout(verifyUsername, 350);
+};
+
+document.getElementById("email_field").onkeydown = function() {
+    if (searchTimeout != undefined) {
+        clearTimeout(searchTimeout);
+    }
+    searchTimeout = setTimeout(verifyEmail, 350);
 };
 
 function getUserVal(){
     return userVal;
 }
 
-function callServerScript() {
+function verifyUsername() {
     if (lastLength == formUsername.value.length || formUsername.value.length <= 0) {
         if(formUsername.value.length <= 0){
             userVal = 0;
@@ -79,5 +86,9 @@ function callServerScript() {
 
     pageReq.open("GET", url, true);
     pageReq.send();
+}
+
+function verifyEmail(){
+    console.log("Something!");
 }
 
