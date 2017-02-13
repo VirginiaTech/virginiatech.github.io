@@ -1,38 +1,70 @@
+/* ---For development purposes only--- */
+var queryString = "";
+var token = "";
+
+function getToken(){
+    return $.getJSON("data/OAuthTokens.json", function(data){
+        token = data.Organization_Read_Access;
+    })
+}
+
+function setQueryString(){
+    if(token != ""){
+        queryString = "?access_token=" + token;
+    }
+}
+
+$.when(getToken()).then(setQueryString);
+/* ----------------------------------- */
+
 function tempFunc() {
+    var apply_message = document.getElementById("apply_message");
 
     var formData = {};
-
     var formEmail = document.querySelector("#email_field");
     var formUsername = document.querySelector("#username_field");
 
     formData["email_field"] = formEmail.value;
     formData["username_field"] = formUsername.value;
 
-    for (var key in formData) {
-        if (formData.hasOwnProperty(key)) {
-            console.log(key + " -> " + formData[key]);
-        }
-    }
-
     var jsonObj = JSON.stringify(formData);
 
-    //https://api.github.com/orgs/VirginiaTech/members/
-
-    var oReq = new XMLHttpRequest();
-    oReq.open("GET", "https://api.github.com/users/" + formUsername.value, true);
-    oReq.onload = function(oEvent) {
-        if (oReq.status == 200) {
+    if(formEmail.value.length <= 0 && getUserVal() <= 0){
+        apply_message.text = "Required credentials are missing";
+        apply_message.style.color = "red";
+        apply_message.style.fontWeight = "900";
+        return;
+    } else if(formEmail.value.length <= 0){
+        apply_message.text = "Invalid @vt.edu email address";
+        apply_message.style.color = "red";
+        apply_message.style.fontWeight = "900";
+        return;
+    } else if(getUserVal() <= 0){
+        apply_message.text = "Invalid GitHub Username";
+        apply_message.style.color = "red";
+        apply_message.style.fontWeight = "900";
+        return;
+    }
+    var pageReq = new XMLHttpRequest();
+    pageReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + formUsername.value + queryString, true);
+    pageReq.setRequestHeader("Accept", "1");
+    pageReq.onload = function(oEvent) {
+        if (pageReq.status == 200) {
             console.log("success");
-        } else if (oReq.status == 204) {
-            console.log("Given user: " + formUsername.value + " is a member!");
-        } else if (oReq.status == 404) {
+        } else if (pageReq.status == 204) {
+            apply_message.text = "User \"" + formUsername.value + "\" is already a member.";
+            apply_message.style.color = "";
+            apply_message.style.fontWeight = "900";
+        } else if (pageReq.status == 404 || pageReq.status == 302) {
+            // Start email varification process here...
+            apply_message.text = "";
             console.log("Given user: " + formUsername.value + " is not a member.");
-        } else if (oReq.status == 302) {
-            console.log("You're not even a member...");
         } else {
-            console.log("failure");
+            apply_message.text = "Hmm... That shouldn't have happened... Consider contacting us, status: " + pageReq.status;
+            apply_message.style.color = "orange";
+            apply_message.style.fontWeight = "900";
         }
     };
 
-    oReq.send(jsonObj);
+    pageReq.send(jsonObj);
 }

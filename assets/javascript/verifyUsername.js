@@ -14,7 +14,9 @@ function getToken(){
 }
 
 function setQueryString(){
-    queryString = "?access_token=" + token;
+    if(token != ""){
+        queryString = "?access_token=" + token;
+    }
 }
 
 $.when(getToken()).then(setQueryString);
@@ -27,6 +29,10 @@ document.getElementById("username_field").onkeydown = function() {
     }
     searchTimeout = setTimeout(callServerScript, 350);
 };
+
+function getUserVal(){
+    return userVal;
+}
 
 function callServerScript() {
     if (lastLength == formUsername.value.length || formUsername.value.length <= 0) {
