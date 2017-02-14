@@ -17,9 +17,9 @@ Some general text, for reference.
 {:style="text-align: center;"}
 ---
 
-<form action="https://formspree.io/ttodorov@vt.edu"
+<form action="https://formspree.io/matt-teddy-test-group@googlegroups.com"
     method="POST">
-    <input type="hidden" name="_cc" value="mrp26@vt.edu" />
+    <input type="hidden" name="_cc" value="" />
     <b>Name</b> <font size="2.5rem"> (required) </font><br>
     <input class="rounded" type="text" name="name" placeholder="" required><br><br>
     <b>Email</b> <font size="2.5rem"> (required) </font><br>
