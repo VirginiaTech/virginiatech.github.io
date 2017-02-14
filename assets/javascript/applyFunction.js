@@ -29,12 +29,12 @@ function tempFunc() {
 
     var jsonObj = JSON.stringify(formData);
 
-    if(formEmail.value.length <= 0 && getUserVal() <= 0){
-        apply_message.text = "Required credentials are missing";
+    if(!isValidEmail() && getUserVal() <= 0){
+        apply_message.text = "Required credentials are invalid";
         apply_message.style.color = "red";
         apply_message.style.fontWeight = "900";
         return;
-    } else if(formEmail.value.length <= 0){
+    } else if(!isValidEmail()){
         apply_message.text = "Invalid @vt.edu email address";
         apply_message.style.color = "red";
         apply_message.style.fontWeight = "900";

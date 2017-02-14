@@ -1,7 +1,6 @@
-var searchTimeout;
-var lastLength;
 var formUsername = document.querySelector("#username_field");
-var bgColor = document.getElementById("username_field").style.backgroundColor;
+var formEmail = document.querySelector("#email_field");
+var checkDelay = 300;
 
 /* ---For development purposes only--- */
 var queryString = "";
@@ -23,26 +22,22 @@ $.when(getToken()).then(setQueryString);
 /* ----------------------------------- */
 
 var userVal = 0;
+var searchUsernameTimeout;
+var lastUsernameLength;
 document.getElementById("username_field").onkeydown = function() {
-    if (searchTimeout != undefined) {
-        clearTimeout(searchTimeout);
+    if (searchUsernameTimeout != undefined) {
+        clearTimeout(searchUsernameTimeout);
     }
-    searchTimeout = setTimeout(verifyUsername, 350);
+    searchUsernameTimeout = setTimeout(verifyUsername, checkDelay);
 };
 
-document.getElementById("email_field").onkeydown = function() {
-    if (searchTimeout != undefined) {
-        clearTimeout(searchTimeout);
-    }
-    searchTimeout = setTimeout(verifyEmail, 350);
-};
 
 function getUserVal(){
     return userVal;
 }
 
 function verifyUsername() {
-    if (lastLength == formUsername.value.length || formUsername.value.length <= 0) {
+    if (lastUsernameLength == formUsername.value.length || formUsername.value.length <= 0) {
         if(formUsername.value.length <= 0){
             userVal = 0;
         }
@@ -57,7 +52,7 @@ function verifyUsername() {
         }
         return;
     }else{
-        lastLength = formUsername.value.length;
+        lastUsernameLength = formUsername.value.length;
     }
 
     var pageReq = new XMLHttpRequest();
@@ -88,7 +83,32 @@ function verifyUsername() {
     pageReq.send();
 }
 
+var searchEmailTimeout;
+var lastEmailLength;
+var validEmail = false;
+var regEx = new RegExp(".*@.*");
+
+document.getElementById("email_field").onkeydown = function() {
+    if (searchEmailTimeout != undefined) {
+        clearTimeout(searchEmailTimeout);
+    }
+    searchEmailTimeout = setTimeout(verifyEmail, checkDelay);
+};
+
+function isValidEmail(){
+    return validEmail;
+}
+
 function verifyEmail(){
-    console.log("Something!");
+    if(formEmail.value.length <= 0){
+        document.getElementById("email_field").style.backgroundColor= "";
+        validEmail = false;      
+    }else if(regEx.test(formEmail.value)){
+        document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
+        validEmail = false;
+    }else{
+        document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
+        validEmail = true;
+    }
 }
 
