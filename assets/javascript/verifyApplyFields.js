@@ -73,7 +73,6 @@ function verifyUsername(inOrg = false) {
                 document.getElementById("username_field").style.outlineColor= "#606C71";
                 userVal = 1;
             } else {
-                console.log("else -- " + pageReq.status);
                 document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
                 userVal = -1;
             }
@@ -87,7 +86,6 @@ function verifyUsername(inOrg = false) {
     var url = "";
 
     if(inOrg){
-        console.log("inOrg");
         url = "https://api.github.com/orgs/VirginiaTech/members/" + formUsername.value;
     }else{
         url = "https://api.github.com/users/" + formUsername.value;
