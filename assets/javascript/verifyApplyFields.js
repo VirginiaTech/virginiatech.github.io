@@ -28,7 +28,11 @@ document.getElementById("username_field").onkeydown = function() {
     if (searchUsernameTimeout != undefined) {
         clearTimeout(searchUsernameTimeout);
     }
-    searchUsernameTimeout = setTimeout(verifyUsername, checkDelay);
+    if((window.location + "").includes("apply_to_organization")){
+        searchUsernameTimeout = setTimeout(verifyUsername.bind(null, false), checkDelay);
+    }else if((window.location + "").includes("add_repository")){
+        searchUsernameTimeout = setTimeout(verifyUsername.bind(null, true), checkDelay);
+    }
 };
 
 
@@ -36,10 +40,13 @@ function getUserVal(){
     return userVal;
 }
 
-function verifyUsername() {
+function verifyUsername(inOrg = false) {
     if (lastUsernameLength == formUsername.value.length || formUsername.value.length <= 0) {
         if(formUsername.value.length <= 0){
             userVal = 0;
+            //  0 = No value in GitHub username field
+            // >0 = Not valid GitHub username
+            // <0 = Valid GitHub username
         }
 
         if(userVal > 1){
@@ -61,11 +68,12 @@ function verifyUsername() {
 
     pageReq.onreadystatechange = function(e) {
         if (pageReq.readyState == 4) {
-            if (pageReq.status == 200) {
+            if (pageReq.status == 200 || pageReq.status == 204) {
                 document.getElementById("username_field").style.backgroundColor= "#e6ffe6";
                 document.getElementById("username_field").style.outlineColor= "#606C71";
                 userVal = 1;
             } else {
+                console.log("else -- " + pageReq.status);
                 document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
                 userVal = -1;
             }
@@ -76,7 +84,14 @@ function verifyUsername() {
         console.error("Request timeout: ", pageReq);
     }
 
-    var url = "https://api.github.com/users/" + formUsername.value;
+    var url = "";
+
+    if(inOrg){
+        console.log("inOrg");
+        url = "https://api.github.com/orgs/VirginiaTech/members/" + formUsername.value;
+    }else{
+        url = "https://api.github.com/users/" + formUsername.value;
+    }
     url = url + queryString;
 
     pageReq.open("GET", url, true);
@@ -88,12 +103,14 @@ var lastEmailLength;
 var validEmail = false;
 var regEx = new RegExp(".*@.*");
 
-document.getElementById("email_field").onkeydown = function() {
-    if (searchEmailTimeout != undefined) {
-        clearTimeout(searchEmailTimeout);
-    }
-    searchEmailTimeout = setTimeout(verifyEmail, checkDelay);
-};
+if(document.getElementById("email_field") != null){
+    document.getElementById("email_field").onkeydown = function() {
+        if (searchEmailTimeout != undefined) {
+            clearTimeout(searchEmailTimeout);
+        }
+        searchEmailTimeout = setTimeout(verifyEmail, checkDelay);
+    };
+}
 
 function isValidEmail(){
     return validEmail;

@@ -57,8 +57,10 @@ function tempFunc() {
             apply_message.style.fontWeight = "900";
         } else if (pageReq.status == 404 || pageReq.status == 302) {
             // Start email varification process here...
+            
+            // location.href = location.origin; // When successful process, redirect.
             apply_message.text = "";
-            console.log("Given user: " + formUsername.value + " is not a member.");
+            console.log("Given user: " + jsonObj + " is not a member.");
         } else {
             apply_message.text = "Hmm... That shouldn't have happened... Consider contacting us, status: " + pageReq.status;
             apply_message.style.color = "orange";

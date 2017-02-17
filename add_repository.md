@@ -29,16 +29,22 @@ Have questions? Contact us, at <github-g@vt.edu>.
 
 
 <b>Name</b> <font size="2.5rem"> (required) </font><br>
-<input class="rounded" type="name" name="name" placeholder="" id="name_field" required><br><br>
+<input class="rounded" name="name" placeholder="" id="name_field" required><br><br>
 <b>GitHub Username</b> <font size="2.5rem"> (required) </font><br>
-<input class="rounded" type="github_username" name="github_username" placeholder="" id="username_field" required><br><br>
+<input class="rounded" name="github_username" placeholder="" id="username_field" required><br><br>
 <b>Repository Name</b> <font size="2.5rem"> (required) </font><br>
-<input class="rounded" type="subject" name="repository_name" placeholder="" id="repository_field" required><br><br>
+<input class="rounded" name="repository_name" placeholder="" id="repository_field" required><br><br>
 <b>Description</b><font size="2.5rem"> (required)</font>
 <textarea class="rounded" rows="4" cols="40" name="description" id="description_field" placeholder="" style="min-height:10rem;min-width:28rem"></textarea>
 <b>Opensource license</b><br>
-<input class="rounded" type="license" name="license" placeholder="" id="license_field"><br><br>
+<input class="rounded" name="license" placeholder="" id="license_field"><br><br>
 By clicking Send you validate that this repository does not violate the Virginia Tech [Policies](http://www.policies.vt.edu/index.php) nor [Honor Code](http://honorsystem.vt.edu/HSConstitution/honor_code_manual_and_policy.html).
 {:text-align=center;}
 <input type="submit" value="Send">
 <input type="hidden" name="_next" value="{{ site.baseurl }}{% link submit_success.md %}" />
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/javascript/verifyApplyFields.js"></script>
