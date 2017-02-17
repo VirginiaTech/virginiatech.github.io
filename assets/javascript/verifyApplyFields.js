@@ -50,10 +50,10 @@ function getUserVal(){
 }
 
 function verifyUsername(inOrg = false) {
-    if (lastUsernameLength == formUsername.value.length || formUsername.value.length <= 0) {
+    if (lastUsernameLength == formUsername.value || formUsername.value.length <= 0) {
         if(formUsername.value.length <= 0){
             userVal = 0;
-            lastUsernameLength = 0;
+            lastUsernameLength = formUsername.value;
         }
 
         console.log(userVal);
@@ -71,7 +71,7 @@ function verifyUsername(inOrg = false) {
         }
         return;
     }else{
-        lastUsernameLength = formUsername.value.length;
+        lastUsernameLength = formUsername.value;
     }
 
     var pageReq = new XMLHttpRequest();
