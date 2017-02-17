@@ -11,16 +11,19 @@ permalink: /add_repository
 Applying to add your Repository to the Organization is easy:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**1.** Input your name  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**2.** Input your GitHub Username  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**3.** Input the name of the Repository you want to be added  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**4.** Briefly describe the Repository's function and purpose  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**5.** Include your Repository's opensource lisence, if it has one.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**3.** Input the name of the Repository you want to add  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**4.** Briefly describe the Repository's function and purpose - mention if it is public or private  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**5.** Include your Repository's opensource lisence, if it has one  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**6.** Apply  
 The information you give will then be sent to the GitHub Coordinators for review. You should hear back from us with the result of your application within a week. If you have not heard back from us in over a week, please re-apply your Repository.
 
 ---
 
 ## **Repository Restrictions**  
-All applying Repositories **must** adhere to the Virginia Tech [Policies](http://www.policies.vt.edu/index.php) and [Honor Code](http://honorsystem.vt.edu/HSConstitution/honor_code_manual_and_policy.html). Any Repositories that break these guidelines will be denied. Some examples of unacceptable Repositories include: Course-Snipers, for-class programming HW/Projects, code malicious in nature, etc. Furthermore, applying Repositories must be owned by an applicate who is a **public** member of the VT GitHub Organization.
+--**Only Virginia Tech Organization members can apply their Repository**--  
+{:style="text-align:center"}
+All applying Repositories **must** adhere to the Virginia Tech [Policies](http://www.policies.vt.edu/index.php) and [Honor Code](http://honorsystem.vt.edu/HSConstitution/honor_code_manual_and_policy.html). Any Repositories that break these guidelines will be denied. Some examples of unacceptable Repositories include: Course-Snipers, for-class programming HW/Projects, code malicious in nature, etc.  
+The applying Repositories must be owned by an applicate who is a **public** member of the VT GitHub Organization.
 
 ---
 Have questions? Contact us, at <github-g@vt.edu>.
