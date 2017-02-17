@@ -2,8 +2,6 @@
 layout: content
 permalink: /apply_to_organization
 ---
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
 # **VT GitHub Organization Application**
 {:style="text-align: center;"}
 ---
@@ -34,6 +32,7 @@ Have questions? Contact us, at <github-g@vt.edu>.
 <a style="text-decoration: none" class="" name="apply_message" id="apply_message"><a/><br>
 
 
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
