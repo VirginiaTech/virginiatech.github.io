@@ -3,7 +3,6 @@ function sendRepoReq(){
 	var userVal = getUserVal();
     var failedExtras = verifyExtras();
     verifyUsername(true);
-    console.log("Here with extras -- " + failedExtras);
 
     if(userVal <= 0){
     	document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
@@ -19,7 +18,6 @@ function sendRepoReq(){
         send_message.style.color = "red";
         send_message.style.fontWeight = "900";
     }else{
-    	console.log("failedExtras[0] -> " + failedExtras[0])
     	if(failedExtras.length <= 0 && userVal < 0){
     		send_message.text = "GitHub user is not a [public] member of this organization.";
     	}else if(userVal == 0){

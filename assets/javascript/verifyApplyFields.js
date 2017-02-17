@@ -53,13 +53,20 @@ function verifyUsername(inOrg = false) {
     if (lastUsernameLength == formUsername.value.length || formUsername.value.length <= 0) {
         if(formUsername.value.length <= 0){
             userVal = 0;
+            lastUsernameLength = 0;
         }
-        if(userVal > 1){
+
+        console.log(userVal);
+
+        if(userVal > 0){
+            console.log("Turn green");
             document.getElementById("username_field").style.backgroundColor= "#e6ffe6";
         }else if(userVal == 0){
+            console.log("Turn nothing");
             document.getElementById("username_field").style.backgroundColor= "";
         }
         else if(userVal < 0) {
+            console.log("Turn red");
             document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
         }
         return;
