@@ -67,3 +67,59 @@ textarea.rounded:focus {
     top: .7rem;
     left: 1.4rem;
 }
+
+
+.featured{
+    padding: 20px 0;
+	text-align: center;
+	min-width: 25rem;
+	max-width: 25rem;
+	margin: auto;
+}
+.featured > div > div{
+	padding: 5px;
+	border: 1px solid transparent;
+	background: rgba(200, 200, 200, 0.1);
+	border-radius: 4px;
+	min-height: 17rem;
+	max-height: 17rem;
+	transition: 0.2s;
+}
+.featured > div:hover > div{
+	margin-top: -10px;
+	border: 1px solid rgb(200, 200, 200);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+	background: rgba(200, 200, 200, 0.25);
+	transition: 0.5s;
+	margin-bottom: 10px;
+	min-height: 17rem;
+	max-height: 17rem;
+}
+
+.btn-featured {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  border: solid #12874d 2px;
+  font-family: monospace;
+  color: #ffffff;
+  font-size: 18px;
+  background: #18b466;
+  padding: 3px 15px 3px 15px;
+  text-decoration: none;
+}
+
+.btn-featured:hover {
+  background: #159957;
+  text-decoration: none;
+}
+
+.btn-featured:active {
+	background: #0c5a33;
+}
+
+
+.flex-grid-featured {
+	display: flex;
+	justify-content: center;
+}
