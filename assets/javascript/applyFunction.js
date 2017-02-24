@@ -18,6 +18,9 @@ $.when(getToken()).then(setQueryString);
 /* ----------------------------------- */
 
 function tempFunc() {
+    if(userVal <= 0){
+        document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
+    }
     var apply_message = document.getElementById("apply_message");
 
     var formData = {};
@@ -31,11 +34,13 @@ function tempFunc() {
 
     if(!isValidEmail() && getUserVal() <= 0){
         apply_message.text = "Required credentials are invalid";
+        document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
         apply_message.style.color = "red";
         apply_message.style.fontWeight = "900";
         return;
     } else if(!isValidEmail()){
         apply_message.text = "Invalid @vt.edu email address";
+        document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
         apply_message.style.color = "red";
         apply_message.style.fontWeight = "900";
         return;
