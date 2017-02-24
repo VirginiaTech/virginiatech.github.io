@@ -19,7 +19,7 @@ layout: default
 		<div class="">
 			<h2 id = "featured_2_title" style="font-weight: 900">See your Repository here!</h2>
 			<p id = "featured_2_body">Looking to get more interest in your project? Apply for a 'Feature Repository' spot today! Featured Repositories are posted here and pinned on the VT Organization Page for 10 days! </p> 
-			<button class="btn-featured">Apply for Featured</button>
+			<button class="btn-featured" onclick="location.href = '{{ site.baseurl }}{% link featured_repos.md %}'">Apply for Featured</button>
 		</div>
 	</div>
 <!--
@@ -53,6 +53,7 @@ layout: default
 -->
 </div>
 
-More information on feature repositories can be found here.
+### Information on featured repositories found [here]({{ site.baseurl }}{% link featured_repos.md %}).
+{:style="text-align: center;"}
 ---
 
