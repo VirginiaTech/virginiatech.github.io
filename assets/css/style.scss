@@ -3,5 +3,174 @@
 
 @import "{{ site.theme }}";
 
+.project-tagline { margin-bottom: 2rem; margin-left: 5rem; margin-right: 5rem; font-weight: normal; opacity: 0.7; }
+
+.topDivPush {
+	height: 12rem;
+	width: 100%;
+}
+
+a.content-anchor {
+    display: block;
+    position: relative;
+    top: -6rem;
+    visibility: hidden;
+}
+
 .page-header {
-  background-image: linear-gradient(-45deg, #510000, #ff6600); }
+	position: fixed;
+	width: 100%;
+	background-color: #510000;
+  	background-image: linear-gradient(-45deg, #510000, #ff6600);
+  	z-index: 1;
+  }
+
+.inactiveLink {
+   pointer-events: none;
+   cursor: default;
+   color:#159957;
+}
+
+input.rounded {
+	border: .1175rem solid #ccc;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+
+input.rounded:focus {
+	border-color: #159957;
+}
+
+textarea.rounded {
+	border: .1175rem solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+
+textarea.rounded:focus {
+	border-color: #159957;
+}
+
+@media screen and (min-width: 64em) {
+    .page-header {
+      padding: .5rem .6rem; } }
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .page-header {
+      padding: .3rem .4rem; } }
+@media screen and (max-width: 42em) {
+    .page-header {
+      padding: .2rem .1rem; } }
+
+.header_img {
+    position: absolute;
+    top: .7rem;
+    left: 1.4rem;
+}
+
+
+.featured{
+    padding: .74rem;
+	text-align: center;
+	min-width: 25rem;
+	max-width: 25rem;
+	margin: auto;
+
+	position: relative;
+}
+.featured > div{
+	padding: 5px;
+	border: 1px solid transparent;
+	background: rgba(200, 200, 200, 0.1);
+	border-radius: 4px;
+	min-height: 17rem;
+	max-height: 17rem;
+	transition: 0.2s; /* Must equal transition time in .btn-featured */
+}
+.featured > div:hover {
+	margin-top: -10px;
+	border: 1px solid rgb(200, 200, 200);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+	background: rgba(200, 200, 200, 0.25);
+	transition: 0.5s;
+	margin-bottom: 10px;
+	min-height: 17rem;
+	max-height: 17rem;
+}
+
+
+
+.featured > div:hover > .btn-featured{ 
+	/* When the child of .featured is hovered over, do these things for .btn-featured */
+  	margin-top: -10px;
+  	transition: 0.5s; /* Must equal transition time in .featured >div:hover; */
+  	margin-bottom: 10px;
+}
+
+.btn-visible {
+	-webkit-border-radius: 10;
+	-moz-border-radius: 10;
+	border-radius: 10px;
+	border: solid #12874d 2px;
+	font-family: monospace;
+	color: #ffffff;
+	font-size: 18px;
+	background: #18b466;
+	padding: 3px 15px 3px 15px;
+	text-decoration: none;
+}
+
+.btn-visible:hover{
+  	background: #159957;
+  	text-decoration: none;
+}
+
+.btn-visible:active{
+	background: #0c5a33;
+}
+
+.btn-featured {
+	-webkit-border-radius: 10;
+	-moz-border-radius: 10;
+	border-radius: 10px;
+	border: solid #12874d 2px;
+	font-family: monospace;
+	color: #ffffff;
+	font-size: 18px;
+	background: #18b466;
+	padding: 3px 15px 3px 15px;
+	text-decoration: none;
+
+	transition: 0.2s; /* Must equal transition time in .featured */
+
+	position: absolute;
+	margin: 0 auto;
+	overflow: auto;
+	display: inline-block;
+	left: 0;
+	right: 0;
+	bottom: 2rem;
+}
+
+.btn-featured:hover {
+  	background: #159957;
+  	text-decoration: none;
+}
+
+.btn-featured:active {
+	background: #0c5a33;
+}
+
+
+.flex-grid-featured {
+	display: flex;
+	justify-content: center;
+}
