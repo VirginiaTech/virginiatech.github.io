@@ -209,23 +209,25 @@ function verifyExtras(){
     return extras;
 }
 
-document.getElementById("name_field").onkeydown = function() {
-    if(formName.value.length > 0 &&
-        document.getElementById("name_field").style.backgroundColor != ""){
-        document.getElementById("name_field").style.backgroundColor = ""
-    }
-};
+if((window.location + "").includes("add_repository")){
+    document.getElementById("name_field").onkeydown = function() {
+        if(formName.value.length > 0 &&
+            document.getElementById("name_field").style.backgroundColor != ""){
+            document.getElementById("name_field").style.backgroundColor = ""
+        }
+    };
 
-document.getElementById("repository_field").onkeydown = function() {
-    if(formRepoName.value.length > 0 &&
-        document.getElementById("repository_field").style.backgroundColor != ""){
-        document.getElementById("repository_field").style.backgroundColor = ""
-    }
-};
+    document.getElementById("repository_field").onkeydown = function() {
+        if(formRepoName.value.length > 0 &&
+            document.getElementById("repository_field").style.backgroundColor != ""){
+            document.getElementById("repository_field").style.backgroundColor = ""
+        }
+    };
 
-document.getElementById("description_field").onkeydown = function() {
-    if(formDescription.value.length > 0 &&
-        document.getElementById("description_field").style.backgroundColor != ""){
-        document.getElementById("description_field").style.backgroundColor = ""
-    }
-};
+    document.getElementById("description_field").onkeydown = function() {
+        if(formDescription.value.length > 0 &&
+            document.getElementById("description_field").style.backgroundColor != ""){
+            document.getElementById("description_field").style.backgroundColor = ""
+        }
+    };
+}
