@@ -9,9 +9,9 @@ layout: default
 
 	<div id="featured_1" class="featured">
 		<div class="">
-			<h2 id = "featured_1_title" style="font-weight: 900">Rando-Shiz</h2>
-			<p id = "featured_1_body">A set of Pyth</p>
-			<button class="btn-featured" onclick="window.open('https://github.com/VirginiaTech/virginiatech.github.io')">See on GitHub</button>
+			<h2 id = "featured_1_title" style="font-weight: 900">Python_Reddit_Collector</h2>
+			<p id = "featured_1_body">A set of Python scripts that poll Reddit (Poller.py), sift through data (Sifter.py), and format it into a WordDoc (Creator.py). Interaction between user and script is typically done through the custom shell (Definer.py)</p>
+			<button class="btn-featured" onclick="window.open('https://github.com/VirginiaTech/Python_Reddit_Collector')">See on GitHub</button>
 		</div>
 	</div>
 
