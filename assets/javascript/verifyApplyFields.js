@@ -191,6 +191,8 @@ function verifyDescription(){
     }
 }
 
+
+
 function verifyExtras(){
     var extras = [];
 
