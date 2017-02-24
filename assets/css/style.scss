@@ -5,16 +5,17 @@
 
 .project-tagline { margin-bottom: 2rem; margin-left: 5rem; margin-right: 5rem; font-weight: normal; opacity: 0.7; }
 
-#topDivPush {
+.topDivPush {
 	height: 12rem;
 	width: 100%;
 }
 
 .page-header {
-	position:fixed;
-	width:100%;
+	position: fixed;
+	width: 100%;
 	background-color: #510000;
   	background-image: linear-gradient(-45deg, #510000, #ff6600);
+  	z-index: 1;
   }
 
 .inactiveLink {
@@ -70,22 +71,24 @@ textarea.rounded:focus {
 
 
 .featured{
-    padding: 20px 0;
+    padding: .74rem;
 	text-align: center;
 	min-width: 25rem;
 	max-width: 25rem;
 	margin: auto;
+
+	position: relative;
 }
-.featured > div > div{
+.featured > div{
 	padding: 5px;
 	border: 1px solid transparent;
 	background: rgba(200, 200, 200, 0.1);
 	border-radius: 4px;
 	min-height: 17rem;
 	max-height: 17rem;
-	transition: 0.2s;
+	transition: 0.2s; /* Must equal transition time in .btn-featured */
 }
-.featured > div:hover > div{
+.featured > div:hover {
 	margin-top: -10px;
 	border: 1px solid rgb(200, 200, 200);
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
@@ -96,22 +99,41 @@ textarea.rounded:focus {
 	max-height: 17rem;
 }
 
+
+
+.featured > div:hover > .btn-featured{ 
+	/* When the child of .featured is hovered over, do these things for .btn-featured */
+  	margin-top: -10px;
+  	transition: 0.5s; /* Must equal transition time in .featured >div:hover; */
+  	margin-bottom: 10px;
+}
+
 .btn-featured {
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  border: solid #12874d 2px;
-  font-family: monospace;
-  color: #ffffff;
-  font-size: 18px;
-  background: #18b466;
-  padding: 3px 15px 3px 15px;
-  text-decoration: none;
+	-webkit-border-radius: 10;
+	-moz-border-radius: 10;
+	border-radius: 10px;
+	border: solid #12874d 2px;
+	font-family: monospace;
+	color: #ffffff;
+	font-size: 18px;
+	background: #18b466;
+	padding: 3px 15px 3px 15px;
+	text-decoration: none;
+
+	transition: 0.2s; /* Must equal transition time in .featured */
+
+	position: absolute;
+	margin: 0 auto;
+	overflow: auto;
+	display: inline-block;
+	left: 0;
+	right: 0;
+	bottom: 2rem;
 }
 
 .btn-featured:hover {
-  background: #159957;
-  text-decoration: none;
+  	background: #159957;
+  	text-decoration: none;
 }
 
 .btn-featured:active {
