@@ -5,8 +5,13 @@
 
 .project-tagline { margin-bottom: 2rem; margin-left: 5rem; margin-right: 5rem; font-weight: normal; opacity: 0.7; }
 
-.topDivPush {
-	height: 12rem;
+.topDivContentPush {
+	height: 4.2rem;
+	width: 100%;
+}
+
+.topDivDefaultPush {
+	height: 10rem;
 	width: 100%;
 }
 
@@ -79,6 +84,7 @@ textarea.rounded:focus {
 
 .featured{
     padding: .74rem;
+    display: table;
 	text-align: center;
 	min-width: 25rem;
 	max-width: 25rem;
@@ -87,7 +93,7 @@ textarea.rounded:focus {
 	position: relative;
 }
 .featured > div{
-	padding: 5px;
+	padding-bottom: 5px;
 	border: 1px solid transparent;
 	background: rgba(200, 200, 200, 0.1);
 	border-radius: 4px;
@@ -110,11 +116,10 @@ textarea.rounded:focus {
 
 .featured > div:hover > .btn-featured{ 
 	/* When the child of .featured is hovered over, do these things for .btn-featured */
-  	margin-top: -10px;
+  	
   	transition: 0.5s; /* Must equal transition time in .featured >div:hover; */
-  	margin-bottom: 10px;
 }
-
+  	
 .btn-visible {
 	-webkit-border-radius: 10;
 	-moz-border-radius: 10;
@@ -148,16 +153,8 @@ textarea.rounded:focus {
 	background: #18b466;
 	padding: 3px 15px 3px 15px;
 	text-decoration: none;
-
+	
 	transition: 0.2s; /* Must equal transition time in .featured */
-
-	position: absolute;
-	margin: 0 auto;
-	overflow: auto;
-	display: inline-block;
-	left: 0;
-	right: 0;
-	bottom: 1.3rem;
 }
 
 .btn-featured:hover {
