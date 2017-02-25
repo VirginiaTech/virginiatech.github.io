@@ -2,9 +2,9 @@
 layout: content
 permalink: /about_us
 ---
+# General Info
 
-General Information about how this organization got started:
-<a href="https://researchinformatics.lib.vt.edu/project/virginia-tech-github-organization"/>Here</a>
+General Information about how this organization got started can be found <a href="https://researchinformatics.lib.vt.edu/project/virginia-tech-github-organization"/>Here</a>
 
 # How can I contact the GitHub Coordinators?
 
