@@ -10,7 +10,7 @@ permalink: /licensing
 {: style="text-align: center;"}
 ---
 
-Giving a license your content is an important part of sharing things via Github.  Licenses let others know whether, and how they can use your content legally.  
+Giving a license your content is an important part of sharing things via Github.  Licenses let others know whether and how they can use your content legally.  
 {: style="text-align: center;"}   
 <a href= "#Licenses">
 <span style= "color:#159957">Licenses</span>  
