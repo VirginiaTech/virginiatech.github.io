@@ -35,15 +35,23 @@ Consider that Repository content on the VT Organization can range from personal 
 ## **Apply to Feature your Repository**
 
 <b>Repository Name</b> <font size="2.5rem"> (required) </font><br>
-<input class="rounded" name="name" placeholder="" id="repo_name_field"><br><br>
+<input class="rounded" name="name" placeholder="" id="repository_field"><br><br>
 <b>Contact Email</b> <font size="2.5rem"> (required) </font><br>
 <input class="rounded" name="contact_email" placeholder="" id="email_field"><br><br>
 <b>Repository Description</b><font size="2.5rem"> (required)</font>
-<textarea class="rounded" rows="4" cols="40" name="description" id="repo_description_field" placeholder="" style="min-height:10rem;min-width:28rem"></textarea>
+<textarea class="rounded" rows="4" cols="40" name="description" id="description_field" placeholder="" style="min-height:10rem;min-width:28rem"></textarea>
 <b>Opensource license</b><br>
 <input class="rounded" name="license" placeholder="N/A if none" id="license_field"><br><br>
 <b>Additional Notes</b>
-<textarea class="rounded" rows="4" cols="40" name="description" id="repo_description_field" placeholder="" style="min-height:7rem;min-width:16rem;width:20rem;"></textarea>
-<input type="submit" value="Send" onclick=""><br><br>
+<textarea class="rounded" rows="4" cols="40" name="description" id="notes_field" placeholder="" style="min-height:7rem;min-width:16rem;width:20rem;"></textarea>
+<input type="submit" value="send" onclick="sendFeaturedReq()"><br><br>
 
 <a style="text-decoration: none" class="" name="send_message" id="send_message"><a/><br>
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="assets/javascript/sendFunction.js"></script>
+<script type="text/javascript" src="assets/javascript/verifyApplyFields.js"></script>

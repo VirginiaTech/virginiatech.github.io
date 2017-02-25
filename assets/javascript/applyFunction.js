@@ -27,9 +27,16 @@ function tempFunc() {
     var formEmail = document.querySelector("#email_field");
     var formUsername = document.querySelector("#username_field");
 
-    formData["email_field"] = formEmail.value;
-    formData["username_field"] = formUsername.value;
+    formData["vtEmail"] = formEmail.value + "@vt.edu";
+    formData["githubHandle"] = formUsername.value;
 
+
+    /* Have jsonObj be in the following format
+    {
+        vtEmail: "email@vt.edu",
+        githubHandle: "username"
+    }
+    */
     var jsonObj = JSON.stringify(formData);
 
     if(!isValidEmail() && getUserVal() <= 0){
@@ -50,28 +57,52 @@ function tempFunc() {
         apply_message.style.fontWeight = "900";
         return;
     }
-    var pageReq = new XMLHttpRequest();
-    pageReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + formUsername.value + queryString, true);
-    pageReq.setRequestHeader("Accept", "1");
-    pageReq.onload = function(oEvent) {
-        if (pageReq.status == 200) {
+    var gitHubReq = new XMLHttpRequest();
+    gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + formUsername.value + queryString, true);
+    gitHubReq.setRequestHeader("Accept", "1");
+    gitHubReq.onload = function(oEvent) {
+        if (gitHubReq.status === 200) {
             console.log("success");
-        } else if (pageReq.status == 204) {
+        } else if (gitHubReq.status === 204) {
             apply_message.text = "User \"" + formUsername.value + "\" is already a member.";
             apply_message.style.color = "";
             apply_message.style.fontWeight = "900";
-        } else if (pageReq.status == 404 || pageReq.status == 302) {
-            // Start email varification process here...
+        } else if (gitHubReq.status === 404 || gitHubReq.status === 302) {
+            apply_message.text = "...";
+            apply_message.style.color = "grey";
+            apply_message.style.fontWeight = "900";
+
+            var verifyReq = new XMLHttpRequest();
+            verifyReq.open("OPTIONS", "https://vq6t7mxduh.execute-api.us-east-1.amazonaws.com/production/sendConfirmationEmail");
+            verifyReq.setRequestHeader("Content-Type", "application/json");
+            verifyReq.setRequestHeader("Accept", "application/json");
+            verifyReq.onreadystatechange = function(jEvent){
+                console.log(jEvent);
+                if(verifyReq.statusCode === 200){
+                    apply_message.text = "Verifcation Email Sent!";
+                    apply_message.style.color = "green";
+                    apply_message.style.fontWeight = "900";
+                }
+                else if(verifyReq.statusCode === 400){
+                    apply_message.text = "Application request not sent.";
+                    apply_message.style.color = "red";
+                    apply_message.style.fontWeight = "900";    
+                }else{
+                    apply_message.text = "Something! " + verifyReq.statusCode + "";
+                    apply_message.style.color = "orange";
+                    apply_message.style.fontWeight = "900";
+                }
+            };
             
-            // location.href = location.origin; // When successful process, redirect.
-            apply_message.text = "";
+            verifyReq.send(jsonObj);
+
             console.log("Given user: " + jsonObj + " is not a member.");
         } else {
-            apply_message.text = "Hmm... That shouldn't have happened... Consider contacting us, status: " + pageReq.status;
+            apply_message.text = "Hmm... That shouldn't have happened... Consider contacting us, status code: " + gitHubReq.status;
             apply_message.style.color = "orange";
             apply_message.style.fontWeight = "900";
         }
     };
 
-    pageReq.send(jsonObj);
+    gitHubReq.send();
 }
