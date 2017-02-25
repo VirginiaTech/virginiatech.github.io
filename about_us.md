@@ -4,11 +4,11 @@ permalink: /about_us
 ---
 
 General Information about how this organization got started:
-https://researchinformatics.lib.vt.edu/project/virginia-tech-github-organization/
+<a href="https://researchinformatics.lib.vt.edu/project/virginia-tech-github-organization"/>Here</a>
 
 # How can I contact the GitHub Coordinators?
 
-Contact us through the email via: github-g@vt.edu
+Contact us through the email via: <a href="mailto:github-g@vt.edu">github-g@vt.edu</a>
 
 # **Contact us!**
 {:style="text-align: center;"}
