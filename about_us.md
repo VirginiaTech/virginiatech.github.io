@@ -3,15 +3,12 @@ layout: content
 permalink: /about_us
 ---
 
-# Who are we?
-
-
-# What's the purpose of the VT GitHub Organization?
-
+General Information about how this organization got started:
+https://researchinformatics.lib.vt.edu/project/virginia-tech-github-organization/
 
 # How can I contact the GitHub Coordinators?
 
-Some general text, for reference.
+Contact us through the email via: github-g@vt.edu
 
 # **Contact us!**
 {:style="text-align: center;"}
