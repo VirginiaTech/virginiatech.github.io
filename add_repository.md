@@ -43,9 +43,8 @@ Have questions? Contact us, at <github-g@vt.edu>.
 <input class="rounded" name="license" placeholder="" id="license_field"><br><br>
 By clicking Send you validate that this repository does not violate the Virginia Tech [Policies](http://www.policies.vt.edu/index.php) nor [Honor Code](http://honorsystem.vt.edu/HSConstitution/honor_code_manual_and_policy.html).
 {:text-align=center;}
-<input type="submit" value="Send" onclick="sendRepoReq()"><br><br>
-
-<a style="text-decoration: none" class="" name="send_message" id="send_message"><a/><br>
+<input type="submit" value="Send" onclick="sendRepoReq()" disabled><br><br>
+<a style="text-decoration: none" class="" name="send_message" id="send_message">Temporarily Under Construction... Check back later!<a/><br>
 
 
 <script

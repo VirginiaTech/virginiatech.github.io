@@ -23,7 +23,8 @@ Contact us through the email via: <a href="mailto:github-g@vt.edu">github-g@vt.e
     <input class="rounded" type="email" name="_replyto" placeholder="" required><br><br>
     <b>Subject</b> <font size="2.5rem"> (required) </font><br>
     <input class="rounded" tpye="subject" name="subject" placeholder="" required><br><br>
-    <b>Message</b> <br>
-    <textarea class="rounded" rows="4" cols="40" name="message" placeholder=""></textarea><br>
-    <input type="submit" value="Send">
+    <b>Message</b><br>
+    <textarea class="rounded" rows="4" cols="40" name="message" placeholder=""></textarea><br><br>
+    <input type="submit" value="Send" disabled><br><br>
+    <a>Temporarily Under Construction... Check back later!</a>
 </form>
