@@ -91,7 +91,7 @@ function tempFunc() {
                 }
             };
             verifyReq.open("POST", "https://vq6t7mxduh.execute-api.us-east-1.amazonaws.com/production/sendConfirmationEmail", true);
-            
+            verifyReq.setRequestHeader("Accept", "1");
             verifyReq.send(jsonObj);
 
             console.log("Given user: " + jsonObj + " is not a member.");
