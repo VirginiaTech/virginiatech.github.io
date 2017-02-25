@@ -42,6 +42,3 @@ Have questions? Contact us, at <github-g@vt.edu>.
 <script type="text/javascript">
        getUserVal();
 </script>
-<script type="text/javascript">
-       isValidEmail();
-</script>

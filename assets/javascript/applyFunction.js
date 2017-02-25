@@ -27,7 +27,7 @@ function tempFunc() {
     var formEmail = document.querySelector("#email_field");
     var formUsername = document.querySelector("#username_field");
 
-    formData["vtEmail"] = formEmail.value + "@vt.edu";
+    formData["vtEmail"] = formEmail.value;
     formData["githubHandle"] = formUsername.value;
 
 
@@ -73,26 +73,24 @@ function tempFunc() {
             apply_message.style.fontWeight = "900";
 
             var verifyReq = new XMLHttpRequest();
-            verifyReq.open("OPTIONS", "https://vq6t7mxduh.execute-api.us-east-1.amazonaws.com/production/sendConfirmationEmail");
-            verifyReq.setRequestHeader("Content-Type", "application/json");
-            verifyReq.setRequestHeader("Accept", "application/json");
-            verifyReq.onreadystatechange = function(jEvent){
-                console.log(jEvent);
-                if(verifyReq.statusCode === 200){
+            verifyReq.onload = function(jEvent){
+                console.log(this);
+                if(this.status === 200){
                     apply_message.text = "Verifcation Email Sent!";
                     apply_message.style.color = "green";
                     apply_message.style.fontWeight = "900";
                 }
-                else if(verifyReq.statusCode === 400){
+                else if(this.status === 400){
                     apply_message.text = "Application request not sent.";
                     apply_message.style.color = "red";
                     apply_message.style.fontWeight = "900";    
                 }else{
-                    apply_message.text = "Something! " + verifyReq.statusCode + "";
+                    apply_message.text = "Something! " + this.status + "";
                     apply_message.style.color = "orange";
                     apply_message.style.fontWeight = "900";
                 }
             };
+            verifyReq.open("POST", "https://vq6t7mxduh.execute-api.us-east-1.amazonaws.com/production/sendConfirmationEmail", true);
             
             verifyReq.send(jsonObj);
 
