@@ -30,19 +30,21 @@ var userVal = 0;
         // >0 = Valid GitHub username
 var searchUsernameTimeout;
 var lastUsernameLength;
-document.getElementById("username_field").onkeydown = function() {
-    if(document.getElementById("username_field").style.backgroundColor!= ""){
-        document.getElementById("username_field").style.backgroundColor= "";
-    }
-    if (searchUsernameTimeout != undefined) {
-        clearTimeout(searchUsernameTimeout);
-    }
-    if((window.location + "").includes("apply_to_organization")){
-        searchUsernameTimeout = setTimeout(verifyUsername.bind(null, false), checkDelay);
-    }else if((window.location + "").includes("add_repository")){
-        searchUsernameTimeout = setTimeout(verifyUsername.bind(null, true), checkDelay);
-    }
-};
+if(document.getElementById("username_field") != null){
+    document.getElementById("username_field").onkeydown = function() {
+        if(document.getElementById("username_field").style.backgroundColor!= ""){
+            document.getElementById("username_field").style.backgroundColor= "";
+        }
+        if (searchUsernameTimeout != undefined) {
+            clearTimeout(searchUsernameTimeout);
+        }
+        if((window.location + "").includes("apply_to_organization")){
+            searchUsernameTimeout = setTimeout(verifyUsername.bind(null, false), checkDelay);
+        }else if((window.location + "").includes("add_repository")){
+            searchUsernameTimeout = setTimeout(verifyUsername.bind(null, true), checkDelay);
+        }
+    };
+}
 
 
 function getUserVal(){
@@ -50,23 +52,18 @@ function getUserVal(){
 }
 
 function verifyUsername(inOrg = false) {
-    if (lastUsernameLength == formUsername.value || formUsername.value.length <= 0) {
+    if (lastUsernameLength === formUsername.value || formUsername.value.length <= 0) {
         if(formUsername.value.length <= 0){
             userVal = 0;
             lastUsernameLength = formUsername.value;
         }
 
-        console.log(userVal);
-
         if(userVal > 0){
-            console.log("Turn green");
             document.getElementById("username_field").style.backgroundColor= "#e6ffe6";
-        }else if(userVal == 0){
-            console.log("Turn nothing");
+        }else if(userVal === 0){
             document.getElementById("username_field").style.backgroundColor= "";
         }
         else if(userVal < 0) {
-            console.log("Turn red");
             document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
         }
         return;
@@ -79,9 +76,8 @@ function verifyUsername(inOrg = false) {
     pageReq.timeout = 2000;
 
     pageReq.onreadystatechange = function(e) {
-        if (pageReq.readyState == 4) {
-            console.log("Request sent!");
-            if (pageReq.status == 200 || pageReq.status == 204) {
+        if (pageReq.readyState === 4) {
+            if (pageReq.status === 200 || pageReq.status === 204) {
                 document.getElementById("username_field").style.backgroundColor= "#e6ffe6";
                 document.getElementById("username_field").style.outlineColor= "#606C71";
                 userVal = 1;
@@ -93,7 +89,7 @@ function verifyUsername(inOrg = false) {
     }
 
     pageReq.ontimeout = function() {
-        console.error("Request timeout: ", pageReq);
+        alert("Request timeout: " + pageReq);
     }
 
     var url = "";
@@ -123,26 +119,33 @@ if(document.getElementById("email_field") != null){
 }
 
 var validEmail = false;
-function isValidEmail(){
-    verifyEmail();
+function isValidEmail(mustHaveAt = false){
+    verifyEmail(mustHaveAt);
     return validEmail;
 }
 
-function verifyEmail(){
-    if(formEmail.value.length <= 0){
-        document.getElementById("email_field").style.backgroundColor= "";
-        validEmail = false;      
-    }else if(regEx.test(formEmail.value)){
-        document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
-        validEmail = false;
+function verifyEmail(mustHaveAt = false){
+    if(mustHaveAt){
+        if(formEmail.value.length <= 0 || !regEx.test(formEmail.value)){
+            document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
+            validEmail = false;
+        }else{
+            // document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
+            validEmail = true;
+        }
     }else{
-        document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
-        validEmail = true;
+        if(formEmail.value.length <= 0 || regEx.test(formEmail.value)){
+            document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
+            validEmail = false;
+        }else{
+            document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
+            validEmail = true;
+        }
     }
 }
 
 
-// Function below this comment are typically only used in the add_repository page
+// Functions below this comment are typically only used in the add_repository page
 var validName
 function isValidName(){
     verifyName();
@@ -191,8 +194,6 @@ function verifyDescription(){
     }
 }
 
-
-
 function verifyExtras(){
     var extras = [];
 
@@ -205,7 +206,6 @@ function verifyExtras(){
     if(!isValidDescription()){
         extras.push("D");
     }
-
     return extras;
 }
 
@@ -213,21 +213,63 @@ if((window.location + "").includes("add_repository")){
     document.getElementById("name_field").onkeydown = function() {
         if(formName.value.length > 0 &&
             document.getElementById("name_field").style.backgroundColor != ""){
-            document.getElementById("name_field").style.backgroundColor = ""
+            document.getElementById("name_field").style.backgroundColor = "";
         }
     };
 
     document.getElementById("repository_field").onkeydown = function() {
         if(formRepoName.value.length > 0 &&
             document.getElementById("repository_field").style.backgroundColor != ""){
-            document.getElementById("repository_field").style.backgroundColor = ""
+            document.getElementById("repository_field").style.backgroundColor = "";
         }
     };
 
     document.getElementById("description_field").onkeydown = function() {
         if(formDescription.value.length > 0 &&
             document.getElementById("description_field").style.backgroundColor != ""){
-            document.getElementById("description_field").style.backgroundColor = ""
+            document.getElementById("description_field").style.backgroundColor = "";
+        }
+    };
+}
+
+// Functions below this comment are typically only used in the featured_repos page
+
+function verifyFeaturedExtras(){
+    var extras = [];
+
+    if(!isValidEmail(true)){
+        extras.push("E");
+    }
+    if(!isValidRepoName()){
+        extras.push("R");
+    }
+    if(!isValidDescription()){
+        extras.push("D");
+    }
+
+    return extras;
+}
+
+
+if((window.location + "").includes("featured_repos")){
+    document.getElementById("email_field").onkeydown = function() {
+        if(formEmail.value.length > 0 &&
+            document.getElementById("email_field").style.backgroundColor != ""){
+            document.getElementById("email_field").style.backgroundColor = "";
+        }
+    };
+
+    document.getElementById("repository_field").onkeydown = function() {
+        if(formRepoName.value.length > 0 &&
+            document.getElementById("repository_field").style.backgroundColor != ""){
+            document.getElementById("repository_field").style.backgroundColor = "";
+        }
+    };
+
+    document.getElementById("description_field").onkeydown = function() {
+        if(formDescription.value.length > 0 &&
+            document.getElementById("description_field").style.backgroundColor != ""){
+            document.getElementById("description_field").style.backgroundColor = "";
         }
     };
 }
