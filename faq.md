@@ -37,12 +37,12 @@ Have a question that isn’t answered here? Contact us, at <github-g@vt.edu>.
 ---
 
 #### **Q**: How do I become a member of the VT GitHub Organization?
-**A**: Membership to the VT GitHub Organization is limited to current and former Virginia Tech staff and students, through invitation only. To register for membership, visit the Virginia Tech GitHub Page and --navigate to the ‘apply to organization’ subpage--. Once there, enter your GitHub account username and VT email address. A verification email will be sent to the supplied VT email address. Once verified, an invitation to join the VT Organization will be sent to the email address associated with your GitHub account. 
+**A**: Membership to the VT GitHub Organization is limited to current and former Virginia Tech staff and students, through invitation only. To register for membership, visit the Virginia Tech GitHub Page and navigate to the [Apply to Organization]({{ site.baseurl }}apply_to_organization) subpage. Once there, enter your GitHub account username and VT email address. A verification email will be sent to the supplied VT email address. Once verified, an invitation to join the VT Organization will be sent to the email address associated with your GitHub account. 
 
 _Note: Verification emails will only be sent to @vt.edu email addresses._
 
 #### **Q**: As a member, what can and can’t I do?
-**A**: You **can** view the profiles and public teams of other members. You **can** apply for your repository to be added to the Organization; refer to _“About Repositories”_. You **can** create Teams; refer to _“About Teams”_. You **can** create Organization Projects; refer to _“About Projects”_. You **cannot** create/transfer repositories from your account directly to the Organization. You **cannot** invite other users to the Organization. You **cannot** push to repositories that you do not have write access to.
+**A**: You **can** view the profiles and public teams of other members. You **can** apply for your repository to be added to the Organization; refer to _<a href="#Repositories"><span>About Repositories</span></a>_. You **can** create Teams; refer to _<a href="#Teams"><span>About Teams</span></a>_. You **can** create Organization Projects; refer to _<a href="#Projects"><span>About Projects</span></a>_. You **cannot** create/transfer repositories from your account directly to the Organization. You **cannot** invite other users to the Organization. You **cannot** push to repositories that you do not have write access to.
 
 
 ## **<a name = "Repositories" class= "content-anchor"></a>About Repositories**
@@ -57,7 +57,7 @@ _Note:  Before submitting an application, members should verify that their prosp
 **A**: Yes, a member can add a private repository. Private repositories do not become public when forked. However, in order for private repositories to be added to the Organization, the user will need to add an owner as a collaborator. More information will be provided in an email if the repository is approved.
 
 #### **Q**: Am I required to provide an open-source software license for the repository I would like to add to the VT Organization?
-**A**: See the **FIX--** **Licensing - FAQ** **--FIX** section.
+**A**: See the **[Licensing]({{site.baseurl}}licensing)** section.
 
 #### **Q**: As VT Organization member, can I create a repository within the organization?
 **A**: No, repositories can not be created within the organization.  Repositories can only be added to the organization by being forked by a VT Organization owner; see this question.
