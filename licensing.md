@@ -10,8 +10,7 @@ permalink: /licensing
 {: style="text-align: center;"}
 ---
 
-Add some general text about what this Licensing contains, etc, etc.
-Also, this lengthy text is in part to test how a centered field looks... it looks nice :D.
+Giving a license your content is an important part of sharing things via Github.  Licenses let others know whether, and how they can use your content legally.  
 {: style="text-align: center;"}   
 <a href= "#Licenses">
 <span style= "color:#159957">Licenses</span>  
