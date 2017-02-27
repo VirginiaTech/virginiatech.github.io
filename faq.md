@@ -10,8 +10,7 @@ permalink: /faq
 {: style="text-align: center;"}
 ---
 
-Add some general text about what this FAQ contains, etc, etc.
-Also, this lengthy text is in part to test how a centered field looks... it looks nice :D.
+The FAQ portion of this site focuses on answer common questions posed by new Organization members.  
 {: style="text-align: center;"}   
 <a href="#VTOrganizationMembership">
 <span style= "color:#159957">About VT Organization Membership</span>  
