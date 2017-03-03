@@ -92,7 +92,7 @@ textarea.rounded:focus {
 
 	position: relative;
 }
-.featured > div{
+.featured > div {
 	padding-bottom: 5px;
 	border: 1px solid transparent;
 	background: rgba(200, 200, 200, 0.1);
@@ -106,7 +106,7 @@ textarea.rounded:focus {
 	border: 1px solid rgb(200, 200, 200);
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
 	background: rgba(200, 200, 200, 0.25);
-	transition: 0.5s;
+	transition: 0.5s; /* Must equal transition time in .featured > div:hover > .btn-featured-location */
 	margin-bottom: 10px;
 	min-height: 17rem;
 	max-height: 17rem;
@@ -114,10 +114,10 @@ textarea.rounded:focus {
 
 
 
-.featured > div:hover > .btn-featured{ 
+.featured > div:hover > .btn-featured-location{ 
 	/* When the child of .featured is hovered over, do these things for .btn-featured */
-  	
-  	transition: 0.5s; /* Must equal transition time in .featured >div:hover; */
+  	bottom: 25px; /* Must be 10px more than the value of .btn-featured-location*/
+  	transition: 0.5s; /* Must equal transition time in .featured > div:hover */
 }
   	
 .btn-visible {
@@ -153,8 +153,6 @@ textarea.rounded:focus {
 	background: #18b466;
 	padding: 3px 15px 3px 15px;
 	text-decoration: none;
-	
-	transition: 0.2s; /* Must equal transition time in .featured */
 }
 
 .btn-featured:hover {
@@ -166,8 +164,15 @@ textarea.rounded:focus {
 	background: #0c5a33;
 }
 
-
 .flex-grid-featured {
 	display: flex;
 	justify-content: center;
+}
+
+.btn-featured-location {
+	position: absolute; 
+    bottom: 15px; /* Must be 10px less than the value of .featured > div:hover > .btn-featured-location */
+    width: 94%; 
+    height: 50px; 
+	transition: 0.2s; /* Must equal transition time in .featured */
 }
