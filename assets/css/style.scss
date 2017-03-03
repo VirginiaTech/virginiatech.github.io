@@ -75,12 +75,17 @@ textarea.rounded:focus {
     .page-header {
       padding: .2rem .1rem; } }
 
-.header_img {
-    position: absolute;
-    top: .7rem;
-    left: 1.4rem;
+.header_img_vt {
+    position: fixed;
+    top: 1.55rem;
+    left: 3.4rem;
 }
 
+.header_img_github{
+	position: fixed;
+	top: 1rem;
+	right: 3.4rem;
+}
 
 .featured{
     padding: .74rem;

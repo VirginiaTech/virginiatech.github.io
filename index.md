@@ -62,7 +62,9 @@ layout: default
 			</div>
 		</div>
 	</div>
-		<div id="featured_5" class="featured">
+-->
+<!--
+	<div id="featured_5" class="featured">
 		<div>
 			<div>
 				<h2 id = "featured_5_title" style="font-weight: 900">TITLE</h2>

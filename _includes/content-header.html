@@ -1,7 +1,9 @@
 <h1 class="project-name"></h1>
       <!-- <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2> -->
     
-    <a target="_blank" href="https://www.vt.edu/" class="header_img"> <img src="images/VT_Maroon_1872_1.png" class="header_img"/> </a>
+    <a target="_blank" href="https://www.vt.edu/" class="header_img_vt"> <img src="images/VT_Maroon_1872_1.png" class="header_img_vt"/> </a>
+
+    <a target="_blank" href="https://github.com/VirginiaTech" class="header_img_github"> <img src="images/GitHub-Mark-Light-64px.png" class="header_img_github"/> </a>
     
     <a href="{{ site.baseurl }}{% link index.md %}" class="btn">Home</a>
 
@@ -10,11 +12,3 @@
     <a href="{{ site.baseurl }}{% link apply_to_organization.md %}" class="btn">Apply to Organization</a>
     <a href="{{ site.baseurl }}{% link add_repository.md %}" class="btn">Add Repository</a>
     <a href="{{ site.baseurl }}{% link about_us.md %}" class="btn">About Us</a>
-
-    {% if site.github.is_project_page %}
-      <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-    {% endif %}
-    {% if site.show_downloads %}
-      <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
-      <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
-    {% endif %}
