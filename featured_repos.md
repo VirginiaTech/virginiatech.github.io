@@ -44,8 +44,9 @@ Consider that Repository content on the VT Organization can range from personal 
 <input class="rounded" name="license" placeholder="N/A if none" id="license_field"><br><br>
 <b>Additional Notes</b>
 <textarea class="rounded" rows="4" cols="40" name="description" id="notes_field" placeholder="" style="min-height:7rem;min-width:16rem;width:20rem;"></textarea>
-<input type="submit" value="send" onclick="sendFeaturedReq()" disabled><br><br>
-<a style="text-decoration: none" class="" name="send_message" id="send_message">Temporarily Under Construction... Check back later!<a/><br>
+<!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->
+<input type="submit" value="Send" onclick="sendFeaturedReq()" disabled><br><br>
+<a style="text-decoration: none" class="" name="send_message" id="send_message">Temporarily Under Construction... Check back later!</a><br>
 
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"

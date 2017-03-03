@@ -41,6 +41,7 @@ Have questions? Contact us, at <github-g@vt.edu>.
 <textarea class="rounded" rows="4" cols="40" name="description" id="description_field" placeholder="" style="min-height:10rem;min-width:28rem"></textarea>
 <b>Opensource license</b><br>
 <input class="rounded" name="license" placeholder="" id="license_field"><br><br>
+<!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->
 By clicking Send you validate that this repository does not violate the Virginia Tech [Policies](http://www.policies.vt.edu/index.php) nor [Honor Code](http://honorsystem.vt.edu/HSConstitution/honor_code_manual_and_policy.html).
 {:text-align=center;}
 <input type="submit" value="Send" onclick="sendRepoReq()" disabled><br><br>
