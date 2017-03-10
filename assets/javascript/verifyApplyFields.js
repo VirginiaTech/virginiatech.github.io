@@ -111,9 +111,13 @@ var regEx = new RegExp(".*@.*");
 
 if(document.getElementById("email_field") != null){
     document.getElementById("email_field").onkeydown = function() {
+        if(document.getElementById("email_field").style.backgroundColor!= ""){
+            document.getElementById("email_field").style.backgroundColor= "";
+        }
         if (searchEmailTimeout != undefined) {
             clearTimeout(searchEmailTimeout);
         }
+
         searchEmailTimeout = setTimeout(verifyEmail, checkDelay);
     };
 }
