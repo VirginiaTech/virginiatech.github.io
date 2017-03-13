@@ -27,7 +27,7 @@ function tempFunc() {
     var formEmail = document.querySelector("#email_field");
     var formUsername = document.querySelector("#username_field");
 
-    formData["vtEmail"] = formEmail.value;
+    formData["vtEmail"] = formEmail.value + "@vt.edu";
     formData["githubHandle"] = formUsername.value;
 
 
