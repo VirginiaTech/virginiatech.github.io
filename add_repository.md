@@ -13,7 +13,7 @@ Applying to add your Repository to the Organization is easy:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**2.** Input your GitHub Username  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**3.** Input the name of the Repository you want to add  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**4.** Briefly describe the Repository's function and purpose - mention if it is public or private  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**5.** Include your Repository's opensource lisence, if it has one  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**5.** Include your Repository's opensource license, if it has one  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**6.** Apply  
 The information you give will then be sent to the GitHub Coordinators for review. You should hear back from us with the result of your application within a week. If you have not heard back from us in over a week, please re-apply your Repository.
 

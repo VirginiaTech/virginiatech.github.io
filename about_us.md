@@ -7,7 +7,7 @@ permalink: /about_us
 
 The GitHub Organization was first started in the beginning of January, 2017. Undoubtedly, this 'GitHub Organization' idea is still very young and has a long way to go. In addition to providing a centralized code sharing location, we eventually plan to hold Git/GitHub Workshops, have one-on-one educational office hour sessions, invite guest speakers from the industry to talk about Git, and much more.
 
-At it's core, the VT GitHub Organization is meant to facilitate collaboration between Virginia Tech programming projects as well as increase the general profile of VT's CS endeavours. We want students, faculty, and staff to share their on-going projects through the GitHub Organization, whether they be research projects, hobby projects, or anthing in-between.
+At it's core, the VT GitHub Organization is meant to facilitate collaboration between Virginia Tech programming projects as well as increase the general profile of VT's CS endeavours. We want students, faculty, and staff to share their on-going projects through the GitHub Organization, whether they be research projects, hobby projects, or anything in-between.
 
 More information about how this organization got started can be found <a href="https://researchinformatics.lib.vt.edu/project/virginia-tech-github-organization">here</a>.
 

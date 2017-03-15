@@ -53,7 +53,7 @@ _Note: Verification emails will only be sent to @vt.edu email addresses._
 _Note: Before submitting an application, members should verify that their prospective repository meets the policies required by the VT GitHub Organization._
 
 #### **Q**: Can I add a repository that is private?
-**A**: Typically, no. The VT GitHub Organization is meant for public repositories. While still under construction, private repositories should be stored at [code.vt.edu](https://code.vt.edu){:target="_blank"}. However, there may be some expections to this rule.
+**A**: Typically, no. The VT GitHub Organization is meant for public repositories. While still under construction, private repositories should be stored at [code.vt.edu](https://code.vt.edu){:target="_blank"}. However, there may be some exceptions to this rule.
 
 #### **Q**: Am I required to provide an open-source software license for the repository I would like to add to the VT Organization?
 **A**: See this **[Licensing]({{site.baseurl}}licensing#LicensingFAQ)** section.
