@@ -33,6 +33,8 @@ Have questions? Contact us, at <github-g@vt.edu>.
 
 <b>Name</b> <font size="2.5rem"> (required) </font><br>
 <input class="rounded" name="name" placeholder="" id="name_field"><br><br>
+<b>Email</b> <font size="2.5rem"> (required) </font><br>
+<input class="rounded" name="email" placeholder="" id="email_field"><br><br>
 <b>GitHub Username</b> <font size="2.5rem"> (required) </font><br>
 <input class="rounded" name="github_username" placeholder="" id="username_field"><br><br>
 <b>Repository Name</b> <font size="2.5rem"> (required) </font><br>

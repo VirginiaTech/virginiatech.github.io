@@ -23,15 +23,15 @@ We want your feedback! Do you have a cool idea you think fits into what we're tr
     method="POST">
     <input type="hidden" name="_cc" value="" />
     <b>Name</b> <font size="2.5rem"> (required) </font><br>
-    <input class="rounded" type="text" name="name" placeholder="" required><br><br>
+    <input class="rounded" type="text" name="name" id="name" placeholder="" required><br><br>
     <b>Email</b> <font size="2.5rem"> (required) </font><br>
-    <input class="rounded" type="email" name="_replyto" placeholder="" required><br><br>
+    <input class="rounded" type="email" name="_replyto" id="email" placeholder="" required><br><br>
     <b>Subject</b> <font size="2.5rem"> (required) </font><br>
-    <input class="rounded" tpye="subject" name="subject" placeholder="" required><br><br>
-    <b>Message</b><br>
-    <textarea class="rounded" rows="4" cols="40" name="message" placeholder=""></textarea><br><br>
+    <input class="rounded" type="subject" name="subject" id="subject" placeholder="" required><br><br>
+    <b>Message</b><font size="2.5rem"> (required) </font><br>
+    <textarea class="rounded" rows="4" cols="40" name="message" id="messgae" placeholder="" required></textarea><br><br>
     <!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->
     <input type="submit" value="Send" disabled><br><br>
     <a style="text-decoration: none" class="" name="send_message" id="send_message">Temporarily Under Construction... Check back later!</a><br>  
 </form>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->

@@ -118,32 +118,47 @@ if(document.getElementById("email_field") != null){
             clearTimeout(searchEmailTimeout);
         }
 
-        searchEmailTimeout = setTimeout(verifyEmail, checkDelay);
+        var mustHaveAt = true;
+
+        if((window.location + "").includes("apply_to_organization")){
+            mustHaveAt = false;
+        }
+
+        searchEmailTimeout = setTimeout(verifyEmail.bind(null, mustHaveAt), checkDelay);
     };
 }
 
 var validEmail = false;
-function isValidEmail(mustHaveAt = false){
+function isValidEmail(mustHaveAt){
     verifyEmail(mustHaveAt);
     return validEmail;
 }
 
-function verifyEmail(mustHaveAt = false){
-    if(mustHaveAt){
-        if(formEmail.value.length <= 0 || !regEx.test(formEmail.value)){
-            document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
-            validEmail = false;
+function verifyEmail(mustHaveAt){
+    // console.log("Verifying email...");
+    // console.log("mustHaveAt: " + mustHaveAt);
+
+    if(formEmail.value.length == 0){
+        document.getElementById("email_field").style.backgroundColor= "";
+        validEmail = false
+    }
+    else{
+        if(mustHaveAt){
+            if(!regEx.test(formEmail.value)){
+                document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
+                validEmail = false;
+            }else{
+                document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
+                validEmail = true;
+            }
         }else{
-            // document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
-            validEmail = true;
-        }
-    }else{
-        if(formEmail.value.length <= 0 || regEx.test(formEmail.value)){
-            document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
-            validEmail = false;
-        }else{
-            document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
-            validEmail = true;
+            if(regEx.test(formEmail.value)){
+                document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
+                validEmail = false;
+            }else{
+                document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
+                validEmail = true;
+            }
         }
     }
 }
