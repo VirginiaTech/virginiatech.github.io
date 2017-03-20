@@ -107,7 +107,6 @@ function verifyUsername(inOrg = false) {
 
 var searchEmailTimeout;
 var lastEmailLength;
-var regEx = new RegExp(".*@.*");
 
 if(document.getElementById("email_field") != null){
     document.getElementById("email_field").onkeydown = function() {
@@ -118,51 +117,42 @@ if(document.getElementById("email_field") != null){
             clearTimeout(searchEmailTimeout);
         }
 
-        var mustHaveAt = true;
-
-        if((window.location + "").includes("apply_to_organization")){
-            mustHaveAt = false;
-        }
-
-        searchEmailTimeout = setTimeout(verifyEmail.bind(null, mustHaveAt), checkDelay);
+        searchEmailTimeout = setTimeout(isValidEmail, checkDelay);
     };
 }
 
-var validEmail = false;
-function isValidEmail(mustHaveAt){
-    verifyEmail(mustHaveAt);
-    return validEmail;
+function isValidEmail(){
+    var appendAtSign = false;
+
+    if((window.location + "").includes("apply_to_organization")){
+        appendAtSign = true;
+    }
+
+    email = formEmail.value;
+    if(appendAtSign){
+        email = email + "@vt.edu";
+    }
+    return isValidEmailAddress(email);
 }
 
-function verifyEmail(mustHaveAt){
-    // console.log("Verifying email...");
-    // console.log("mustHaveAt: " + mustHaveAt);
-
+function isValidEmailAddress(emailAddress) {
     if(formEmail.value.length == 0){
         document.getElementById("email_field").style.backgroundColor= "";
-        validEmail = false
+        return false
     }
-    else{
-        if(mustHaveAt){
-            if(!regEx.test(formEmail.value)){
-                document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
-                validEmail = false;
-            }else{
-                document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
-                validEmail = true;
-            }
-        }else{
-            if(regEx.test(formEmail.value)){
-                document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
-                validEmail = false;
-            }else{
-                document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
-                validEmail = true;
-            }
-        }
+    
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    var validEmail = pattern.test(emailAddress);
+    
+    if(validEmail){
+        document.getElementById("email_field").style.backgroundColor= "#e6ffe6";
+        validEmail = true;
+    }else{
+        document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
     }
-}
 
+    return validEmail;
+};
 
 // Functions below this comment are typically only used in the add_repository page
 var validName

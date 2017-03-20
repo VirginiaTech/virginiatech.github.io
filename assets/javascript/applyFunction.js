@@ -39,13 +39,15 @@ function applyToOrg() {
     */
     var jsonObj = JSON.stringify(formData);
 
-    if(!isValidEmail(true) && getUserVal() <= 0){
+    console.log(!isValidEmail());
+
+    if(!isValidEmail() && getUserVal() <= 0){
         apply_message.text = "Required credentials are invalid";
         document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
         apply_message.style.color = "red";
         apply_message.style.fontWeight = "900";
         return;
-    } else if(!isValidEmail(true)){
+    } else if(!isValidEmail()){
         apply_message.text = "Invalid @vt.edu email address";
         document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
         apply_message.style.color = "red";
