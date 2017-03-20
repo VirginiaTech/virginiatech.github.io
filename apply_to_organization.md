@@ -23,7 +23,7 @@ Have questions? Contact us, at <github-g@vt.edu>.
 {: style="text-align: center;"} 
 ---
 
-<b>Email</b> <font size="2.5rem"> (required) </font><br>
+<b>VT Email</b> <font size="2.5rem"> (required) </font><br>
 <input class="rounded" type="username" name="email_field" placeholder="" id="email_field">@vt.edu<br><br>
 <b>GitHub Username</b> <font size="2.5rem"> (required) </font><br>
 <input class="rounded" type="username" name="username" placeholder="" id="username_field"><br><br>	

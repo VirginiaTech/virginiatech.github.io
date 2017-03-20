@@ -24,7 +24,7 @@ We want your feedback! Do you have a cool idea you think fits into what we're tr
     <input type="hidden" name="_cc" value="" />
     <b>Name</b> <font size="2.5rem"> (required) </font><br>
     <input class="rounded" type="text" name="name" id="name" placeholder="" required><br><br>
-    <b>Email</b> <font size="2.5rem"> (required) </font><br>
+    <b>Contact Email</b> <font size="2.5rem"> (required) </font><br>
     <input class="rounded" type="email" name="_replyto" id="email" placeholder="" required><br><br>
     <b>Subject</b> <font size="2.5rem"> (required) </font><br>
     <input class="rounded" type="subject" name="subject" id="subject" placeholder="" required><br><br>
