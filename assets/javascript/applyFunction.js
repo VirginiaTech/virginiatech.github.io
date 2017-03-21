@@ -39,8 +39,6 @@ function applyToOrg() {
     */
     var jsonObj = JSON.stringify(formData);
 
-    console.log(!isValidEmail());
-
     if(!isValidEmail() && getUserVal() <= 0){
         apply_message.text = "Required credentials are invalid";
         document.getElementById("email_field").style.backgroundColor= "#ffb3b3";
