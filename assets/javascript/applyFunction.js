@@ -27,12 +27,12 @@ function applyToOrg() {
     var formEmail = document.querySelector("#email_field").value;
     var formUsername = document.querySelector("#username_field").value;
 
-    console.log(formEmail);
+    // console.log(formEmail);
 
     formData["vtEmail"] = formEmail + "@vt.edu";
     formData["githubHandle"] = formUsername;
 
-    console.log(formEmail);
+    // console.log(formEmail);
 
     /* Have jsonObj be in the following format
     {
@@ -72,13 +72,13 @@ function applyToOrg() {
             apply_message.style.color = "";
             apply_message.style.fontWeight = "900";
         } else if (gitHubReq.status === 404 || gitHubReq.status === 302) {
-            apply_message.text = "...";
+            apply_message.text = "Currently working on dynamic feedback -- Message most likely sent";
             apply_message.style.color = "grey";
             apply_message.style.fontWeight = "900";
 
             var verifyReq = new XMLHttpRequest();
             verifyReq.onload = function(jEvent){
-                // console.log(this);
+                console.log(this);
                 if(this.status === 200){
                     apply_message.text = "Verifcation Email Sent!";
                     apply_message.style.color = "green";
@@ -89,18 +89,24 @@ function applyToOrg() {
                     apply_message.style.color = "red";
                     apply_message.style.fontWeight = "900";    
                 }else{
-                    apply_message.text = "Something! " + this.status + "";
+                    apply_message.text = "Something broke: status error " + this.status +
+                                "Consider contacting us directly at github-g@vt.edu";
                     apply_message.style.color = "orange";
                     apply_message.style.fontWeight = "900";
                 }
             };
             verifyReq.open("POST", "https://vq6t7mxduh.execute-api.us-east-1.amazonaws.com/production/sendConfirmationEmail", true);
-            verifyReq.setRequestHeader("Accept", "1");
+            verifyReq.setRequestHeader("Accept", "application/json");
+            verifyReq.setRequestHeader("Content-Type", "application/json");
+            verifyReq.setRequestHeader("X-Amz-Date", "");
+            verifyReq.setRequestHeader("Authorization", "");
+            verifyReq.setRequestHeader("X-Api-Key", "");
+            verifyReq.setRequestHeader("X-Amz-Security-Token", "");
             verifyReq.send(jsonObj);
 
             // console.log("Given user: " + jsonObj + " is not a member.");
         } else {
-            apply_message.text = "Hmm... That shouldn't have happened... Consider contacting us, status code: " + gitHubReq.status;
+            apply_message.text = "Something broke: status error " + gitHubReq.status + "Consider contacting us directly at github-g@vt.edu";
             apply_message.style.color = "orange";
             apply_message.style.fontWeight = "900";
         }
