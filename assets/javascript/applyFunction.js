@@ -62,8 +62,7 @@ function applyToOrg() {
     }
     var gitHubReq = new XMLHttpRequest();
     gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + formUsername + queryString, true);
-    gitHubReq.setRequestHeader("Accept", "application/json");
-    gitHubReq.setRequestHeader("Content-Type", "application/json");
+    gitHubReq.setRequestHeader("Accept", "1");
     gitHubReq.onload = function(oEvent) {
         if (gitHubReq.status === 200) {
             // console.log("success");
