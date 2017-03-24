@@ -187,6 +187,7 @@ function awsCall(callType, jsonObj){
     }
 
 
+    verifyReq.withCredentials = true;
     verifyReq.open("POST", endPoint, true);
     verifyReq.setRequestHeader("Accept", "1");
     verifyReq.send(jsonObj);
