@@ -59,7 +59,7 @@ function sendContactReq(){
     // console.log(failedExtras);
 
     if(failedExtras.length == 0){
-        send_message.text = "...";
+        send_message.text = "Currently working on dynamic feedback -- Message most likely sent";
         send_message.style.color = "";
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
@@ -154,7 +154,37 @@ var CallTypeEnum = {
 }
 
 function awsCall(callType, jsonObj){
-    var verifyReq = new XMLHttpRequest();
+    send_message.text = "...";
+    send_message.style.color = "";
+    send_message.style.fontWeight = "900";
+
+    var endPoint = "";
+    switch(callType){
+        case CallTypeEnum.ADD_REPO:
+            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/add_repo";
+            break;
+        case CallTypeEnum.CONTACT_US:
+            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/contact_us";
+            break;
+        case CallTypeEnum.FEATURD_REPO:
+            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/feature_repo";
+            break;
+    }
+    var verifyReq = createCORSRequest("POST", endPoint);
+
+    if (!verifyReq) {
+        alert('CORS not supported');
+        return;
+    }
+
+    verifyReq.setRequestHeader("Content-Type", "text/plain");
+    verifyReq.setRequestHeader("Accept", "application/json");
+    verifyReq.setRequestHeader("Access-Control-Allow-Origin", "*");
+    verifyReq.setRequestHeader("X-Amz-Data", "");
+    verifyReq.setRequestHeader("Authorization", "");
+    verifyReq.setRequestHeader("X-Api-Key", "");
+    verifyReq.setRequestHeader("X-Amz-Security-Token", "");
+
     verifyReq.onload = function(jEvent){
         if(this.status === 200){
             send_message.text = "Verifcation Email Sent!";
@@ -171,28 +201,25 @@ function awsCall(callType, jsonObj){
             send_message.style.color = "orange";
             send_message.style.fontWeight = "900";
         }
+        console.log("testing");
     };
 
-    var endPoint = "";
-    switch(callType){
-        case CallTypeEnum.ADD_REPO:
-            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/add_repo";
-            break;
-        case CallTypeEnum.CONTACT_US:
-            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/contact_us";
-            break;
-        case CallTypeEnum.FEATURD_REPO:
-            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/feature_repo";
-            break;
-    }
-
-
-    verifyReq.withCredentials = true;
-    verifyReq.open("POST", endPoint, true);
-    verifyReq.setRequestHeader("Accept", "1");
+    console.log(verifyReq);
     verifyReq.send(jsonObj);
+}
 
-    send_message.text = "...";
-    send_message.style.color = "";
-    send_message.style.fontWeight = "900";
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
 }

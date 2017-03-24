@@ -64,6 +64,7 @@ function applyToOrg() {
     gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + formUsername + queryString, true);
     gitHubReq.setRequestHeader("Accept", "1");
     gitHubReq.onload = function(oEvent) {
+        console.log("Hello")
         if (gitHubReq.status === 200) {
             // console.log("success");
         } else if (gitHubReq.status === 204) {
