@@ -107,6 +107,7 @@ function sendFeaturedReq(){
         send_message.text = "...";
         send_message.style.backgroundColor = "";
         var formData = {};
+        formData["userName"] = document.querySelector("#name_field").value;
         formData["repoName"] = document.querySelector("#repository_field").value;
         formData["userEmail"] = document.querySelector("#email_field").value;
         formData["description"] =  document.querySelector("#description_field").value;
