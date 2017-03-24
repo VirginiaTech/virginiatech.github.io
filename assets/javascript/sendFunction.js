@@ -59,8 +59,6 @@ function sendContactReq(){
     // console.log(failedExtras);
 
     if(failedExtras.length == 0){
-        send_message.text = "Currently working on dynamic feedback -- Message most likely sent";
-        send_message.style.color = "";
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
         formData["userEmail"] = document.querySelector("#email_field").value;
@@ -104,7 +102,7 @@ function sendFeaturedReq(){
         send_message.style.color = "red";
         send_message.style.fontWeight = "900";
     }else if(failedExtras.length == 0){
-        send_message.text = "...";
+        send_message.text = "Currently working on dynamic feedback -- Message most likely sent";
         send_message.style.backgroundColor = "";
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
@@ -154,7 +152,7 @@ var CallTypeEnum = {
 }
 
 function awsCall(callType, jsonObj){
-    send_message.text = "...";
+    send_message.text = "Currently working on dynamic feedback -- Message most likely sent";;
     send_message.style.color = "";
     send_message.style.fontWeight = "900";
 
