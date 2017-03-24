@@ -1,8 +1,8 @@
 
 // This is in the "Add Repository" section
-function sendRepoReq(){
+function sendAddRepoReq(){
 	var userVal = getUserVal();
-    var failedExtras = verifyExtras();
+    var failedExtras = verifyAddExtras();
     verifyUsername(true);
 
     if(userVal <= 0){
@@ -44,6 +44,8 @@ function sendRepoReq(){
     		case "D":
     	    	send_message.text = "Missing Description field";
     	    	break;
+            case "E":
+                send_message.text = "Missing Contact Email field";
     	}
         send_message.style.color = "red";
         send_message.style.fontWeight = "900";
@@ -57,7 +59,7 @@ function sendContactReq(){
     console.log(failedExtras);
 
     if(failedExtras.length == 0){
-        send_message.text = "";
+        send_message.text = "...";
         send_message.style.color = "";
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
@@ -93,24 +95,28 @@ function sendContactReq(){
 }
 
 function sendFeaturedReq(){
+    console.log("Featured Req");
     var failedExtras = verifyFeaturedExtras();
+    console.log(failedExtras);
 
     if(failedExtras.length > 1){
         send_message.text = "Required credentials are missing";
         send_message.style.color = "red";
         send_message.style.fontWeight = "900";
     }else if(failedExtras.length == 0){
+        send_message.text = "...";
+        send_message.style.backgroundColor = "";
         var formData = {};
-        formData["email"] = document.querySelector("#repository_field").value;
-        formData["repository"] = document.querySelector("#email_field").value;
+        formData["repoName"] = document.querySelector("#repository_field").value;
+        formData["userEmail"] = document.querySelector("#email_field").value;
         formData["description"] =  document.querySelector("#description_field").value;
         formData["license"] = document.querySelector("#license_field").value;
         formData["notes"] = document.querySelector("#notes_field").value;
 
         /* Have jsonObj be in the following format
         {
-            email: "val@vt.edu",
-            repository: "val",
+            userEmail: "val@vt.edu",
+            repoName: "val",
             description: "val",
             license: "val",
             notes: "val"
@@ -118,9 +124,7 @@ function sendFeaturedReq(){
         */
         var jsonObj = JSON.stringify(formData);
 
-        
-
-        // Do the sending of the Featured Request here
+        awsCall(CallTypeEnum.FEATURD_REPO, jsonObj);
     }
     else{
         switch(failedExtras[0]){
@@ -133,12 +137,13 @@ function sendFeaturedReq(){
             case "E":
                 send_message.text = "Missing Contact Email field";
                 break;
+            case "N":
+                send_message.text = "Missing Name field";
+                break;
         }
         send_message.style.color = "red";
         send_message.style.fontWeight = "900";
     }
-
-    console.log(failedExtras.length);
 }
 
 var CallTypeEnum = {

@@ -125,13 +125,13 @@ if(document.getElementById("email_field") != null){
             clearTimeout(searchEmailTimeout);
         }
 
-        searchEmailTimeout = setTimeout(isValidEmail, checkDelay);
+        searchEmailTimeout = setTimeout(isValidEmail.bind(null, true), checkDelay);
     };
 }
 
-function isValidEmail(){
+// 
+function isValidEmail(allowEmpty){
     var appendAtSign = false;
-
     if((window.location + "").includes("apply_to_organization")){
         appendAtSign = true;
     }
@@ -140,23 +140,28 @@ function isValidEmail(){
     if(appendAtSign){
         email = email + "@vt.edu";
     }
-    return isValidEmailAddress(email);
+    return isValidEmailAddress(email, allowEmpty);
 }
 
-function isValidEmailAddress(emailAddress) {
-    if(formEmail.value.length == 0){
+function isValidEmailAddress(emailAddress, allowEmpty) {
+    // console.log("Checking email, allowEmpty: " + allowEmpty);
+
+    if(allowEmpty && formEmail.value.length == 0){
+        // console.log("Setting color to none");
         document.getElementById("email_field").style.backgroundColor= ColorEnum.NONE;
-        return false
+        return false;
+    }
+    else if(!allowEmpty && formEmail.value.length == 0){
+        // console.log("Setting color to red");
+        document.getElementById("email_field").style.backgroundColor = ColorEnum.LIGHT_RED;
+        return false;
     }
     
     var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
     var validEmail = pattern.test(emailAddress);
-
-    console.log("Testing Email"); // Remove
     
     if(validEmail){
         document.getElementById("email_field").style.backgroundColor= ColorEnum.LIGHT_GREEN;
-        validEmail = true;
     }else{
         document.getElementById("email_field").style.backgroundColor= ColorEnum.LIGHT_RED;
     }
@@ -213,9 +218,12 @@ function verifyDescription(){
     }
 }
 
-function verifyExtras(){
+function verifyAddExtras(){
     var extras = [];
 
+    if(!isValidEmail(false)){
+        extras.push("E");
+    }
     if(!isValidName()){
         extras.push("N");
     }
@@ -255,7 +263,7 @@ if((window.location + "").includes("add_repository")){
 function verifyContactExtras(){
     var extras = [];
 
-    if(!isValidEmail()){
+    if(!isValidEmail(false)){
         extras.push("E");
     }
     if(!isValidSubject()){
@@ -280,6 +288,7 @@ function isValidSubject(){
 function verifySubject(){
     if(formSubject.value.length > 0){
         validSubject = true;
+        formSubject.style.backgroundColor = ColorEnum.NONE;
     }else{
         validSubject = false;
         formSubject.style.backgroundColor = ColorEnum.LIGHT_RED;
@@ -295,6 +304,7 @@ function isValidMessage(){
 function verifyMessage(){
     if(formMessage.value.length > 0){
         validMessage = true;
+        formMessage.style.backgroundColor = ColorEnum.NONE;
     }else{
         validMessage = false;
         formMessage.style.backgroundColor = ColorEnum.LIGHT_RED;
@@ -306,7 +316,10 @@ function verifyMessage(){
 function verifyFeaturedExtras(){
     var extras = [];
 
-    if(!isValidEmail()){
+    if(!isValidName()){
+        extras.push("N");
+    }
+    if(!isValidEmail(false)){
         extras.push("E");
     }
     if(!isValidRepoName()){
@@ -321,16 +334,17 @@ function verifyFeaturedExtras(){
 
 
 if((window.location + "").includes("featured_repos")){
-    document.getElementById("email_field").onkeydown = function() {
-        if(formEmail.value.length > 0 &&
-            document.getElementById("email_field").style.backgroundColor != ColorEnum.NONE){
-            document.getElementById("email_field").style.backgroundColor = ColorEnum.NONE;
+    document.getElementById("name_field").onkeydown = function() {
+        if(formRepoName.value.length > 0 &&
+            document.getElementById("name_field").style.backgroundColor != ColorEnum.NONE){
+            console.log("Setting name_field color to NONE");
+            document.getElementById("name_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
-
     document.getElementById("repository_field").onkeydown = function() {
         if(formRepoName.value.length > 0 &&
             document.getElementById("repository_field").style.backgroundColor != ColorEnum.NONE){
+            console.log("Setting repository_field color to NONE");
             document.getElementById("repository_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
@@ -338,6 +352,7 @@ if((window.location + "").includes("featured_repos")){
     document.getElementById("description_field").onkeydown = function() {
         if(formDescription.value.length > 0 &&
             document.getElementById("description_field").style.backgroundColor != ColorEnum.NONE){
+            console.log("Setting description_field color to NONE");
             document.getElementById("description_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
