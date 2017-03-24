@@ -27,9 +27,12 @@ function applyToOrg() {
     var formEmail = document.querySelector("#email_field").value;
     var formUsername = document.querySelector("#username_field").value;
 
-    formData["vtEmail"] = formEmail.value + "@vt.edu";
-    formData["githubHandle"] = formUsername.value;
+    console.log(formEmail);
 
+    formData["vtEmail"] = formEmail + "@vt.edu";
+    formData["githubHandle"] = formUsername;
+
+    console.log(formEmail);
 
     /* Have jsonObj be in the following format
     {
@@ -58,13 +61,14 @@ function applyToOrg() {
         return;
     }
     var gitHubReq = new XMLHttpRequest();
-    gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + formUsername.value + queryString, true);
-    gitHubReq.setRequestHeader("Accept", "1");
+    gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + formUsername + queryString, true);
+    gitHubReq.setRequestHeader("Accept", "application/json");
+    gitHubReq.setRequestHeader("Content-Type", "application/json");
     gitHubReq.onload = function(oEvent) {
         if (gitHubReq.status === 200) {
             // console.log("success");
         } else if (gitHubReq.status === 204) {
-            apply_message.text = "User \"" + formUsername.value + "\" is already a member.";
+            apply_message.text = "User \"" + formUsername + "\" is already a member.";
             apply_message.style.color = "";
             apply_message.style.fontWeight = "900";
         } else if (gitHubReq.status === 404 || gitHubReq.status === 302) {
