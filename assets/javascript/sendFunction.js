@@ -56,7 +56,7 @@ function sendAddRepoReq(){
 function sendContactReq(){
     var failedExtras = verifyContactExtras();
     
-    console.log(failedExtras);
+    // console.log(failedExtras);
 
     if(failedExtras.length == 0){
         send_message.text = "...";
@@ -95,9 +95,9 @@ function sendContactReq(){
 }
 
 function sendFeaturedReq(){
-    console.log("Featured Req");
+    // console.log("Featured Req");
     var failedExtras = verifyFeaturedExtras();
-    console.log(failedExtras);
+    // console.log(failedExtras);
 
     if(failedExtras.length > 1){
         send_message.text = "Required credentials are missing";

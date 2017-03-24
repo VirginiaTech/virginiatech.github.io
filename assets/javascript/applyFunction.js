@@ -62,7 +62,7 @@ function applyToOrg() {
     gitHubReq.setRequestHeader("Accept", "1");
     gitHubReq.onload = function(oEvent) {
         if (gitHubReq.status === 200) {
-            console.log("success");
+            // console.log("success");
         } else if (gitHubReq.status === 204) {
             apply_message.text = "User \"" + formUsername.value + "\" is already a member.";
             apply_message.style.color = "";
@@ -74,7 +74,7 @@ function applyToOrg() {
 
             var verifyReq = new XMLHttpRequest();
             verifyReq.onload = function(jEvent){
-                console.log(this);
+                // console.log(this);
                 if(this.status === 200){
                     apply_message.text = "Verifcation Email Sent!";
                     apply_message.style.color = "green";
@@ -94,7 +94,7 @@ function applyToOrg() {
             verifyReq.setRequestHeader("Accept", "1");
             verifyReq.send(jsonObj);
 
-            console.log("Given user: " + jsonObj + " is not a member.");
+            // console.log("Given user: " + jsonObj + " is not a member.");
         } else {
             apply_message.text = "Hmm... That shouldn't have happened... Consider contacting us, status code: " + gitHubReq.status;
             apply_message.style.color = "orange";

@@ -337,14 +337,14 @@ if((window.location + "").includes("featured_repos")){
     document.getElementById("name_field").onkeydown = function() {
         if(formRepoName.value.length > 0 &&
             document.getElementById("name_field").style.backgroundColor != ColorEnum.NONE){
-            console.log("Setting name_field color to NONE");
+            // console.log("Setting name_field color to NONE");
             document.getElementById("name_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
     document.getElementById("repository_field").onkeydown = function() {
         if(formRepoName.value.length > 0 &&
             document.getElementById("repository_field").style.backgroundColor != ColorEnum.NONE){
-            console.log("Setting repository_field color to NONE");
+            // console.log("Setting repository_field color to NONE");
             document.getElementById("repository_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
@@ -352,7 +352,7 @@ if((window.location + "").includes("featured_repos")){
     document.getElementById("description_field").onkeydown = function() {
         if(formDescription.value.length > 0 &&
             document.getElementById("description_field").style.backgroundColor != ColorEnum.NONE){
-            console.log("Setting description_field color to NONE");
+            // console.log("Setting description_field color to NONE");
             document.getElementById("description_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
