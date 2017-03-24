@@ -1,4 +1,5 @@
 
+// This is in the "Add Repository" section
 function sendRepoReq(){
 	var userVal = getUserVal();
     var failedExtras = verifyExtras();
@@ -12,7 +13,17 @@ function sendRepoReq(){
     	send_message.text = "";
     	send_message.style.color = "";
 
-    	// Do the sending of the Repository Request Here
+        var formData = {};
+        formData["userName"] = document.querySelector("#name_field").value;
+        formData["userEmail"] = document.querySelector("#email_field").value;
+        formData["gitHubName"] = document.querySelector("#username_field").value;
+        formData["repoName"] = document.querySelector("#repository_field").value;
+        formData["description"] = document.querySelector("#description_field").value;
+        formData["license"] = document.querySelector("#license_field").value;
+
+        var jsonObj = JSON.stringify(formData);
+
+        awsCall(CallTypeEnum.ADD_REPO, jsonObj);
     }else if(failedExtras.length >= 1 && userVal <= 0 || failedExtras.length > 1){
     	send_message.text = "Required credentials are missing";
         send_message.style.color = "red";
@@ -39,6 +50,48 @@ function sendRepoReq(){
     }
 }
 
+// This is the "About Us - Contact Us" section
+function sendContactReq(){
+    var failedExtras = verifyContactExtras();
+    
+    console.log(failedExtras);
+
+    if(failedExtras.length == 0){
+        send_message.text = "";
+        send_message.style.color = "";
+        var formData = {};
+        formData["userName"] = document.querySelector("#name_field").value;
+        formData["userEmail"] = document.querySelector("#email_field").value;
+        formData["userSubject"] =  document.querySelector("#subject_field").value;
+        formData["userMessage"] = document.querySelector("#message_field").value;
+
+        var jsonObj = JSON.stringify(formData);
+
+        awsCall(CallTypeEnum.CONTACT_US, jsonObj);
+    }else if(failedExtras.length > 1){
+        send_message.text = "Required credentials are missing";
+        send_message.style.color = "red";
+        send_message.style.fontWeight = "900";
+    }else{
+        switch(failedExtras[0]){
+            case "N":
+                send_message.text = "Missing Name field";
+                break;
+            case "E":
+                send_message.text = "Missing Repository Name field";
+                break;
+            case "S":
+                send_message.text = "Missing Subject field";
+                break;
+            case "M":
+                send_message.text = "Missing Message field";
+                break;
+        }
+        send_message.style.color = "red";
+        send_message.style.fontWeight = "900";
+    }
+}
+
 function sendFeaturedReq(){
     var failedExtras = verifyFeaturedExtras();
 
@@ -48,22 +101,19 @@ function sendFeaturedReq(){
         send_message.style.fontWeight = "900";
     }else if(failedExtras.length == 0){
         var formData = {};
-        var formRepository = document.querySelector("#repository_field");
-        var formEmail = document.querySelector("#email_field");
-        var formDescription =  document.querySelector("#description_field");
-        var formLicense = document.querySelector("#license_field");
-        var formNotes = document.querySelector("#notes_field");
-
-        formData["email"] = formEmail.value;
-        formData["repository"] = formRepository.value;
-        formData["description"] = formDescription.value;
-        formData["license"] = formLicense.value;
-        formData["notes"] = formNotes.value;
+        formData["email"] = document.querySelector("#repository_field").value;
+        formData["repository"] = document.querySelector("#email_field").value;
+        formData["description"] =  document.querySelector("#description_field").value;
+        formData["license"] = document.querySelector("#license_field").value;
+        formData["notes"] = document.querySelector("#notes_field").value;
 
         /* Have jsonObj be in the following format
         {
-            vtEmail: "email@vt.edu",
-            githubHandle: "username"
+            email: "val@vt.edu",
+            repository: "val",
+            description: "val",
+            license: "val",
+            notes: "val"
         }
         */
         var jsonObj = JSON.stringify(formData);
@@ -89,4 +139,53 @@ function sendFeaturedReq(){
     }
 
     console.log(failedExtras.length);
+}
+
+var CallTypeEnum = {
+    ADD_REPO: 1,
+    CONTACT_US: 2,
+    FEATURD_REPO: 3
+}
+
+function awsCall(callType, jsonObj){
+    var verifyReq = new XMLHttpRequest();
+    verifyReq.onload = function(jEvent){
+        if(this.status === 200){
+            send_message.text = "Verifcation Email Sent!";
+            send_message.style.color = "green";
+            send_message.style.fontWeight = "900";
+        }
+        else if(this.status === 400){
+            send_message.text = "Application request not sent. - 400 server error";
+            send_message.style.color = "red";
+            send_message.style.fontWeight = "900";    
+        }else{
+            send_message.text = "Something broke: status error " + this.status +
+                                "<br>Consider contacting us directly at github-g@vt.edu";
+            send_message.style.color = "orange";
+            send_message.style.fontWeight = "900";
+        }
+    };
+
+    var endPoint = "";
+    switch(callType){
+        case CallTypeEnum.ADD_REPO:
+            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/add_repo";
+            break;
+        case CallTypeEnum.CONTACT_US:
+            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/contact_us";
+            break;
+        case CallTypeEnum.FEATURD_REPO:
+            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/feature_repo";
+            break;
+    }
+
+
+    verifyReq.open("POST", endPoint, true);
+    verifyReq.setRequestHeader("Accept", "1");
+    verifyReq.send(jsonObj);
+
+    send_message.text = "...";
+    send_message.style.color = "";
+    send_message.style.fontWeight = "900";
 }

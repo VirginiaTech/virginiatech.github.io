@@ -19,19 +19,23 @@ We want your feedback! Do you have a cool idea you think fits into what we're tr
 {:style="text-align: center;"}
 ---
 
-<form action="https://formspree.io/matt-teddy-test-group@googlegroups.com"
-    method="POST">
-    <input type="hidden" name="_cc" value="" />
-    <b>Name</b> <font size="2.5rem"> (required) </font><br>
-    <input class="rounded" type="text" name="name" id="name" placeholder="" required><br><br>
-    <b>Contact Email</b> <font size="2.5rem"> (required) </font><br>
-    <input class="rounded" type="email" name="_replyto" id="email" placeholder="" required><br><br>
-    <b>Subject</b> <font size="2.5rem"> (required) </font><br>
-    <input class="rounded" type="subject" name="subject" id="subject" placeholder="" required><br><br>
-    <b>Message</b><font size="2.5rem"> (required) </font><br>
-    <textarea class="rounded" rows="4" cols="40" name="message" id="messgae" placeholder="" required></textarea><br><br>
-    <!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->
-    <input type="submit" value="Send" disabled><br><br>
-    <a style="text-decoration: none" class="" name="send_message" id="send_message">Temporarily Under Construction... Check back later!</a><br>  
-</form>
+<input type="hidden" name="_cc" value="" />
+<b>Name</b> <font size="2.5rem"> (required) </font><br>
+<input class="rounded" type="text" name="name" id="name_field" placeholder="" required><br><br>
+<b>Contact Email</b> <font size="2.5rem"> (required) </font><br>
+<input class="rounded" type="email" name="_replyto" id="email_field" placeholder="" required><br><br>
+<b>Subject</b> <font size="2.5rem"> (required) </font><br>
+<input class="rounded" type="subject" name="subject" id="subject_field" placeholder="" required><br><br>
+<b>Message</b><font size="2.5rem"> (required) </font><br>
+<textarea class="rounded" rows="4" cols="40" name="message" id="message_field" placeholder="" required></textarea><br><br>
+<!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->
+<input type="submit" value="Send" onclick="sendContactReq()"><br><br>
+<a style="text-decoration: none" class="" name="send_message" id="send_message"></a><br>  
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/javascript/verifyApplyFields.js"></script>
+<script type="text/javascript" src="assets/javascript/sendFunction.js"></script>
 <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->

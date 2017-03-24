@@ -24,8 +24,8 @@ function applyToOrg() {
     var apply_message = document.getElementById("apply_message");
 
     var formData = {};
-    var formEmail = document.querySelector("#email_field");
-    var formUsername = document.querySelector("#username_field");
+    var formEmail = document.querySelector("#email_field").value;
+    var formUsername = document.querySelector("#username_field").value;
 
     formData["vtEmail"] = formEmail.value + "@vt.edu";
     formData["githubHandle"] = formUsername.value;
