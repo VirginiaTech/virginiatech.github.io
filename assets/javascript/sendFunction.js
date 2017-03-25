@@ -174,13 +174,8 @@ function awsCall(callType, jsonObj){
 
     var messages = createOnLoadMessages(callType);
 
-    // verifyReq.setRequestHeader("Content-Type", "text/plain");
+    verifyReq.setRequestHeader("Content-Type", "application/json");
     // verifyReq.setRequestHeader("Accept", "application/json");
-    // verifyReq.setRequestHeader("Access-Control-Allow-Origin", "*");
-    // verifyReq.setRequestHeader("X-Amz-Data", "");
-    // verifyReq.setRequestHeader("Authorization", "");
-    // verifyReq.setRequestHeader("X-Api-Key", "");
-    // verifyReq.setRequestHeader("X-Amz-Security-Token", "");
 
     verifyReq.onload = function(jEvent){
         if(this.status === 200){

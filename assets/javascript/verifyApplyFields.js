@@ -333,27 +333,48 @@ function verifyFeaturedExtras(){
 }
 
 
-if((window.location + "").includes("featured_repos")){
-    document.getElementById("name_field").onkeydown = function() {
-        if(formRepoName.value.length > 0 &&
+if(document.getElementById("name_field") != null){
+    document.getElementById("name_field").onkeyup = function() {
+        if(formName.value.length > 0 &&
             document.getElementById("name_field").style.backgroundColor != ColorEnum.NONE){
             // console.log("Setting name_field color to NONE");
             document.getElementById("name_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
-    document.getElementById("repository_field").onkeydown = function() {
+}
+if(document.getElementById("repository_field") != null){
+    document.getElementById("repository_field").onkeyup = function() {
         if(formRepoName.value.length > 0 &&
             document.getElementById("repository_field").style.backgroundColor != ColorEnum.NONE){
             // console.log("Setting repository_field color to NONE");
             document.getElementById("repository_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
-
-    document.getElementById("description_field").onkeydown = function() {
+}
+if(document.getElementById("description_field") != null){
+    document.getElementById("description_field").onkeyup = function() {
         if(formDescription.value.length > 0 &&
             document.getElementById("description_field").style.backgroundColor != ColorEnum.NONE){
             // console.log("Setting description_field color to NONE");
             document.getElementById("description_field").style.backgroundColor = ColorEnum.NONE;
+        }
+    };
+}
+if(document.getElementById("message_field") != null){
+    document.getElementById("message_field").onkeyup = function() {
+        if(formMessage.value.length > 0 &&
+            document.getElementById("message_field").style.backgroundColor != ColorEnum.NONE){
+            // console.log("Setting message_field color to NONE");
+            document.getElementById("message_field").style.backgroundColor = ColorEnum.NONE;
+        }
+    };
+}
+if(document.getElementById("subject_field") != null){
+    document.getElementById("subject_field").onkeyup = function() {
+        if(formSubject.value.length > 0 &&
+            document.getElementById("subject_field").style.backgroundColor != ColorEnum.NONE){
+            // console.log("Setting subject_field color to NONE");
+            document.getElementById("subject_field").style.backgroundColor = ColorEnum.NONE;
         }
     };
 }

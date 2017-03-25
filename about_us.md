@@ -19,15 +19,14 @@ We want your feedback! Do you have a cool idea you think fits into what we're tr
 {:style="text-align: center;"}
 ---
 
-<input type="hidden" name="_cc" value="" />
 <b>Name</b> <font size="2.5rem"> (required) </font><br>
-<input class="rounded" type="text" name="name" id="name_field" placeholder="" required><br><br>
+<input class="rounded" name="name" id="name_field" placeholder=""><br><br>
 <b>Contact Email</b> <font size="2.5rem"> (required) </font><br>
-<input class="rounded" type="email" name="_replyto" id="email_field" placeholder="" required><br><br>
+<input class="rounded" name="_replyto" id="email_field" placeholder=""><br><br>
 <b>Subject</b> <font size="2.5rem"> (required) </font><br>
-<input class="rounded" type="subject" name="subject" id="subject_field" placeholder="" required><br><br>
+<input class="rounded" name="subject" id="subject_field" placeholder=""><br><br>
 <b>Message</b><font size="2.5rem"> (required) </font><br>
-<textarea class="rounded" rows="4" cols="40" name="message" id="message_field" placeholder="" required></textarea>
+<textarea class="rounded" rows="4" cols="40" name="message" id="message_field" placeholder=""></textarea>
 <!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->
 <input type="submit" value="Send" onclick="sendContactReq()"><br><br>
 <a style="text-decoration: none" class="" name="send_message" id="send_message"></a><br>  
