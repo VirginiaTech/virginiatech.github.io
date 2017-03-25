@@ -28,8 +28,8 @@ Have questions? Contact us, at <github-g@vt.edu>.
 <b>GitHub Username</b> <font size="2.5rem"> (required) </font><br>
 <input class="rounded" type="username" name="username" placeholder="" id="username_field"><br><br>	
 <!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->
-<input type="submit" value="Apply" onclick="applyToOrg();"><br><br>
-<a style="text-decoration: none" class="" name="apply_message" id="apply_message"><a/><br>
+<input type="submit" value="Apply" onclick="applyToOrg();" disabled><br><br>
+<a style="text-decoration: none" class="" name="apply_message" id="apply_message">Button temporarily out of service -- Contact directly for invitation<a/><br>
 
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
