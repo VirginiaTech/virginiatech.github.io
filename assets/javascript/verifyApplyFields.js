@@ -39,7 +39,7 @@ var userVal = 0;
 var searchUsernameTimeout;
 var lastUsernameLength;
 if(document.getElementById("username_field") != null){
-    document.getElementById("username_field").onkeydown = function() {
+    document.getElementById("username_field").onkeyup = function() {
         if(document.getElementById("username_field").style.backgroundColor!= ColorEnum.NONE){
             document.getElementById("username_field").style.backgroundColor= ColorEnum.NONE;
         }
@@ -117,7 +117,7 @@ var searchEmailTimeout;
 var lastEmailLength;
 
 if(document.getElementById("email_field") != null){
-    document.getElementById("email_field").onkeydown = function() {
+    document.getElementById("email_field").onkeyup = function() {
         if(document.getElementById("email_field").style.backgroundColor!= ColorEnum.NONE){
             document.getElementById("email_field").style.backgroundColor= ColorEnum.NONE;
         }
@@ -129,7 +129,7 @@ if(document.getElementById("email_field") != null){
     };
 }
 
-// 
+
 function isValidEmail(allowEmpty){
     var appendAtSign = false;
     if((window.location + "").includes("apply_to_organization")){
@@ -234,29 +234,6 @@ function verifyAddExtras(){
         extras.push("D");
     }
     return extras;
-}
-
-if((window.location + "").includes("add_repository")){
-    document.getElementById("name_field").onkeydown = function() {
-        if(formName.value.length > 0 &&
-            document.getElementById("name_field").style.backgroundColor != ColorEnum.NONE){
-            document.getElementById("name_field").style.backgroundColor = ColorEnum.NONE;
-        }
-    };
-
-    document.getElementById("repository_field").onkeydown = function() {
-        if(formRepoName.value.length > 0 &&
-            document.getElementById("repository_field").style.backgroundColor != ColorEnum.NONE){
-            document.getElementById("repository_field").style.backgroundColor = ColorEnum.NONE;
-        }
-    };
-
-    document.getElementById("description_field").onkeydown = function() {
-        if(formDescription.value.length > 0 &&
-            document.getElementById("description_field").style.backgroundColor != ColorEnum.NONE){
-            document.getElementById("description_field").style.backgroundColor = ColorEnum.NONE;
-        }
-    };
 }
 
 // Functions below this comment are typically only used in the contact_us page
