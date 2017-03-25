@@ -71,7 +71,7 @@ function applyToOrg() {
             apply_message.style.color = "";
             apply_message.style.fontWeight = "900";
         } else if (gitHubReq.status === 404 || gitHubReq.status === 302) {
-            apply_message.text = "Currently working on dynamic feedback -- Message most likely sent";
+            apply_message.text = "...";
             apply_message.style.color = "grey";
             apply_message.style.fontWeight = "900";
 

@@ -10,9 +10,6 @@ function sendAddRepoReq(){
     }
 
     if(failedExtras.length == 0 && userVal > 0){
-    	send_message.text = "";
-    	send_message.style.color = "";
-
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
         formData["userEmail"] = document.querySelector("#email_field").value;
@@ -104,8 +101,6 @@ function sendFeaturedReq(){
         send_message.style.color = "red";
         send_message.style.fontWeight = "900";
     }else if(failedExtras.length == 0){
-        send_message.text = "Currently working on dynamic feedback -- Message most likely sent";
-        send_message.style.backgroundColor = "";
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
         formData["repoName"] = document.querySelector("#repository_field").value;
@@ -154,7 +149,7 @@ var CallTypeEnum = {
 }
 
 function awsCall(callType, jsonObj){
-    send_message.text = "Currently working on dynamic feedback -- Message most likely sent";;
+    send_message.text = "...";
     send_message.style.color = "";
     send_message.style.fontWeight = "900";
 
@@ -177,6 +172,8 @@ function awsCall(callType, jsonObj){
         return;
     }
 
+    var messages = createOnLoadMessages(callType);
+
     // verifyReq.setRequestHeader("Content-Type", "text/plain");
     // verifyReq.setRequestHeader("Accept", "application/json");
     // verifyReq.setRequestHeader("Access-Control-Allow-Origin", "*");
@@ -187,12 +184,12 @@ function awsCall(callType, jsonObj){
 
     verifyReq.onload = function(jEvent){
         if(this.status === 200){
-            send_message.text = "Verifcation Email Sent!";
+            send_message.text = messages[0];
             send_message.style.color = "green";
             send_message.style.fontWeight = "900";
         }
         else if(this.status === 400){
-            send_message.text = "Application request not sent. - 400 server error";
+            send_message.text = messages[1];
             send_message.style.color = "red";
             send_message.style.fontWeight = "900";    
         }else{
@@ -201,7 +198,7 @@ function awsCall(callType, jsonObj){
             send_message.style.color = "orange";
             send_message.style.fontWeight = "900";
         }
-        console.log("testing");
+        // console.log("testing");
     };
 
     console.log(verifyReq);
@@ -222,4 +219,25 @@ function createCORSRequest(method, url) {
     xhr = null;
   }
   return xhr;
+}
+
+function createOnLoadMessages(callType){
+    var messages = [];
+
+    switch(callType){
+        case CallTypeEnum.ADD_REPO:
+            messages.push("Add Repository request sent!");
+            messages.push("Add Repository request failed to send -- 404 error");
+            break;
+        case CallTypeEnum.CONTACT_US:
+            messages.push("Contact email sent!");
+            messages.push("Contact email failed to send -- 404 error");
+            break;
+        case CallTypeEnum.FEATURD_REPO:
+            messages.push("Featured Repository application sent!");
+            messages.push("Featured Repository application failed to send -- 404 error");
+            break;
+    }
+
+    return messages;
 }
