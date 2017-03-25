@@ -77,7 +77,7 @@ function applyToOrg() {
 
             var verifyReq = new XMLHttpRequest();
             verifyReq.onload = function(jEvent){
-                console.log(this);
+                // console.log(this);
                 if(this.status === 200){
                     apply_message.text = "Verifcation Email Sent!";
                     apply_message.style.color = "green";
@@ -102,7 +102,7 @@ function applyToOrg() {
             // verifyReq.setRequestHeader("X-Api-Key", "");
             // verifyReq.setRequestHeader("X-Amz-Security-Token", "");
             // console.log("Sending...");
-            console.log(jsonObj);
+            // console.log(jsonObj);
             verifyReq.send(jsonObj);
 
             // console.log("Given user: " + jsonObj + " is not a member.");

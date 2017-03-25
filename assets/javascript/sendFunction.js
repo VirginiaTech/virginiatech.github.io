@@ -20,7 +20,7 @@ function sendAddRepoReq(){
 
         var jsonObj = JSON.stringify(formData);
 
-        console.log(jsonObj);
+        // console.log(jsonObj);
 
         awsCall(CallTypeEnum.ADD_REPO, jsonObj);
     }else if(failedExtras.length >= 1 && userVal <= 0 || failedExtras.length > 1){
@@ -196,7 +196,7 @@ function awsCall(callType, jsonObj){
         // console.log("testing");
     };
 
-    console.log(verifyReq);
+    // console.log(verifyReq);
     verifyReq.send(jsonObj);
 }
 
