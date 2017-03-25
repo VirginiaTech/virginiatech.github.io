@@ -23,6 +23,8 @@ function sendAddRepoReq(){
 
         var jsonObj = JSON.stringify(formData);
 
+        console.log(jsonObj);
+
         awsCall(CallTypeEnum.ADD_REPO, jsonObj);
     }else if(failedExtras.length >= 1 && userVal <= 0 || failedExtras.length > 1){
     	send_message.text = "Required credentials are missing";
@@ -175,13 +177,13 @@ function awsCall(callType, jsonObj){
         return;
     }
 
-    verifyReq.setRequestHeader("Content-Type", "text/plain");
-    verifyReq.setRequestHeader("Accept", "application/json");
-    verifyReq.setRequestHeader("Access-Control-Allow-Origin", "*");
-    verifyReq.setRequestHeader("X-Amz-Data", "");
-    verifyReq.setRequestHeader("Authorization", "");
-    verifyReq.setRequestHeader("X-Api-Key", "");
-    verifyReq.setRequestHeader("X-Amz-Security-Token", "");
+    // verifyReq.setRequestHeader("Content-Type", "text/plain");
+    // verifyReq.setRequestHeader("Accept", "application/json");
+    // verifyReq.setRequestHeader("Access-Control-Allow-Origin", "*");
+    // verifyReq.setRequestHeader("X-Amz-Data", "");
+    // verifyReq.setRequestHeader("Authorization", "");
+    // verifyReq.setRequestHeader("X-Api-Key", "");
+    // verifyReq.setRequestHeader("X-Amz-Security-Token", "");
 
     verifyReq.onload = function(jEvent){
         if(this.status === 200){

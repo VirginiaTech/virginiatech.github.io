@@ -64,7 +64,6 @@ function applyToOrg() {
     gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + formUsername + queryString, true);
     gitHubReq.setRequestHeader("Accept", "1");
     gitHubReq.onload = function(oEvent) {
-        console.log("Hello")
         if (gitHubReq.status === 200) {
             // console.log("success");
         } else if (gitHubReq.status === 204) {
@@ -96,12 +95,14 @@ function applyToOrg() {
                 }
             };
             verifyReq.open("POST", "https://vq6t7mxduh.execute-api.us-east-1.amazonaws.com/production/sendConfirmationEmail", true);
-            verifyReq.setRequestHeader("Accept", "application/json");
-            verifyReq.setRequestHeader("Content-Type", "application/json");
-            verifyReq.setRequestHeader("X-Amz-Date", "");
-            verifyReq.setRequestHeader("Authorization", "");
-            verifyReq.setRequestHeader("X-Api-Key", "");
-            verifyReq.setRequestHeader("X-Amz-Security-Token", "");
+            // verifyReq.setRequestHeader("Accept", "application/json");
+            // verifyReq.setRequestHeader("Content-Type", "application/json");
+            // verifyReq.setRequestHeader("X-Amz-Date", "");
+            // verifyReq.setRequestHeader("Authorization", "");
+            // verifyReq.setRequestHeader("X-Api-Key", "");
+            // verifyReq.setRequestHeader("X-Amz-Security-Token", "");
+            // console.log("Sending...");
+            console.log(jsonObj);
             verifyReq.send(jsonObj);
 
             // console.log("Given user: " + jsonObj + " is not a member.");
