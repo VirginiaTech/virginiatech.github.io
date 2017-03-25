@@ -196,7 +196,7 @@ function awsCall(callType, jsonObj){
         // console.log("testing");
     };
 
-    // console.log(verifyReq);
+    console.log(verifyReq);
     verifyReq.send(jsonObj);
 }
 
@@ -221,15 +221,15 @@ function createOnLoadMessages(callType){
 
     switch(callType){
         case CallTypeEnum.ADD_REPO:
-            messages.push("Add Repository request sent!");
+            messages.push("Success! Add Repository request sent!");
             messages.push("Add Repository request failed to send -- 404 error");
             break;
         case CallTypeEnum.CONTACT_US:
-            messages.push("Contact email sent!");
+            messages.push("Success! Contact email sent!");
             messages.push("Contact email failed to send -- 404 error");
             break;
         case CallTypeEnum.FEATURD_REPO:
-            messages.push("Featured Repository application sent!");
+            messages.push("Success! Featured Repository application sent!");
             messages.push("Featured Repository application failed to send -- 404 error");
             break;
     }
