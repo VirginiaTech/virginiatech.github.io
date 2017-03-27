@@ -40,7 +40,7 @@ Have questions? Contact us, at <github-g@vt.edu>.
 <b>Repository Name</b> <font size="2.5rem"> (required) </font><br>
 <input class="rounded" name="repository_name" placeholder="" id="repository_field"><br><br>
 <b>Repository Description</b><font size="2.5rem"> (required)</font>
-<textarea class="rounded" rows="4" cols="40" name="description" id="description_field" placeholder="" style="min-height:10rem;min-width:28rem"></textarea>
+<textarea class="rounded" name="description" id="description_field" placeholder="" style="min-height:14rem; min-width:16rem"></textarea>
 <b>Opensource license</b><br>
 <input class="rounded" name="license" placeholder="" id="license_field"><br><br>
 <!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->

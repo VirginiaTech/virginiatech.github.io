@@ -65,26 +65,26 @@ textarea.rounded:focus {
 	border-color: #159957;
 }
 
-@media screen and (min-width: 64em) {
-    .page-header {
-      padding: .5rem .6rem; } }
-@media screen and (min-width: 42em) and (max-width: 64em) {
-    .page-header {
-      padding: .3rem .4rem; } }
-@media screen and (max-width: 42em) {
-    .page-header {
-      padding: .2rem .1rem; } }
-
-.header_img_vt {
+.vt_img_container {
     position: fixed;
-    top: 1.55rem;
+    top: 1.95rem;
     left: 3.4rem;
 }
 
-.header_img_github{
+.github_img_container {
 	position: fixed;
 	top: 1rem;
 	right: 3.4rem;
+}
+
+.header_img_vt {
+	width: 100%;
+	height: auto;
+}
+
+.header_img_github{
+	width: 100%;
+	height: auto;
 }
 
 .featured{
@@ -181,3 +181,32 @@ textarea.rounded:focus {
     height: 50px; 
 	transition: 0.2s; /* Must equal transition time in .featured */
 }
+
+
+@media screen and (max-width: 42em) {
+	.github_img_container {
+		top: 1.25rem; right: 1.15rem; width: 2.5rem;
+	}
+
+	.vt_img_container {
+		top: 1.25rem; left: 1.15rem; width: 2.5rem;
+	} 
+
+	.btn {
+		display: inline-block; width: auto; padding: 0.5rem; font-size: 0.4rem;
+	}
+	.btn + .btn {
+		margin-top: 1rem; margin-left: 0;
+	}
+
+    .page-header {
+    	padding: .2rem .1rem;
+  	}
+}
+
+@media screen and (min-width: 64em) {
+    .page-header {
+      padding: .5rem .6rem; } }
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .page-header {
+      padding: .3rem .4rem; } }

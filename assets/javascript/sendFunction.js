@@ -38,7 +38,7 @@ function sendAddRepoReq(){
 
         var jsonObj = JSON.stringify(formData);
 
-        console.log(jsonObj);
+        // console.log(jsonObj);
 
         awsCall(CallTypeEnum.ADD_REPO, jsonObj);
     }else if(failedExtras.length >= 1 && userVal <= 0 || failedExtras.length > 1){
@@ -333,15 +333,15 @@ function createOnLoadMessages(callType){
 
     switch(callType){
         case CallTypeEnum.ADD_REPO:
-            messages.push("Add Repository request sent!");
+            messages.push("Success! Add Repository request sent!");
             messages.push("Add Repository request failed to send -- 404 error");
             break;
         case CallTypeEnum.CONTACT_US:
-            messages.push("Contact email sent!");
+            messages.push("Success! Contact email sent!");
             messages.push("Contact email failed to send -- 404 error");
             break;
         case CallTypeEnum.FEATURD_REPO:
-            messages.push("Featured Repository application sent!");
+            messages.push("Success! Featured Repository application sent!");
             messages.push("Featured Repository application failed to send -- 404 error");
             break;
         case CallTypeEnum.APPLY_TO_ORG:
