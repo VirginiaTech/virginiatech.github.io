@@ -115,3 +115,12 @@ function applyToOrg() {
 
     gitHubReq.send();
 }
+
+// Data logging function for debugging purposes
+function logData(data){
+  for(var key in data){
+    if (data.hasOwnProperty(key)){
+      console.log(key + ": " + data[key]);
+    }
+  }
+}
