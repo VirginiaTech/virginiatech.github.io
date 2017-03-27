@@ -1,9 +1,12 @@
 <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
       <!-- <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2> -->
 
-    <a target="_blank" href="https://www.vt.edu/" class="header_img_vt"> <img src="images/VT_Maroon_1872_1.png" class="header_img_vt"/> </a>
-    
-    <a target="_blank" href="https://github.com/VirginiaTech" class="header_img_github"> <img src="images/GitHub-Mark-Light-120px-plus.png" class="header_img_github"/> </a>
+    <div class="vt_img_container">
+    	<a target="_blank" href="https://www.vt.edu/" class="header_img_vt"> <img src="images/VT_Maroon_1872_1.png" class="header_img_vt"/> </a>
+    </div>
+    <div class="github_img_container">
+    	<a target="_blank" href="https://github.com/VirginiaTech" class="header_img_github"> <img src="images/GitHub-Mark-Light-120px-plus.png" class="header_img_github"/> </a>
+    </div>
     
     <a href="{{ site.baseurl }}{% link index.md %}" class="btn">Home</a>
 
