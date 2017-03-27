@@ -198,6 +198,10 @@ textarea.rounded:focus {
 	.btn + .btn {
 		margin-top: 1rem; margin-left: 0;
 	}
+
+    .page-header {
+    	padding: .2rem .1rem;
+  	}
 }
 
 @media screen and (min-width: 64em) {
@@ -206,6 +210,3 @@ textarea.rounded:focus {
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .page-header {
       padding: .3rem .4rem; } }
-@media screen and (max-width: 42em) {
-    .page-header {
-      padding: .2rem .1rem; } }
