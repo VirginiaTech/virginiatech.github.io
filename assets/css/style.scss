@@ -184,9 +184,21 @@ textarea.rounded:focus {
 
 
 @media screen and (max-width: 42em) {
-	.github_img_container { top: 1.25rem; right: 1.15rem; width: 2.5rem;} }
-@media screen and (max-width: 42em) {
-	.vt_img_container { top: 1.25rem; left: 1.15rem; width: 2.5rem;} }
+	.github_img_container {
+		top: 1.25rem; right: 1.15rem; width: 2.5rem;
+	}
+
+	.vt_img_container {
+		top: 1.25rem; left: 1.15rem; width: 2.5rem;
+	} 
+
+	.btn {
+		display: inline-block; width: auto; padding: 0.5rem; font-size: 0.4rem;
+	}
+	.btn + .btn {
+		margin-top: 1rem; margin-left: 0;
+	}
+}
 
 @media screen and (min-width: 64em) {
     .page-header {
@@ -197,8 +209,3 @@ textarea.rounded:focus {
 @media screen and (max-width: 42em) {
     .page-header {
       padding: .2rem .1rem; } }
-@media screen and (max-width: 42em) { 
-	.btn { display: inline-block; width: auto; padding: 0.75rem; font-size: 0.6rem; }
-	.btn + .btn { margin-top: 1rem; margin-left: 0; } }
-
-
