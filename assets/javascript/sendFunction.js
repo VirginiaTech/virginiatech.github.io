@@ -181,9 +181,9 @@ function sendOrgReq(){
         awsCall(CallTypeEnum.APPLY_TO_ORG, jsonObj);
     }else{
         var failed = failedExtras[0];
-        if(failed === "E"):
+        if(failed === "E"){
             req_message.text = "Missing Contact Email field";
-        else if(failed <= 0){
+        }else if(failed <= 0){
             req_message.text = "Invalid GitHub Username";
         }
         req_message.style.color = "red";
@@ -215,7 +215,8 @@ function awsCall(callType, jsonObj){
             endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/feature_repo";
             break;
         case CallTypeEnum.APPLY_TO_ORG:
-            pollGitHub(); //APPLY_TO_ORG is a special case
+            console.log("checking username: " + document.querySelector("#username_field").value);
+            pollGitHub(document.querySelector("#username_field").value, jsonObj); //APPLY_TO_ORG is a special case
             return;
     }
     var verifyReq = createCORSRequest("POST", endPoint);
@@ -270,7 +271,7 @@ function createCORSRequest(method, url) {
 }
 
 // TODO: Polish this up a bit
-function pollGitHub(gitHubUsername){
+function pollGitHub(gitHubUsername, jsonObj){
     var gitHubReq = new XMLHttpRequest();
     gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + gitHubUsername + queryString, true);
     gitHubReq.setRequestHeader("Accept", "1");
