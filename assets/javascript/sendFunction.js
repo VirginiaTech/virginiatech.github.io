@@ -1,15 +1,37 @@
+/* ---For development purposes only--- */
+var queryString = "";
+var token = "";
+
+function getToken(){
+    return $.getJSON("data/OAuthTokens.json", function(data){
+        token = data.Organization_Read_Access;
+    })
+}
+
+function setQueryString(){
+    if(token != ""){
+        queryString = "?access_token=" + token;
+    }
+}
+
+try{
+    $.when(getToken()).then(setQueryString);
+}
+catch(err){
+    // console.log("OAuthTokens not found.");
+}
+/* ----------------------------------- */
 
 // This is in the "Add Repository" section
 function sendAddRepoReq(){
 	var userVal = getUserVal();
     var failedExtras = verifyAddExtras();
-    verifyUsername(true);
 
     if(userVal <= 0){
     	document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
     }
 
-    if(failedExtras.length == 0 && userVal > 0){
+    if(failedExtras.length == 0){
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
         formData["userEmail"] = document.querySelector("#email_field").value;
@@ -23,31 +45,35 @@ function sendAddRepoReq(){
         // console.log(jsonObj);
 
         awsCall(CallTypeEnum.ADD_REPO, jsonObj);
-    }else if(failedExtras.length >= 1 && userVal <= 0 || failedExtras.length > 1){
-    	send_message.text = "Required credentials are missing";
-        send_message.style.color = "red";
-        send_message.style.fontWeight = "900";
+    }else if(failedExtras.length > 1){
+    	req_message.text = "Required credentials are missing";
+        req_message.style.color = "red";
+        req_message.style.fontWeight = "900";
     }else{
-    	if(failedExtras.length <= 0 && userVal < 0){
-    		send_message.text = "GitHub user is not a [public] member of this organization.";
-    	}else if(userVal == 0){
-    		send_message.text = "Missing GitHub Username field";
-    	}
-    	switch(failedExtras[0]){
+        failed = failedExtras[0];
+    	switch(failed){
     		case "N":
-    			send_message.text = "Missing Name field";
+    			req_message.text = "Missing Name field";
     			break;
     		case "R":
-    			send_message.text = "Missing Repository Name field";
+    			req_message.text = "Missing Repository Name field";
     			break;
     		case "D":
-    	    	send_message.text = "Missing Description field";
+    	    	req_message.text = "Missing Description field";
     	    	break;
             case "E":
-                send_message.text = "Missing Contact Email field";
+                req_message.text = "Missing Contact Email field";
+            default:
+                if(failed === 0){
+                    req_message.text = "Missing GitHub Username field";
+                }
+                else if(failed < 0){
+                    req_message.text = "GitHub user is not a [public] member of this organization.";
+                }
+                break;
     	}
-        send_message.style.color = "red";
-        send_message.style.fontWeight = "900";
+        req_message.style.color = "red";
+        req_message.style.fontWeight = "900";
     }
 }
 
@@ -68,26 +94,26 @@ function sendContactReq(){
 
         awsCall(CallTypeEnum.CONTACT_US, jsonObj);
     }else if(failedExtras.length > 1){
-        send_message.text = "Required credentials are missing";
-        send_message.style.color = "red";
-        send_message.style.fontWeight = "900";
+        req_message.text = "Required credentials are missing";
+        req_message.style.color = "red";
+        req_message.style.fontWeight = "900";
     }else{
         switch(failedExtras[0]){
             case "N":
-                send_message.text = "Missing Name field";
+                req_message.text = "Missing Name field";
                 break;
             case "E":
-                send_message.text = "Missing Repository Name field";
+                req_message.text = "Missing Contact Email field";
                 break;
             case "S":
-                send_message.text = "Missing Subject field";
+                req_message.text = "Missing Subject field";
                 break;
             case "M":
-                send_message.text = "Missing Message field";
+                req_message.text = "Missing Message field";
                 break;
         }
-        send_message.style.color = "red";
-        send_message.style.fontWeight = "900";
+        req_message.style.color = "red";
+        req_message.style.fontWeight = "900";
     }
 }
 
@@ -97,10 +123,10 @@ function sendFeaturedReq(){
     // console.log(failedExtras);
 
     if(failedExtras.length > 1){
-        send_message.text = "Required credentials are missing";
-        send_message.style.color = "red";
-        send_message.style.fontWeight = "900";
-    }else if(failedExtras.length == 0){
+        req_message.text = "Required credentials are missing";
+        req_message.style.color = "red";
+        req_message.style.fontWeight = "900";
+    }else if(failedExtras.length === 0){
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
         formData["repoName"] = document.querySelector("#repository_field").value;
@@ -125,33 +151,78 @@ function sendFeaturedReq(){
     else{
         switch(failedExtras[0]){
             case "D":
-                send_message.text = "Missing Description field";
+                req_message.text = "Missing Description field";
                 break;
             case "R":
-                send_message.text = "Missing Repository Name field";
+                req_message.text = "Missing Repository Name field";
                 break;
             case "E":
-                send_message.text = "Missing Contact Email field";
+                req_message.text = "Missing Contact Email field";
                 break;
             case "N":
-                send_message.text = "Missing Name field";
+                req_message.text = "Missing Name field";
                 break;
         }
-        send_message.style.color = "red";
-        send_message.style.fontWeight = "900";
+        req_message.style.color = "red";
+        req_message.style.fontWeight = "900";
+    }
+}
+
+function sendOrgReq(){
+    var failedExtras = verifyApplyOrgExtras();
+
+    if(userVal <= 0){
+        document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
+    }
+
+    if(failedExtras.length > 1){
+        req_message.text = "Required credentials are missing";
+        req_message.style.color = "red";
+        req_message.style.fontWeight = "900";
+    }else if(failedExtras.length === 0){
+        var formData = {};
+        formData["vtEmail"] = document.querySelector("#email_field").value + "@vt.edu";
+        formData["githubHandle"] = document.querySelector("#username_field").value;
+
+        /* Have jsonObj be in the following format
+        {
+            vtEmail: "email@vt.edu",
+            githubHandle: "username"
+        }
+        */
+        var jsonObj = JSON.stringify(formData);
+        awsCall(CallTypeEnum.APPLY_TO_ORG, jsonObj);
+    }else{
+        var failed = failedExtras[0];
+        switch(failed){
+            case "E":
+                req_message.text = "Missing Contact Email field";
+                break;
+            default:
+                if(failed === 0){
+                    req_message.text = "Missing GitHub Username field";
+                }
+                else if(failed < 0){
+                    req_message.text = "GitHub user is not a [public] member of this organization.";
+                }
+                break;
+        }
+        req_message.style.color = "red";
+        req_message.style.fontWeight = "900";
     }
 }
 
 var CallTypeEnum = {
     ADD_REPO: 1,
     CONTACT_US: 2,
-    FEATURD_REPO: 3
+    FEATURD_REPO: 3,
+    APPLY_TO_ORG: 4
 }
 
 function awsCall(callType, jsonObj){
-    send_message.text = "...";
-    send_message.style.color = "";
-    send_message.style.fontWeight = "900";
+    req_message.text = "...";
+    req_message.style.color = "grey";
+    req_message.style.fontWeight = "900";
 
     var endPoint = "";
     switch(callType){
@@ -164,11 +235,15 @@ function awsCall(callType, jsonObj){
         case CallTypeEnum.FEATURD_REPO:
             endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/feature_repo";
             break;
+        case CallTypeEnum.APPLY_TO_ORG:
+            console.log("checking username: " + document.querySelector("#username_field").value);
+            pollGitHub(document.querySelector("#username_field").value, jsonObj); //APPLY_TO_ORG is a special case
+            return;
     }
     var verifyReq = createCORSRequest("POST", endPoint);
 
     if (!verifyReq) {
-        alert('CORS not supported');
+        alert('CORS not supported -- Contact us at <github-g@vt.edu>');
         return;
     }
 
@@ -179,24 +254,23 @@ function awsCall(callType, jsonObj){
 
     verifyReq.onload = function(jEvent){
         if(this.status === 200){
-            send_message.text = messages[0];
-            send_message.style.color = "green";
-            send_message.style.fontWeight = "900";
+            req_message.text = messages[0];
+            req_message.style.color = "green";
         }
         else if(this.status === 400){
-            send_message.text = messages[1];
-            send_message.style.color = "red";
-            send_message.style.fontWeight = "900";    
+            req_message.text = messages[1];
+            req_message.style.color = "red";
         }else{
-            send_message.text = "Something broke: status error " + this.status +
+            req_message.text = "Something broke: status error " + this.status +
                                 "<br>Consider contacting us directly at github-g@vt.edu";
-            send_message.style.color = "orange";
-            send_message.style.fontWeight = "900";
+            req_message.style.color = "orange";
         }
+
+        req_message.style.fontWeight = "900";
         // console.log("testing");
     };
 
-    console.log(verifyReq);
+    // console.log(verifyReq);
     verifyReq.send(jsonObj);
 }
 
@@ -216,6 +290,59 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
+// TODO: Polish this up a bit
+function pollGitHub(gitHubUsername, jsonObj){
+    var gitHubReq = new XMLHttpRequest();
+
+    // console.log(jsonObj);
+
+    gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + gitHubUsername + queryString, true);
+    gitHubReq.setRequestHeader("Accept", "1");
+    gitHubReq.onload = function(oEvent) {
+        if (gitHubReq.status === 200) {
+            // console.log("success");
+        } else if (gitHubReq.status === 204) {
+            req_message.text = "User \"" + gitHubUsername + "\" is already a member.";
+            req_message.style.color = "";
+        } else if (gitHubReq.status === 404 || gitHubReq.status === 302) {
+            req_message.text = "...";
+            req_message.style.color = "grey";
+
+            var verifyReq = new XMLHttpRequest();
+            verifyReq.onload = function(jEvent){
+                // console.log(this);
+                if(this.status === 200){
+                    req_message.text = "Verifcation Email Sent!";
+                    req_message.style.color = "green";
+                }
+                else if(this.status === 400){
+                    req_message.text = "Application request not sent.";
+                    req_message.style.color = "red";
+                }else{
+                    req_message.text = "Something broke: status error " + this.status +
+                                "Consider contacting us directly at github-g@vt.edu";
+                    req_message.style.color = "orange";
+                }
+            };
+            verifyReq.open("POST", "https://vq6t7mxduh.execute-api.us-east-1.amazonaws.com/production/sendConfirmationEmail", true);
+
+            // console.log("Sending...");
+
+            // console.log(jsonObj);
+            verifyReq.send(jsonObj);
+
+            // console.log("Given user: " + jsonObj + " is not a member.");
+        } else {
+            req_message.text = "Something broke: status error " + gitHubReq.status + "Consider contacting us directly at github-g@vt.edu";
+            req_message.style.color = "orange";
+        }
+
+        req_message.style.fontWeight = "900";
+    };
+
+    gitHubReq.send();
+}
+
 function createOnLoadMessages(callType){
     var messages = [];
 
@@ -232,6 +359,9 @@ function createOnLoadMessages(callType){
             messages.push("Success! Featured Repository application sent!");
             messages.push("Featured Repository application failed to send -- 404 error");
             break;
+        case CallTypeEnum.APPLY_TO_ORG:
+            messages.push("Apply to Organization request sent!");
+            messages.push("Apply to Organization reuqest failed to send -- 404 error");
     }
 
     return messages;

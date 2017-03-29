@@ -22,8 +22,11 @@ function setQueryString(){
         queryString = "?access_token=" + token;
     }
 }
-
-$.when(getToken()).then(setQueryString);
+try{
+    $.when(getToken()).then(setQueryString);
+}catch(err){
+    // console.log("OAuthTokens not found.");
+}
 /* ----------------------------------- */
 
 var ColorEnum = {
@@ -36,12 +39,15 @@ var userVal = 0;
         //  0 = No value in GitHub username field
         // <0 = Not valid GitHub username
         // >0 = Valid GitHub username
+
+// Username fields call to a server, so the server requests are throttled to once every
+// "checkDelay" milliseconds
 var searchUsernameTimeout;
 var lastUsernameLength;
-if(document.getElementById("username_field") != null){
-    document.getElementById("username_field").onkeyup = function() {
-        if(document.getElementById("username_field").style.backgroundColor!= ColorEnum.NONE){
-            document.getElementById("username_field").style.backgroundColor= ColorEnum.NONE;
+if(formUsername != null){
+    formUsername.onkeyup = function() {
+        if(formUsername.style.backgroundColor!= ColorEnum.NONE){
+            formUsername.style.backgroundColor= ColorEnum.NONE;
         }
         if (searchUsernameTimeout != undefined) {
             clearTimeout(searchUsernameTimeout);
@@ -54,25 +60,21 @@ if(document.getElementById("username_field") != null){
     };
 }
 
-
-function getUserVal(){
-    return userVal;
-}
-
+// Check if the input GitHub username exists and 
+// 1) inOrg == true -> is in the Organization
+// 2) inOrg == false -> is not in the Organization
 function verifyUsername(inOrg = false) {
     if (lastUsernameLength === formUsername.value || formUsername.value.length <= 0) {
         if(formUsername.value.length <= 0){
             userVal = 0;
             lastUsernameLength = formUsername.value;
         }
-
         if(userVal > 0){
-            document.getElementById("username_field").style.backgroundColor= ColorEnum.LIGHT_GREEN;
+            formUsername.style.backgroundColor= ColorEnum.LIGHT_GREEN;
         }else if(userVal === 0){
-            document.getElementById("username_field").style.backgroundColor= ColorEnum.NONE;
-        }
-        else if(userVal < 0) {
-            document.getElementById("username_field").style.backgroundColor= ColorEnum.LIGHT_RED;
+            formUsername.style.backgroundColor= ColorEnum.NONE;
+        }else if(userVal < 0) {
+            formUsername.style.backgroundColor= ColorEnum.LIGHT_RED;
         }
         return;
     }else{
@@ -80,28 +82,22 @@ function verifyUsername(inOrg = false) {
     }
 
     var pageReq = new XMLHttpRequest();
-
+    
     pageReq.timeout = 2000;
-
-    pageReq.onreadystatechange = function(e) {
-        if (pageReq.readyState === 4) {
-            if (pageReq.status === 200 || pageReq.status === 204) {
-                document.getElementById("username_field").style.backgroundColor= ColorEnum.LIGHT_GREEN;
-                document.getElementById("username_field").style.outlineColor= "#606C71";
-                userVal = 1;
-            } else {
-                document.getElementById("username_field").style.backgroundColor= ColorEnum.LIGHT_RED;
-                userVal = -1;
-            }
+    pageReq.onload = function(e) {
+        if (pageReq.status === 200 || pageReq.status === 204) {
+            formUsername.style.backgroundColor= ColorEnum.LIGHT_GREEN;
+            userVal = 1;
+        } else {
+            formUsername.style.backgroundColor= ColorEnum.LIGHT_RED;
+            userVal = -1;
         }
     }
-
     pageReq.ontimeout = function() {
         alert("Request timeout: " + pageReq);
     }
 
     var url = "";
-
     if(inOrg){
         url = "https://api.github.com/orgs/VirginiaTech/members/" + formUsername.value;
     }else{
@@ -113,13 +109,18 @@ function verifyUsername(inOrg = false) {
     pageReq.send();
 }
 
+function getUserVal(){
+    return userVal;
+}
+
+// Email fields (will eventually) call to a server, so the server requests are throttled
+// to once every "checkDelay" milliseconds
 var searchEmailTimeout;
 var lastEmailLength;
-
-if(document.getElementById("email_field") != null){
-    document.getElementById("email_field").onkeyup = function() {
-        if(document.getElementById("email_field").style.backgroundColor!= ColorEnum.NONE){
-            document.getElementById("email_field").style.backgroundColor= ColorEnum.NONE;
+if(formEmail != null){
+    formEmail.onkeyup = function() {
+        if(formEmail.style.backgroundColor != ColorEnum.NONE){
+            formEmail.style.backgroundColor = ColorEnum.NONE;
         }
         if (searchEmailTimeout != undefined) {
             clearTimeout(searchEmailTimeout);
@@ -128,7 +129,6 @@ if(document.getElementById("email_field") != null){
         searchEmailTimeout = setTimeout(isValidEmail.bind(null, true), checkDelay);
     };
 }
-
 
 function isValidEmail(allowEmpty){
     var appendAtSign = false;
@@ -146,14 +146,14 @@ function isValidEmail(allowEmpty){
 function isValidEmailAddress(emailAddress, allowEmpty) {
     // console.log("Checking email, allowEmpty: " + allowEmpty);
 
-    if(allowEmpty && formEmail.value.length == 0){
+    if(allowEmpty && formEmail.value.length === 0){
         // console.log("Setting color to none");
-        document.getElementById("email_field").style.backgroundColor= ColorEnum.NONE;
+        formEmail.style.backgroundColor= ColorEnum.NONE;
         return false;
     }
-    else if(!allowEmpty && formEmail.value.length == 0){
+    else if(!allowEmpty && formEmail.value.length === 0){
         // console.log("Setting color to red");
-        document.getElementById("email_field").style.backgroundColor = ColorEnum.LIGHT_RED;
+        formEmail.style.backgroundColor = ColorEnum.LIGHT_RED;
         return false;
     }
     
@@ -161,65 +161,60 @@ function isValidEmailAddress(emailAddress, allowEmpty) {
     var validEmail = pattern.test(emailAddress);
     
     if(validEmail){
-        document.getElementById("email_field").style.backgroundColor= ColorEnum.LIGHT_GREEN;
+        formEmail.style.backgroundColor= ColorEnum.LIGHT_GREEN;
     }else{
-        document.getElementById("email_field").style.backgroundColor= ColorEnum.LIGHT_RED;
+        formEmail.style.backgroundColor= ColorEnum.LIGHT_RED;
     }
 
     return validEmail;
 };
 
 // Functions below this comment are typically only used in the add_repository page
-var validName
 function isValidName(){
-    verifyName();
-    return validName;
+    return verifyName();
 }
 
 function verifyName(){
     if(formName.value.length <= 0){
-        document.getElementById("name_field").style.backgroundColor= ColorEnum.LIGHT_RED;
-        validName = false;      
+        formName.style.backgroundColor= ColorEnum.LIGHT_RED;
+        return false;      
     }else{
-        document.getElementById("name_field").style.backgroundColor= ColorEnum.NONE;
-        validName = true;
+        formName.style.backgroundColor= ColorEnum.NONE;
+        return true;
     }
 }
 
-var validRepoName
 function isValidRepoName(){
-    verifyRepoName();
-    return validRepoName;
+    return verifyRepoName();
 }
 
 function verifyRepoName(){
     if(formRepoName.value.length <= 0){
-        document.getElementById("repository_field").style.backgroundColor= ColorEnum.LIGHT_RED;
-        validRepoName = false;      
+        formRepoName.style.backgroundColor= ColorEnum.LIGHT_RED;
+        return false;      
     }else{
-        document.getElementById("repository_field").style.backgroundColor= ColorEnum.NONE;
-        validRepoName = true;
+        formRepoName.style.backgroundColor= ColorEnum.NONE;
+        return true;
     }
 }
 
-var validDescription
 function isValidDescription(){
-    verifyDescription();
-    return validDescription;
+    return verifyDescription();
 }
 
 function verifyDescription(){
     if(formDescription.value.length <= 0){
-        document.getElementById("description_field").style.backgroundColor= ColorEnum.LIGHT_RED;
-        validDescription = false;      
+        formDescription.style.backgroundColor= ColorEnum.LIGHT_RED;
+        return false;      
     }else{
-        document.getElementById("description_field").style.backgroundColor= ColorEnum.NONE;
-        validDescription = true;
+        formDescription.style.backgroundColor= ColorEnum.NONE;
+        return true;
     }
 }
 
 function verifyAddExtras(){
     var extras = [];
+    verifyUsername(true);
 
     if(!isValidEmail(false)){
         extras.push("E");
@@ -232,6 +227,9 @@ function verifyAddExtras(){
     }
     if(!isValidDescription()){
         extras.push("D");
+    }
+    if(getUserVal() <= 0){
+        extras.push(getUserVal());
     }
     return extras;
 }
@@ -256,40 +254,35 @@ function verifyContactExtras(){
     return extras;
 }
 
-var validSubject;
 function isValidSubject(){
-    verifySubject();
-    return validSubject;
+    return verifySubject();
 }
 
 function verifySubject(){
     if(formSubject.value.length > 0){
-        validSubject = true;
         formSubject.style.backgroundColor = ColorEnum.NONE;
+        return true;
     }else{
-        validSubject = false;
         formSubject.style.backgroundColor = ColorEnum.LIGHT_RED;
+        return false;
     }
 }
 
-var validMessage;
 function isValidMessage(){
-    verifyMessage();
-    return validSubject;
+    return verifyMessage();
 }
 
 function verifyMessage(){
     if(formMessage.value.length > 0){
-        validMessage = true;
         formMessage.style.backgroundColor = ColorEnum.NONE;
+        return true;
     }else{
-        validMessage = false;
         formMessage.style.backgroundColor = ColorEnum.LIGHT_RED;
+        return false;
     }
 }
 
 // Functions below this comment are typically only used in the featured_repos page
-
 function verifyFeaturedExtras(){
     var extras = [];
 
@@ -309,49 +302,64 @@ function verifyFeaturedExtras(){
     return extras;
 }
 
+// Functions below this comment are typically only used in the apply_to_organization page
+function verifyApplyOrgExtras(){
+    var extras = [];
+    verifyUsername(false);
 
-if(document.getElementById("name_field") != null){
-    document.getElementById("name_field").onkeyup = function() {
+    if(!isValidEmail(false)){
+        extras.push("E");
+    }
+    if(getUserVal() <= 0){
+        extras.push(getUserVal());
+    }
+
+    return extras;
+}
+
+
+if(formName != null){
+    formName.onkeyup = function() {
         if(formName.value.length > 0 &&
-            document.getElementById("name_field").style.backgroundColor != ColorEnum.NONE){
+            formName.style.backgroundColor != ColorEnum.NONE){
             // console.log("Setting name_field color to NONE");
-            document.getElementById("name_field").style.backgroundColor = ColorEnum.NONE;
+            formName.style.backgroundColor = ColorEnum.NONE;
         }
     };
 }
-if(document.getElementById("repository_field") != null){
-    document.getElementById("repository_field").onkeyup = function() {
+if(formRepoName != null){
+    formRepoName.onkeyup = function() {
         if(formRepoName.value.length > 0 &&
-            document.getElementById("repository_field").style.backgroundColor != ColorEnum.NONE){
+            formRepoName.style.backgroundColor != ColorEnum.NONE){
             // console.log("Setting repository_field color to NONE");
-            document.getElementById("repository_field").style.backgroundColor = ColorEnum.NONE;
+            formRepoName.style.backgroundColor = ColorEnum.NONE;
         }
     };
 }
-if(document.getElementById("description_field") != null){
-    document.getElementById("description_field").onkeyup = function() {
+if(formDescription != null){
+    formDescription.onkeyup = function() {
         if(formDescription.value.length > 0 &&
-            document.getElementById("description_field").style.backgroundColor != ColorEnum.NONE){
+            formDescription.style.backgroundColor != ColorEnum.NONE){
             // console.log("Setting description_field color to NONE");
-            document.getElementById("description_field").style.backgroundColor = ColorEnum.NONE;
+            formDescription.style.backgroundColor = ColorEnum.NONE;
         }
     };
 }
-if(document.getElementById("message_field") != null){
-    document.getElementById("message_field").onkeyup = function() {
+if(formMessage != null){
+    formMessage.onkeyup = function() {
         if(formMessage.value.length > 0 &&
-            document.getElementById("message_field").style.backgroundColor != ColorEnum.NONE){
+            formMessage.style.backgroundColor != ColorEnum.NONE){
             // console.log("Setting message_field color to NONE");
-            document.getElementById("message_field").style.backgroundColor = ColorEnum.NONE;
+            formMessage.style.backgroundColor = ColorEnum.NONE;
         }
     };
 }
-if(document.getElementById("subject_field") != null){
-    document.getElementById("subject_field").onkeyup = function() {
+if(formSubject != null){
+    formSubject.onkeyup = function() {
         if(formSubject.value.length > 0 &&
-            document.getElementById("subject_field").style.backgroundColor != ColorEnum.NONE){
+            formSubject.style.backgroundColor != ColorEnum.NONE){
             // console.log("Setting subject_field color to NONE");
-            document.getElementById("subject_field").style.backgroundColor = ColorEnum.NONE;
+            formSubject.style.backgroundColor = ColorEnum.NONE;
         }
     };
 }

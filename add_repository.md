@@ -47,12 +47,12 @@ Have questions? Contact us, at <github-g@vt.edu>.
 By clicking Send you validate that this repository does not violate the Virginia Tech [Policies](http://www.policies.vt.edu/index.php) nor [Honor Code](http://honorsystem.vt.edu/HSConstitution/honor_code_manual_and_policy.html).
 {:text-align=center;}
 <input type="submit" value="Send" onclick="sendAddRepoReq()"><br><br>
-<a style="text-decoration: none" class="" name="send_message" id="send_message"><a/><br>
+<a style="text-decoration: none" class="" name="req_message" id="req_message"><a/><br>
 
 
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/javascript/verifyApplyFields.js"></script>
+<script type="text/javascript" src="assets/javascript/verifyFields.js"></script>
 <script type="text/javascript" src="assets/javascript/sendFunction.js"></script>

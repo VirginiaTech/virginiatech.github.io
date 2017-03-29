@@ -29,12 +29,12 @@ We want your feedback! Do you have a cool idea you think fits into what we're tr
 <textarea class="rounded" name="message" id="message_field" placeholder="" style="min-width: 16rem; min-height: 14rem"></textarea>
 <!-- <div class="g-recaptcha" data-sitekey="6LcKlhcUAAAAAACUoRI5vsV3194GDQAMscIP_bC3" disabled></div><br> -->
 <input type="submit" value="Send" onclick="sendContactReq()"><br><br>
-<a style="text-decoration: none" class="" name="send_message" id="send_message"></a><br>  
+<a style="text-decoration: none" class="" name="req_message" id="req_message"></a><br>  
 
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/javascript/verifyApplyFields.js"></script>
+<script type="text/javascript" src="assets/javascript/verifyFields.js"></script>
 <script type="text/javascript" src="assets/javascript/sendFunction.js"></script>
 <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->

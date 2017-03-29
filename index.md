@@ -10,7 +10,7 @@ layout: default
 
 ---
 <div class="flex-grid-featured">
-
+<!-- Max allowed description body is 270 characters -->
 	<div id="featured_1" class="featured">
 		<div>
 			<div>
