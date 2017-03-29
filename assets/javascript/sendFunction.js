@@ -14,20 +14,24 @@ function setQueryString(){
     }
 }
 
-$.when(getToken()).then(setQueryString);
+try{
+    $.when(getToken()).then(setQueryString);
+}
+catch(err){
+    // console.log("OAuthTokens not found.");
+}
 /* ----------------------------------- */
 
 // This is in the "Add Repository" section
 function sendAddRepoReq(){
 	var userVal = getUserVal();
     var failedExtras = verifyAddExtras();
-    verifyUsername(true);
 
     if(userVal <= 0){
     	document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
     }
 
-    if(failedExtras.length == 0 && userVal > 0){
+    if(failedExtras.length == 0){
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
         formData["userEmail"] = document.querySelector("#email_field").value;
@@ -41,17 +45,13 @@ function sendAddRepoReq(){
         // console.log(jsonObj);
 
         awsCall(CallTypeEnum.ADD_REPO, jsonObj);
-    }else if(failedExtras.length >= 1 && userVal <= 0 || failedExtras.length > 1){
+    }else if(failedExtras.length > 1){
     	req_message.text = "Required credentials are missing";
         req_message.style.color = "red";
         req_message.style.fontWeight = "900";
     }else{
-    	if(failedExtras.length <= 0 && userVal < 0){
-    		req_message.text = "GitHub user is not a [public] member of this organization.";
-    	}else if(userVal == 0){
-    		req_message.text = "Missing GitHub Username field";
-    	}
-    	switch(failedExtras[0]){
+        failed = failedExtras[0];
+    	switch(failed){
     		case "N":
     			req_message.text = "Missing Name field";
     			break;
@@ -63,6 +63,14 @@ function sendAddRepoReq(){
     	    	break;
             case "E":
                 req_message.text = "Missing Contact Email field";
+            default:
+                if(failed === 0){
+                    req_message.text = "Missing GitHub Username field";
+                }
+                else if(failed < 0){
+                    req_message.text = "GitHub user is not a [public] member of this organization.";
+                }
+                break;
     	}
         req_message.style.color = "red";
         req_message.style.fontWeight = "900";
@@ -162,13 +170,18 @@ function sendFeaturedReq(){
 
 function sendOrgReq(){
     var failedExtras = verifyApplyOrgExtras();
+
+    if(userVal <= 0){
+        document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
+    }
+
     if(failedExtras.length > 1){
         req_message.text = "Required credentials are missing";
         req_message.style.color = "red";
         req_message.style.fontWeight = "900";
     }else if(failedExtras.length === 0){
         var formData = {};
-        formData["vtEmail"] = document.querySelector("#email_field").value;
+        formData["vtEmail"] = document.querySelector("#email_field").value + "@vt.edu";
         formData["githubHandle"] = document.querySelector("#username_field").value;
 
         /* Have jsonObj be in the following format
@@ -181,10 +194,18 @@ function sendOrgReq(){
         awsCall(CallTypeEnum.APPLY_TO_ORG, jsonObj);
     }else{
         var failed = failedExtras[0];
-        if(failed === "E"){
-            req_message.text = "Missing Contact Email field";
-        }else if(failed <= 0){
-            req_message.text = "Invalid GitHub Username";
+        switch(failed){
+            case "E":
+                req_message.text = "Missing Contact Email field";
+                break;
+            default:
+                if(failed === 0){
+                    req_message.text = "Missing GitHub Username field";
+                }
+                else if(failed < 0){
+                    req_message.text = "GitHub user is not a [public] member of this organization.";
+                }
+                break;
         }
         req_message.style.color = "red";
         req_message.style.fontWeight = "900";
@@ -200,7 +221,7 @@ var CallTypeEnum = {
 
 function awsCall(callType, jsonObj){
     req_message.text = "...";
-    req_message.style.color = "";
+    req_message.style.color = "grey";
     req_message.style.fontWeight = "900";
 
     var endPoint = "";
@@ -235,18 +256,17 @@ function awsCall(callType, jsonObj){
         if(this.status === 200){
             req_message.text = messages[0];
             req_message.style.color = "green";
-            req_message.style.fontWeight = "900";
         }
         else if(this.status === 400){
             req_message.text = messages[1];
             req_message.style.color = "red";
-            req_message.style.fontWeight = "900";    
         }else{
             req_message.text = "Something broke: status error " + this.status +
                                 "<br>Consider contacting us directly at github-g@vt.edu";
             req_message.style.color = "orange";
-            req_message.style.fontWeight = "900";
         }
+
+        req_message.style.fontWeight = "900";
         // console.log("testing");
     };
 
@@ -273,6 +293,9 @@ function createCORSRequest(method, url) {
 // TODO: Polish this up a bit
 function pollGitHub(gitHubUsername, jsonObj){
     var gitHubReq = new XMLHttpRequest();
+
+    console.log(jsonObj);
+
     gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + gitHubUsername + queryString, true);
     gitHubReq.setRequestHeader("Accept", "1");
     gitHubReq.onload = function(oEvent) {
@@ -281,11 +304,9 @@ function pollGitHub(gitHubUsername, jsonObj){
         } else if (gitHubReq.status === 204) {
             req_message.text = "User \"" + gitHubUsername + "\" is already a member.";
             req_message.style.color = "";
-            req_message.style.fontWeight = "900";
         } else if (gitHubReq.status === 404 || gitHubReq.status === 302) {
             req_message.text = "...";
             req_message.style.color = "grey";
-            req_message.style.fontWeight = "900";
 
             var verifyReq = new XMLHttpRequest();
             verifyReq.onload = function(jEvent){
@@ -293,27 +314,20 @@ function pollGitHub(gitHubUsername, jsonObj){
                 if(this.status === 200){
                     req_message.text = "Verifcation Email Sent!";
                     req_message.style.color = "green";
-                    req_message.style.fontWeight = "900";
                 }
                 else if(this.status === 400){
                     req_message.text = "Application request not sent.";
                     req_message.style.color = "red";
-                    req_message.style.fontWeight = "900";    
                 }else{
                     req_message.text = "Something broke: status error " + this.status +
                                 "Consider contacting us directly at github-g@vt.edu";
                     req_message.style.color = "orange";
-                    req_message.style.fontWeight = "900";
                 }
             };
             verifyReq.open("POST", "https://vq6t7mxduh.execute-api.us-east-1.amazonaws.com/production/sendConfirmationEmail", true);
-            // verifyReq.setRequestHeader("Accept", "application/json");
-            // verifyReq.setRequestHeader("Content-Type", "application/json");
-            // verifyReq.setRequestHeader("X-Amz-Date", "");
-            // verifyReq.setRequestHeader("Authorization", "");
-            // verifyReq.setRequestHeader("X-Api-Key", "");
-            // verifyReq.setRequestHeader("X-Amz-Security-Token", "");
+
             // console.log("Sending...");
+
             console.log(jsonObj);
             verifyReq.send(jsonObj);
 
@@ -321,8 +335,9 @@ function pollGitHub(gitHubUsername, jsonObj){
         } else {
             req_message.text = "Something broke: status error " + gitHubReq.status + "Consider contacting us directly at github-g@vt.edu";
             req_message.style.color = "orange";
-            req_message.style.fontWeight = "900";
         }
+
+        req_message.style.fontWeight = "900";
     };
 
     gitHubReq.send();

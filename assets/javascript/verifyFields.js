@@ -22,8 +22,11 @@ function setQueryString(){
         queryString = "?access_token=" + token;
     }
 }
-
-$.when(getToken()).then(setQueryString);
+try{
+    $.when(getToken()).then(setQueryString);
+}catch(err){
+    // console.log("OAuthTokens not found.");
+}
 /* ----------------------------------- */
 
 var ColorEnum = {
@@ -211,6 +214,7 @@ function verifyDescription(){
 
 function verifyAddExtras(){
     var extras = [];
+    verifyUsername(true);
 
     if(!isValidEmail(false)){
         extras.push("E");
@@ -223,6 +227,9 @@ function verifyAddExtras(){
     }
     if(!isValidDescription()){
         extras.push("D");
+    }
+    if(getUserVal() <= 0){
+        extras.push(getUserVal());
     }
     return extras;
 }
@@ -298,6 +305,7 @@ function verifyFeaturedExtras(){
 // Functions below this comment are typically only used in the apply_to_organization page
 function verifyApplyOrgExtras(){
     var extras = [];
+    verifyUsername(false);
 
     if(!isValidEmail(false)){
         extras.push("E");
