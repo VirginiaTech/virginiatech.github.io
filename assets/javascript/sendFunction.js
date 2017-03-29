@@ -294,7 +294,7 @@ function createCORSRequest(method, url) {
 function pollGitHub(gitHubUsername, jsonObj){
     var gitHubReq = new XMLHttpRequest();
 
-    console.log(jsonObj);
+    // console.log(jsonObj);
 
     gitHubReq.open("GET", "https://api.github.com/orgs/VirginiaTech/members/" + gitHubUsername + queryString, true);
     gitHubReq.setRequestHeader("Accept", "1");
@@ -310,7 +310,7 @@ function pollGitHub(gitHubUsername, jsonObj){
 
             var verifyReq = new XMLHttpRequest();
             verifyReq.onload = function(jEvent){
-                console.log(this);
+                // console.log(this);
                 if(this.status === 200){
                     req_message.text = "Verifcation Email Sent!";
                     req_message.style.color = "green";
@@ -328,7 +328,7 @@ function pollGitHub(gitHubUsername, jsonObj){
 
             // console.log("Sending...");
 
-            console.log(jsonObj);
+            // console.log(jsonObj);
             verifyReq.send(jsonObj);
 
             // console.log("Given user: " + jsonObj + " is not a member.");
