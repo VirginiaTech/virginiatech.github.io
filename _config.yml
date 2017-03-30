@@ -30,6 +30,9 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Dockerfile
+  - docker-compose.yml
+  - README.md
 
 #Enable auto-regeneration of the site when files are modified.
 regenerate: true
