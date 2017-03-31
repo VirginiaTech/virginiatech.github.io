@@ -18,7 +18,7 @@ layout: default
 				<p style="margin-top: -15px;" id = "featured_1_body">A set of Python scripts that poll Reddit (Poller.py), sift through data (Sifter.py), and format it into a WordDoc (Creator.py). Interaction between user and script is typically done through the custom shell (Definer.py)</p>
 			</div>
 			<div class="btn-featured-location">
-				<button class="btn-featured" onclick="window.open('https://github.com/VirginiaTech/Python_Reddit_Collector')">See on GitHub</button>
+				<button class="btn-featured" onclick="openClick('https://github.com/VirginiaTech/Python_Reddit_Collector', true)">See on GitHub</button>
 			</div>
 		</div>
 	</div>
@@ -30,7 +30,7 @@ layout: default
 				<p  style="margin-top: -15px;" id = "featured_2_body">Torgo is a Logo interpreter written in Java. Targeted for learning how languages work and playing with language structure in an easily modifiable way. It is geared as a way to implement future interpreters. This is a public repository.</p> 
 			</div>
 			<div class="btn-featured-location">
-				<button class="btn-featured" onclick="window.open('https://github.com/VirginiaTech/torgo')">See on GitHub</button>
+				<button class="btn-featured" onclick="openClick('https://github.com/VirginiaTech/torgo', true)">See on GitHub</button>
 			</div>
 		</div>
 	</div>
@@ -45,7 +45,7 @@ layout: default
 				<p style="margin-top: -15px;" id = "featured_3_body">Looking to get more interest in your project? Apply for a 'Feature Repository' spot today! Featured Repositories are posted here and pinned on the VT Organization Page for <strong>10 days</strong>!</p>
 			</div>
 			<div class="btn-featured-location">
-				<button class="btn-featured" onclick="location.href = '{{ site.baseurl }}{% link featured_repos.md %}'">Apply for Featured</button>
+				<button class="btn-featured" onclick="openClick('{{ site.baseurl }}{% link featured_repos.md %}', false)">Apply for Featured</button>
 			</div>
 		</div>
 	</div>
@@ -82,3 +82,5 @@ layout: default
 {:style="text-align: center;"}
 ---
 
+
+<script type="text/javascript" src="assets/javascript/buttonClick.js"></script>
