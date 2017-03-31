@@ -5,32 +5,34 @@ layout: default
 # **Featured Repositories**
 {:style="text-align: center;"}
 
-## **UNDER CONSTRUCTION**
-{:style="text-align: center; color:orange;"}
+<!-- ## **UNDER CONSTRUCTION**
+{:style="text-align: center; color:orange;"} -->
 
 ---
 <div class="flex-grid-featured">
 <!-- Max allowed description body is 270 characters -->
-	<div id="featured_1" class="featured">
-		<div>
+	<div class="featured">
+	<img id="f_1_loading" src="images/loading.gif" alt="HTML5 icon"> 
+		<div id="featured_1" style="display: none;">
 			<div>
-				<h2 id = "featured_1_title" style="font-weight: 900">Python_Reddit_Collector</h2>
-				<p style="margin-top: -15px;" id = "featured_1_body">A set of Python scripts that poll Reddit (Poller.py), sift through data (Sifter.py), and format it into a WordDoc (Creator.py). Interaction between user and script is typically done through the custom shell (Definer.py)</p>
+				<h2 id = "f_1_title" style="font-weight: 900"></h2>
+				<p style="margin-top: -15px;" id = "f_1_body"></p>
 			</div>
 			<div class="btn-featured-location">
-				<button class="btn-featured" onclick="openClick('https://github.com/VirginiaTech/Python_Reddit_Collector', true)">See on GitHub</button>
+				<button class="btn-featured" id = "f_1_btn"></button>
 			</div>
 		</div>
 	</div>
 
-	<div id="featured_2" class="featured">
-		<div>
-			<div class="">
-				<h2 id = "featured_2_title" style="font-weight: 900">torgo</h2>
-				<p  style="margin-top: -15px;" id = "featured_2_body">Torgo is a Logo interpreter written in Java. Targeted for learning how languages work and playing with language structure in an easily modifiable way. It is geared as a way to implement future interpreters. This is a public repository.</p> 
+	<div class="featured">
+	<img id="f_2_loading" src="images/loading.gif" alt="HTML5 icon"> 
+		<div id="featured_2" style="display: none;">
+			<div>
+				<h2 id = "f_2_title" style="font-weight: 900"></h2>
+				<p  style="margin-top: -15px;" id = "f_2_body"></p>
 			</div>
 			<div class="btn-featured-location">
-				<button class="btn-featured" onclick="openClick('https://github.com/VirginiaTech/torgo', true)">See on GitHub</button>
+				<button class="btn-featured" id = "f_2_btn"></button>
 			</div>
 		</div>
 	</div>
@@ -38,44 +40,48 @@ layout: default
 </div>
 
 <div class="flex-grid-featured">
-	<div id="featured_3" class="featured">
-		<div>
+	<div class="featured">
+	<img id="f_3_loading" src="images/loading.gif" alt="HTML5 icon"> 
+		<div id="featured_3" style="display: none;">
 			<div>
-				<h2 id = "featured_3_title" style="font-weight: 900">See your Repository here!</h2>
-				<p style="margin-top: -15px;" id = "featured_3_body">Looking to get more interest in your project? Apply for a 'Feature Repository' spot today! Featured Repositories are posted here and pinned on the VT Organization Page for <strong>10 days</strong>!</p>
+				<h2 id = "f_3_title" style="font-weight: 900"></h2>
+				<p style="margin-top: -15px;" id = "f_3_body"></p>
 			</div>
 			<div class="btn-featured-location">
-				<button class="btn-featured" onclick="openClick('{{ site.baseurl }}{% link featured_repos.md %}', false)">Apply for Featured</button>
+				<button class="btn-featured" id = "f_3_btn"></button>
 			</div>
 		</div>
 	</div>
 
-<!--
-	<div id="featured_4" class="featured">
-		<div>
+
+	<div class="featured">
+	<img id="f_4_loading" src="images/loading.gif" alt="HTML5 icon"> 
+		<div id="featured_4" style="display: none;">
 			<div>
-				<h2 id = "featured_4_title" style="font-weight: 900">TITLE</h2>
-				<p style="margin-top: -15px;" id = "featured_4_body">DESCRIPTION</p>
+				<h2 id = "f_4_title" style="font-weight: 900"></h2>
+				<p style="margin-top: -15px;" id = "f_4_body"></p>
 			</div>
 			<div class="btn-featured-location">
-				<button class="btn-featured" onclick="window.open('https://github.com/VirginiaTech/<URL>')">See on GitHub</button>
+				<button class="btn-featured" id = "f_4_btn"></button>
 			</div>
 		</div>
 	</div>
--->
-<!--
-	<div id="featured_5" class="featured">
-		<div>
+</div>
+
+<div class="flex-grid-featured">
+	<div class="featured">
+	<img id="f_5_loading" src="images/loading.gif" alt="HTML5 icon"> 
+		<div id="featured_5" style="display: none;">
 			<div>
-				<h2 id = "featured_5_title" style="font-weight: 900">TITLE</h2>
-				<p style="margin-top: -15px;" id = "featured_5_body">DESCRIPTION</p>
+				<h2 id = "f_5_title" style="font-weight: 900"></h2>
+				<p style="margin-top: -15px;" id = "f_5_body"></p>
 			</div>
 			<div class="btn-featured-location">
-				<button class="btn-featured" onclick="window.open('https://github.com/VirginiaTech/<URL>')">See on GitHub</button>
+				<button class="btn-featured" id = "f_5_btn"></button>
 			</div>
 		</div>
 	</div>
--->
+
 </div>
 
 ### Information on featured repositories found [here]({{ site.baseurl }}{% link featured_repos.md %}).
@@ -83,4 +89,7 @@ layout: default
 ---
 
 
+<script type="text/javascript" src="assets/javascript/fData.json"></script>
 <script type="text/javascript" src="assets/javascript/buttonClick.js"></script>
+<script type="text/javascript" src="assets/javascript/loadFeatured.js"></script>
+
