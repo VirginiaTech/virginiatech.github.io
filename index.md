@@ -89,7 +89,6 @@ layout: default
 ---
 
 
-<script type="text/javascript" src="assets/javascript/fData.json"></script>
 <script type="text/javascript" src="assets/javascript/buttonClick.js"></script>
 <script type="text/javascript" src="assets/javascript/loadFeatured.js"></script>
 
