@@ -54,7 +54,7 @@ if(formUsername != null){
         }
         if((window.location + "").includes("apply_to_organization")){
             searchUsernameTimeout = setTimeout(verifyUsername.bind(null, false), checkDelay);
-        }else if((window.location + "").includes("add_repository")){
+        }else if((window.location + "").includes("add_repository") || (window.location + "").includes("featured_repos")){
             searchUsernameTimeout = setTimeout(verifyUsername.bind(null, true), checkDelay);
         }
     };
@@ -285,6 +285,7 @@ function verifyMessage(){
 // Functions below this comment are typically only used in the featured_repos page
 function verifyFeaturedExtras(){
     var extras = [];
+    verifyUsername(true);
 
     if(!isValidName()){
         extras.push("N");
@@ -297,6 +298,9 @@ function verifyFeaturedExtras(){
     }
     if(!isValidDescription()){
         extras.push("D");
+    }
+    if(getUserVal() <= 0){
+        extras.push(getUserVal());
     }
 
     return extras;

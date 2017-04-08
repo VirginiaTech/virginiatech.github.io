@@ -122,6 +122,10 @@ function sendFeaturedReq(){
     var failedExtras = verifyFeaturedExtras();
     // console.log(failedExtras);
 
+    if(userVal <= 0){
+        document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
+    }
+
     if(failedExtras.length > 1){
         req_message.text = "Required credentials are missing";
         req_message.style.color = "red";
@@ -130,6 +134,7 @@ function sendFeaturedReq(){
         var formData = {};
         formData["userName"] = document.querySelector("#name_field").value;
         formData["repoName"] = document.querySelector("#repository_field").value;
+        formData["gitHubName"] = document.querySelector("#username_field").value;
         formData["userEmail"] = document.querySelector("#email_field").value;
         formData["description"] =  document.querySelector("#description_field").value;
         formData["license"] = document.querySelector("#license_field").value;
@@ -149,6 +154,7 @@ function sendFeaturedReq(){
         awsCall(CallTypeEnum.FEATURD_REPO, jsonObj);
     }
     else{
+        var failed = failedExtras[0];
         switch(failedExtras[0]){
             case "D":
                 req_message.text = "Missing Description field";
@@ -161,6 +167,14 @@ function sendFeaturedReq(){
                 break;
             case "N":
                 req_message.text = "Missing Name field";
+                break;
+            default:
+                if(failed === 0){
+                    req_message.text = "Missing GitHub Username field";
+                }
+                else if(failed < 0){
+                    req_message.text = "GitHub user is not a [public] member of this organization.";
+                }
                 break;
         }
         req_message.style.color = "red";
