@@ -105,6 +105,8 @@ function verifyUsername(inOrg = false) {
     }
     url = url + queryString;
 
+    // console.log(url);
+
     pageReq.open("GET", url, true);
     pageReq.send();
 }

@@ -241,13 +241,13 @@ function awsCall(callType, jsonObj){
     var endPoint = "";
     switch(callType){
         case CallTypeEnum.ADD_REPO:
-            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/add_repo";
+            endPoint = "https://qz7961lmqi.execute-api.us-east-1.amazonaws.com/prod/add_repo";
             break;
         case CallTypeEnum.CONTACT_US:
-            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/contact_us";
+            endPoint = "https://qz7961lmqi.execute-api.us-east-1.amazonaws.com/prod/contact_us";
             break;
         case CallTypeEnum.FEATURD_REPO:
-            endPoint = "https://rjg9b60429.execute-api.us-east-1.amazonaws.com/dev/feature_repo";
+            endPoint = "https://qz7961lmqi.execute-api.us-east-1.amazonaws.com/prod/feature_repo";
             break;
         case CallTypeEnum.APPLY_TO_ORG:
             console.log("checking username: " + document.querySelector("#username_field").value);
