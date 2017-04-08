@@ -1,15 +1,15 @@
 {
 	"user1": {
 		"type" : "user",
-		"title": "Python_Reddit_Collector",
-		"body": "A set of Python scripts that poll Reddit (Poller.py), sift through data (Sifter.py), and format it into a WordDoc (Creator.py). Interaction between user and script is typically done through the custom shell (Definer.py)",
-		"btnUrl": "https://github.com/VirginiaTech/Python_Reddit_Collector"
+		"title": "",
+		"body": "",
+		"btnUrl": ""
 	},
 	"user2": {
 		"type" : "user",
-		"title": "torgo",
-		"body": "Torgo is a Logo interpreter written in Java. Targeted for learning how languages work and playing with language structure in an easily modifiable way. It is geared as a way to implement future interpreters. This is a public repository.",
-		"btnUrl": "https://github.com/VirginiaTech/torgo"
+		"title": "",
+		"body": "",
+		"btnUrl": ""
 	},
 	"user3": {
 		"type" : "user",
