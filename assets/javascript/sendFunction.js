@@ -183,7 +183,7 @@ function sendFeaturedReq(){
 }
 
 function sendOrgReq(){
-    var failedExtras = verifyApplyOrgExtras();
+    var failedExtras = verifyJoinOrgExtras();
 
     if(userVal <= 0){
         document.getElementById("username_field").style.backgroundColor= "#ffb3b3";
@@ -205,7 +205,7 @@ function sendOrgReq(){
         }
         */
         var jsonObj = JSON.stringify(formData);
-        awsCall(CallTypeEnum.APPLY_TO_ORG, jsonObj);
+        awsCall(CallTypeEnum.JOIN_ORG, jsonObj);
     }else{
         var failed = failedExtras[0];
         switch(failed){
@@ -230,7 +230,7 @@ var CallTypeEnum = {
     ADD_REPO: 1,
     CONTACT_US: 2,
     FEATURD_REPO: 3,
-    APPLY_TO_ORG: 4
+    JOIN_ORG: 4
 }
 
 function awsCall(callType, jsonObj){
@@ -249,9 +249,9 @@ function awsCall(callType, jsonObj){
         case CallTypeEnum.FEATURD_REPO:
             endPoint = "https://qz7961lmqi.execute-api.us-east-1.amazonaws.com/prod/feature_repo";
             break;
-        case CallTypeEnum.APPLY_TO_ORG:
+        case CallTypeEnum.JOIN_ORG:
             console.log("checking username: " + document.querySelector("#username_field").value);
-            pollGitHub(document.querySelector("#username_field").value, jsonObj); //APPLY_TO_ORG is a special case
+            pollGitHub(document.querySelector("#username_field").value, jsonObj); //JOIN_ORG is a special case
             return;
     }
     var verifyReq = createCORSRequest("POST", endPoint);
@@ -373,9 +373,9 @@ function createOnLoadMessages(callType){
             messages.push("Success! Featured Repository application sent!");
             messages.push("Featured Repository application failed to send -- 404 error");
             break;
-        case CallTypeEnum.APPLY_TO_ORG:
-            messages.push("Apply to Organization request sent!");
-            messages.push("Apply to Organization reuqest failed to send -- 404 error");
+        case CallTypeEnum.JOIN_ORG:
+            messages.push("Join Organization request sent!");
+            messages.push("Join Organization reuqest failed to send -- 404 error");
     }
 
     return messages;

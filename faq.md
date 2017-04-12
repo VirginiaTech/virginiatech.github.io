@@ -36,7 +36,7 @@ Have a question that isn’t answered here? Contact us, at <github-g@vt.edu>.
 ---
 
 #### **Q**: How do I become a member of the VT GitHub Organization?
-**A**: Membership to the VT GitHub Organization is limited to current and former Virginia Tech staff and students, through invitation only. To register for membership, visit the Virginia Tech GitHub Page and navigate to the **[Apply to Organization]({{site.baseurl}}apply_to_organization)** section. Once there, enter your GitHub account username and VT email address. A verification email will be sent to the supplied VT email address. Once verified, an invitation to join the VT Organization will be sent to the email address associated with your GitHub account. 
+**A**: Membership to the VT GitHub Organization is limited to current and former Virginia Tech staff and students, through invitation only. To register for membership, visit the Virginia Tech GitHub Page and navigate to the **[Join Organization]({{site.baseurl}}join_organization)** section. Once there, enter your GitHub account username and VT email address. A verification email will be sent to the supplied VT email address. Once verified, an invitation to join the VT Organization will be sent to the email address associated with your GitHub account. 
 
 _Note: Verification emails will only be sent to @vt.edu email addresses._
 

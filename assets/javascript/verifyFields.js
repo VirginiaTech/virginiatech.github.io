@@ -52,7 +52,7 @@ if(formUsername != null){
         if (searchUsernameTimeout != undefined) {
             clearTimeout(searchUsernameTimeout);
         }
-        if((window.location + "").includes("apply_to_organization")){
+        if((window.location + "").includes("join_organization")){
             searchUsernameTimeout = setTimeout(verifyUsername.bind(null, false), checkDelay);
         }else if((window.location + "").includes("add_repository") || (window.location + "").includes("featured_repos")){
             searchUsernameTimeout = setTimeout(verifyUsername.bind(null, true), checkDelay);
@@ -134,7 +134,7 @@ if(formEmail != null){
 
 function isValidEmail(allowEmpty){
     var appendAtSign = false;
-    if((window.location + "").includes("apply_to_organization")){
+    if((window.location + "").includes("join_organization")){
         appendAtSign = true;
     }
 
@@ -308,8 +308,8 @@ function verifyFeaturedExtras(){
     return extras;
 }
 
-// Functions below this comment are typically only used in the apply_to_organization page
-function verifyApplyOrgExtras(){
+// Functions below this comment are typically only used in the join_organization page
+function verifyJoinOrgExtras(){
     var extras = [];
     verifyUsername(false);
 
