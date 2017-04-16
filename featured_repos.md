@@ -16,6 +16,7 @@ Featured Repositories offer you the chance to get your Organization Repository i
 ## **Perks of Featured Repositories**  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**1.** Repository is pinned to the top of the VT Organization website  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**2.** Repository is showcased on the *Featured Repositories* section of the VT GitHub Pages website  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**3.** Repository is tweeted about and pinned by our twitter account, [@VT_GitHub_Org](https://twitter.com/VT_GitHub_Org)  
 
 Repositories will stay featured for a total of **10** days. Additional perks will be added as time progresses.  
 
