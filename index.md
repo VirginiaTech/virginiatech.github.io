@@ -10,7 +10,7 @@ layout: default
 
 <div class="flex-grid-featured">
 <!-- Max allowed description body is 270 characters -->
-	<div class="featured">
+	<div class="featured" id="featured_1_parent">
 	<img id="f_1_loading" src="images/loading.gif" alt="HTML5 icon"> 
 		<div id="featured_1" style="display: none;">
 			<div>
@@ -23,7 +23,7 @@ layout: default
 		</div>
 	</div>
 
-	<div class="featured">
+	<div class="featured" id="featured_2_parent">
 	<img id="f_2_loading" src="images/loading.gif" alt="HTML5 icon"> 
 		<div id="featured_2" style="display: none;">
 			<div>
@@ -39,7 +39,7 @@ layout: default
 </div>
 
 <div class="flex-grid-featured" >
-	<div class="featured">
+	<div class="featured" id="featured_3_parent">
 	<img id="f_3_loading" src="images/loading.gif" alt="HTML5 icon"> 
 		<div id="featured_3" style="display: none;">
 			<div>
@@ -53,7 +53,7 @@ layout: default
 	</div>
 
 
-	<div class="featured">
+	<div class="featured" id="featured_4_parent">
 	<img id="f_4_loading" src="images/loading.gif" alt="HTML5 icon"> 
 		<div id="featured_4" style="display: none;">
 			<div>
@@ -68,7 +68,7 @@ layout: default
 </div>
 
 <div class="flex-grid-featured">
-	<div class="featured">
+	<div class="featured" id="featured_5_parent">
 	<img id="f_5_loading" src="images/loading.gif" alt="HTML5 icon"> 
 		<div id="featured_5" style="display: none;">
 			<div>
@@ -77,6 +77,19 @@ layout: default
 			</div>
 			<div class="btn-featured-location">
 				<button class="btn-featured" id = "f_5_btn"></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="featured" id="featured_6_parent">
+	<img id="f_6_loading" src="images/loading.gif" alt="HTML5 icon"> 
+		<div id="featured_6" style="display: none;">
+			<div>
+				<h2 id = "f_6_title" style="font-weight: 900"></h2>
+				<p style="margin-top: -15px;" id = "f_6_body"></p>
+			</div>
+			<div class="btn-featured-location">
+				<button class="btn-featured" id = "f_6_btn"></button>
 			</div>
 		</div>
 	</div>

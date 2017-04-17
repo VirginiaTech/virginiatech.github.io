@@ -25,10 +25,10 @@ function generateFeatured(){
 
 		for (var key in fData) {
 			if (fData.hasOwnProperty(key)) {
-				if(fData[key]["title"] != "" && numFeatured < 5){
+				if(fData[key]["title"] != "" && numFeatured < 6){
 					numFeatured = numFeatured + 1;
 					fillFeaturedSpot(numFeatured, fData[key]);
-					// console.log(numFeatured);
+					console.log(numFeatured);
 				}
 
 			}
@@ -56,13 +56,13 @@ function fillFeaturedSpot(numFeatured, jsonObj){
 		document.getElementById(featureKey + "btn").onclick = openClick.bind(null, jsonObj["btnUrl"] , true);
 	}
 
-	document.getElementById("featured_" + numFeatured).style.display = "flex";
+	document.getElementById("featured_" + numFeatured).style.display = "";
 }
 
 // Removes loading.gif from un-loaded featured objects
 function clearLoading(numLoaded){
-	for(i = numLoaded + 1; i <= 5; i++){
-		document.getElementById("f_" + i + "_loading").style.display = "none";
+	for(i = numLoaded + 1; i <= 6; i++){
+		document.getElementById("featured_" + i + "_parent").style.display = "none";
 	}
 }
 

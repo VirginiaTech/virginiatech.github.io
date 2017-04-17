@@ -32,7 +32,7 @@
 	"default" : {
 		"type" : "default",
 		"title" : "See your Repository here!",
-		"body" : "Looking to get more interest in your project? Apply for a 'Feature Repository' spot today! Featured Repositories are posted here and pinned on the VT Organization Page for <strong>10 days</strong>!",
+		"body" : "Looking to get more interest in your project? Apply for a 'Feature Repository' spot today! Featured Repositories are posted here, pinned on the VT Organization Page for <strong>10 days</strong>, and tweeted about via our twitter (@VT_GitHub_Org)!",
 		"btnUrl" : "{{ site.baseurl }}{% link featured_repos.md %}"
 	}
 }
