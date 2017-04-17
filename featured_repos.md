@@ -60,3 +60,4 @@ Consider that Repository content on the VT Organization can range from personal 
 
 <script type="text/javascript" src="assets/javascript/sendFunction.js"></script>
 <script type="text/javascript" src="assets/javascript/verifyFields.js"></script>
+<meta name="twitter:widgets:new-embed-design" content="on">
