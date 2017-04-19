@@ -27,7 +27,7 @@ permalink: /verification_success
 {:style="text-align: center;"}  
 
 <div style="text-align: center; margin-top: 3.25rem; margin-bottom: 3.25rem;">
-	<button class="btn-visible" style="font-size: 2rem;" onclick="openClick('https://github.com/orgs/VirginiaTech/invitation', true)">View Invitation</button>
+	<button class="btn-visible" style="font-size: 2rem;" onclick="openClick('https://github.com/orgs/VirginiaTech/invitation', true)">Click Here to Join</button>
 </div>
 
 
