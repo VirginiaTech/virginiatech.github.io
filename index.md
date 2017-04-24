@@ -104,8 +104,8 @@ layout: default
 {:style="text-align: center;"}
 
 * Office Hours - Newman Library 4th floor along windows
-  * Wednesday April 19th, 12:30 to 2:30
-  * Friday April 21th, 2:30 to 5:45
+  * Monday April 24th, 2:30 to 5:30
+  * Wednesday April 26th, 12:30 to 2:30
 * Git/GitHub Workshops
   * Coming Soon!
 {:style="width: 70%; margin-left: 15%; font-size: 120%; margin-bottom: 4rem;"}
