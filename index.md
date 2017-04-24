@@ -103,11 +103,14 @@ layout: default
 ## **Upcoming Events**
 {:style="text-align: center;"}
 
-* Office Hours - Newman Library 4th floor along windows
+* __Office Hours__ - Newman Library 4th floor along windows
   * Monday April 24th, 2:30 to 5:30
   * Wednesday April 26th, 12:30 to 2:30
-* Git/GitHub Workshops
-  * Coming Soon!
+* __Git/GitHub Workshops__
+  * Wednesday May 3rd, 6:30PM to 7:30PM  
+  Torgersen 3310 (On the Torgerson Bridge)
+    * Come learn about the VT GitHub Organization and the basics of Git/GitHub interaction through the popular GUI interface, '**[GitKraken](https://www.gitkraken.com/)**'!
+    * Also, there will be free pizza! A lot of free pizza.
 {:style="width: 70%; margin-left: 15%; font-size: 120%; margin-bottom: 4rem;"}
 ---
 
