@@ -20,7 +20,7 @@ The information you give will then be sent to the GitHub Coordinators for review
 ---
 
 ## **Repository Restrictions**  
---**Only Virginia Tech Organization members can apply their Repository**--  
+--**Only public Virginia Tech Organization members can apply their Repository**--  
 {:style="text-align:center"}
 All applying Repositories **must** adhere to the Virginia Tech [Policies](http://www.policies.vt.edu/index.php) and [Honor Code](http://honorsystem.vt.edu/HSConstitution/honor_code_manual_and_policy.html). Any Repositories that break these guidelines will be denied. Some examples of unacceptable Repositories include: Course-Snipers, for-class programming HW/Projects, code malicious in nature, etc.  
 The applying Repositories must be owned by an applicate who is a **public** member of the VT GitHub Organization.
