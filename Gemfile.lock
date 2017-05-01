@@ -200,7 +200,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll (= 3.4.0)
   jekyll-feed (~> 0.6)
   jekyll-theme-cayman
 
@@ -208,4 +207,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.3
+   1.14.6
