@@ -104,8 +104,7 @@ layout: default
 {:style="text-align: center;"}
 
 * __Office Hours__ - Newman Library 4th floor along windows
-  * Monday April 24th, 2:30 to 5:30
-  * Wednesday April 26th, 12:30 to 2:30
+  * No more for this semester.
 * __Git/GitHub Workshops__
   * Wednesday May 3rd, 6:30PM to 7:30PM  
   Torgersen 3310 (On the Torgerson Bridge)
