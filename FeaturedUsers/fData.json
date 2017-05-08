@@ -1,9 +1,9 @@
 {
 	"user1": {
 		"type" : "user",
-		"title": "",
-		"body": "",
-		"btnUrl": ""
+		"title": "FB-hack-attack",
+		"body": "TEST -- 1-on-1 challenges to learn programming and security. It was made for Bitcamp 2017, then expanded on for \"Facebook with Benefits,\" hosted by Hackers@VT on May 2 at VT. We used a tournament-style bracket and 95+ participants competed.",
+		"btnUrl": "https://github.com/VirginiaTech/FB-hack-attack"
 	},
 	"user2": {
 		"type" : "user",
