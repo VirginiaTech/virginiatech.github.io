@@ -27,7 +27,7 @@ Do you want a perk that isn't listed here? Tell us your idea, at <github-g@vt.ed
 ## **Application Process**  
 Featured Repository requests get submitted directly to the GitHub Coordinators for review. Typically, if any application fields are not sufficiently filled, that Repository's application will not be considered.  
 
-To be clear, the same Repository ***can*** apply for a Featured Repository position multiple times. The only two restrictions to applying is that you cannot submit for a Featured Repository spot if you currently occupy one and that applying Repositories must be public in the Organization. We also ask that you do not submit an application if one is already pending, but we understand that accidents can happen.  
+To be clear, the same Repository ***can*** apply for a Featured Repository position multiple times. The only two restrictions to applying is that you cannot submit for a Featured Repository spot if you currently occupy one and that applying Repositories must be public in the Organization. We also ask that you do not submit an application if one is already pending.  
 
 Consider that Repository content on the VT Organization can range from personal Python projects, to informative Java coding problem sets, to ongoing research projects, and everything in between. Also consider that the GitHub Coordinators may not know your projects language/architecture/etc. When applying for a Featured Repository position, keep these things in mind but do not hesitate to make your Repository sound as awesome as it can - because ultimately, that will be the primary aspect in determining Featured Repositories. Most applications will be reviewed and replied to in a week's time or less.  
 
