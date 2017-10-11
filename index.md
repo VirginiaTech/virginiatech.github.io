@@ -104,7 +104,7 @@ layout: default
 {:style="text-align: center;"}
 
 * Thursday, Oct. 19th from 7:00 - 8:00 PM at Pamplin 30  
-Learn the basics of Git and GitHub through an interactive [Git/GitHub Workshop](http://google.com){:target="_blank"} hosted by the VT GitHub Organization and Hackers@VT
+Learn the basics of Git and GitHub through an interactive Git/GitHub Workshop hosted by the VT GitHub Organization and Hackers@VT
 * Weekly Git/GitHub Office Hours **@** McBryde 106
 	* Monday from 5:00PM to 8:00PM - Jieun Chon  
 	* Friday from 2:30PM to 5:30PM - Teddy Todorov
