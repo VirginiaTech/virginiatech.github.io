@@ -111,9 +111,11 @@ layout: default
 ## **Upcoming Events**
 {:style="text-align: center;"}
 
+* Basics of Git & GitHub Workshop - Hosted by Excella! Tuesday, January 23rd @ Surge 117A; Facebook event [here](https://www.facebook.com/events/139379010089501/)
+
 * Weekly Git/GitHub Office Hours **@** McBryde 106
-	* Monday from 5:00PM to 8:00PM - Jieun Chon  
-	* Friday from 2:30PM to 5:30PM - Teddy Todorov
+	* MW from 9:00AM to 12:00AM - Matthew Bernas
+	* TR from 11:15 to 3:45PM - Teddy Todorov
 {:style="width: 70%; margin-left: 15%; font-size: 120%; margin-bottom: 4rem;"}
 ---
 
