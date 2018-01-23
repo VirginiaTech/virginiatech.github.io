@@ -100,7 +100,7 @@ layout: default
 {:style="text-align: center;"}
 ---
 
-## **Get Emalis for Future Events**
+## **Get Emails for Future Events**
 {:style="text-align: center;"}
 
 * Join our [Google Group](https://l.messenger.com/l.php?u=https%3A%2F%2Fgroups.google.com%2Fa%2Fvt.edu%2Fforum%2F%23!forum%2Fgho-events-g&h=ATOwyIjJb2e0l8lhcXzgxPjYQZgOQiEd5NxzdOkeDh9jI-VsaoeCJr0f6qEvzwuvXBdHO-IRnfde0q1Fotl-JUluWDtpz-zaHU70jZ1stlNOt6fE_m5NfWO4p02mjnbCPSl68V2yRvC7gQ) 
