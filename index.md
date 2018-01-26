@@ -113,7 +113,7 @@ layout: default
 
 * Weekly Git/GitHub Office Hours **@** McBryde 106
 	* MW from 9:00AM to 12:00AM - Matthew Bernas
-	* TR from 11:15 to 3:45PM - Teddy Todorov
+	* TR from 11:15AM to 3:45PM - Teddy Todorov
 {:style="width: 70%; margin-left: 15%; font-size: 120%; margin-bottom: 4rem;"}
 ---
 
